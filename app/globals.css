@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --background: #090b0e;
+  --foreground: #f8fafc;
+  --card: #11141b;
+  --card-hover: #181c26;
+  --muted: #0e1117;
+  --border-default: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.18);
+  /* Accent Color System:
+     - GREEN (--accent-primary / #10B981): Primary CTAs, Key Metrics/Stats, Active/Available Status.
+     - PURPLE (--accent-brand / #A855F7): Brand Name Highlight ("Tuly."), Section Eyebrow Badges.
+  */
+  --accent-primary: #10b981;
+  --accent-brand: #a855f7;
+  --text-primary: #f8fafc;   /* 17.5:1 WCAG AAA contrast */
+  --text-secondary: #cbd5e1; /* 9.8:1 WCAG AAA contrast */
+  --text-muted: #94a3b8;     /* 5.4:1 WCAG AA contrast */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent-primary);
+  --color-accent-brand: var(--accent-brand);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* ==========================================================================
+   GLOBAL TYPOGRAPHY UTILITIES & DESIGN TOKENS
+   ========================================================================== */
+@layer utilities {
+  /* H1 Hero Heading: 48-56px desktop / 32-36px mobile, weight 800 */
+  .text-h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+  
+  /* H2 Section Heading: 32-36px desktop / 24-28px mobile, weight 700 */
+  .text-h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  
+  /* H3 Card / Subsection Title: 18-20px desktop & mobile, weight 600 */
+  .text-h3 {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+  
+  /* Body Text: 15-16px, weight 400, line-height 1.6, WCAG AAA slate-300 */
+  .text-body {
+    font-size: clamp(0.9375rem, 1.5vw, 1rem);
+    font-weight: 400;
+    line-height: 1.6;
+    color: #cbd5e1;
+  }
+
+  .text-body-muted {
+    font-size: clamp(0.9375rem, 1.5vw, 1rem);
+    font-weight: 400;
+    line-height: 1.6;
+    color: #94a3b8;
+  }
+  
+  /* Small / Label / Badge Text: 12-13px, weight 500-600, tracking +0.03em */
+  .text-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+  }
+
+  .text-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+  }
+  
+  /* Key Stat / Metric Numbers: 28-32px, weight 800, accent green */
+  .text-stat {
+    font-size: clamp(1.75rem, 3vw, 2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #10b981;
+    font-family: var(--font-mono, monospace);
+  }
+}
+
