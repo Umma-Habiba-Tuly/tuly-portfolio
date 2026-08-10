@@ -24,21 +24,21 @@ import { fadeInUpVariant, scaleFadeVariant } from "@/lib/motion/variants";
 
 // All 10 Tech Badges displayed simultaneously & tightly aligned around the Profile Photo
 const ALL_TECH_BADGES = [
-  { name: "LangChain", icon: <Bot className="w-3.5 h-3.5 text-cyan-400" />, border: "border-cyan-500/40", text: "text-cyan-300", position: "top-4 left-1/2 -translate-x-1/2", floatDuration: "3.8s", floatDelay: "0s" },
-  { name: "MCP Protocol", icon: <Sparkles className="w-3.5 h-3.5 text-amber-400" />, border: "border-amber-500/40", text: "text-amber-300", position: "top-10 left-3 sm:left-8", floatDuration: "4.2s", floatDelay: "0.4s" },
-  { name: "n8n Engine", icon: <Workflow className="w-3.5 h-3.5 text-sky-400" />, border: "border-sky-500/40", text: "text-sky-300", position: "top-10 right-3 sm:right-8", floatDuration: "4.0s", floatDelay: "0.8s" },
-  { name: "Qdrant", icon: <Database className="w-3.5 h-3.5 text-emerald-400" />, border: "border-emerald-500/40", text: "text-emerald-300", position: "top-32 left-1 sm:left-3", floatDuration: "4.5s", floatDelay: "1.2s" },
-  { name: "OpenRouter", icon: <BrainCircuit className="w-3.5 h-3.5 text-purple-400" />, border: "border-purple-500/40", text: "text-purple-300", position: "top-32 right-1 sm:right-3", floatDuration: "3.6s", floatDelay: "1.6s" },
-  { name: "FastAPI", icon: <Zap className="w-3.5 h-3.5 text-teal-400" />, border: "border-teal-500/40", text: "text-teal-300", position: "bottom-32 left-1 sm:left-3", floatDuration: "4.3s", floatDelay: "2.0s" },
-  { name: "AI Agent", icon: <Bot className="w-3.5 h-3.5 text-violet-400" />, border: "border-violet-500/40", text: "text-violet-300", position: "bottom-32 right-1 sm:right-3", floatDuration: "4.1s", floatDelay: "2.4s" },
-  { name: "PostgreSQL", icon: <Cpu className="w-3.5 h-3.5 text-indigo-400" />, border: "border-indigo-500/40", text: "text-indigo-300", position: "bottom-14 left-3 sm:left-8", floatDuration: "4.6s", floatDelay: "2.8s" },
-  { name: "RAG Pipeline", icon: <Database className="w-3.5 h-3.5 text-cyan-400" />, border: "border-cyan-500/40", text: "text-cyan-300", position: "bottom-14 right-3 sm:right-8", floatDuration: "3.9s", floatDelay: "3.2s" },
-  { name: "Messenger API", icon: <MessageSquare className="w-3.5 h-3.5 text-blue-400" />, border: "border-blue-500/40", text: "text-blue-300", position: "bottom-5 left-1/2 -translate-x-1/2", floatDuration: "4.4s", floatDelay: "3.6s" },
+  { name: "LangChain", icon: <Bot className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-cyan-400" />, border: "border-cyan-500/40", text: "text-cyan-300", position: "top-0 sm:top-4 left-1/2 -translate-x-1/2", floatDuration: "3.8s", floatDelay: "0s" },
+  { name: "MCP Protocol", icon: <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />, border: "border-amber-500/40", text: "text-amber-300", position: "top-4 sm:top-10 left-0.5 sm:left-8", floatDuration: "4.2s", floatDelay: "0.4s" },
+  { name: "n8n Engine", icon: <Workflow className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-sky-400" />, border: "border-sky-500/40", text: "text-sky-300", position: "top-4 sm:top-10 right-0.5 sm:right-8", floatDuration: "4.0s", floatDelay: "0.8s" },
+  { name: "Qdrant", icon: <Database className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400" />, border: "border-emerald-500/40", text: "text-emerald-300", position: "top-[72px] sm:top-32 left-[-2px] sm:left-3", floatDuration: "4.5s", floatDelay: "1.2s" },
+  { name: "OpenRouter", icon: <BrainCircuit className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-purple-400" />, border: "border-purple-500/40", text: "text-purple-300", position: "top-[72px] sm:top-32 right-[-2px] sm:right-3", floatDuration: "3.6s", floatDelay: "1.6s" },
+  { name: "FastAPI", icon: <Zap className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-teal-400" />, border: "border-teal-500/40", text: "text-teal-300", position: "bottom-[72px] sm:bottom-32 left-[-2px] sm:left-3", floatDuration: "4.3s", floatDelay: "2.0s" },
+  { name: "AI Agent", icon: <Bot className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-violet-400" />, border: "border-violet-500/40", text: "text-violet-300", position: "bottom-[72px] sm:bottom-32 right-[-2px] sm:right-3", floatDuration: "4.1s", floatDelay: "2.4s" },
+  { name: "PostgreSQL", icon: <Cpu className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-indigo-400" />, border: "border-indigo-500/40", text: "text-indigo-300", position: "bottom-4 sm:bottom-14 left-0.5 sm:left-8", floatDuration: "4.6s", floatDelay: "2.8s" },
+  { name: "RAG Pipeline", icon: <Database className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-cyan-400" />, border: "border-cyan-500/40", text: "text-cyan-300", position: "bottom-4 sm:bottom-14 right-0.5 sm:right-8", floatDuration: "3.9s", floatDelay: "3.2s" },
+  { name: "Messenger API", icon: <MessageSquare className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-blue-400" />, border: "border-blue-500/40", text: "text-blue-300", position: "bottom-0 sm:bottom-5 left-1/2 -translate-x-1/2", floatDuration: "4.4s", floatDelay: "3.6s" },
 ];
 
 export const HeroSection: React.FC = () => {
   return (
-    <Section id="hero" variant="default" className="pt-28 md:pt-36 lg:pt-40 pb-16 md:pb-24 overflow-hidden relative">
+    <Section id="hero" variant="default" className="pt-20 sm:pt-28 md:pt-36 lg:pt-40 pb-12 sm:pb-16 md:pb-24 overflow-hidden relative">
       {/* Gentle Floating, Circular Rotating & Background Keyframe Animations */}
       <style jsx global>{`
         @keyframes heroBadgeFloat {
@@ -138,7 +138,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       <Container maxWidth="xl" className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 items-center">
           
           {/* Left Column: Identity, Value Proposition & Conversion CTAs */}
           <div className="lg:col-span-7 flex flex-col items-start">
@@ -149,7 +149,7 @@ export const HeroSection: React.FC = () => {
               animate="visible"
               variants={scaleFadeVariant}
               transition={{ delay: 0.1, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/25 text-xs font-mono text-purple-300 font-semibold tracking-wide uppercase mb-6 shadow-lg shadow-purple-500/5 backdrop-blur-md"
+              className="inline-flex items-center gap-2.5 px-3 sm:px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/25 text-[11px] sm:text-xs font-mono text-purple-300 font-semibold tracking-wide uppercase mb-4 sm:mb-6 shadow-lg shadow-purple-500/5 backdrop-blur-md"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -167,7 +167,7 @@ export const HeroSection: React.FC = () => {
             >
               <h1
                 style={{ fontFamily: "var(--font-sora), 'Sora', 'Plus Jakarta Sans', sans-serif" }}
-                className="text-[48px] md:text-[56px] lg:text-[72px] font-bold text-[#F8FAFC] tracking-[-0.05em] leading-[0.95]"
+                className="text-[40px] sm:text-[48px] md:text-[56px] lg:text-[72px] font-bold text-[#F8FAFC] tracking-[-0.05em] leading-[0.98] sm:leading-[0.95]"
               >
                 Hi, I'm{" "}
                 <span className="font-bold text-[#8B5CF6]">
@@ -185,7 +185,7 @@ export const HeroSection: React.FC = () => {
             >
               <h2
                 style={{ fontFamily: "var(--font-manrope), 'Manrope', 'Plus Jakarta Sans', sans-serif" }}
-                className="mt-4 max-w-[620px] text-[34px] md:text-[40px] lg:text-[54px] font-bold text-[#F8FAFC] tracking-[-0.035em] leading-[1.12]"
+                className="mt-3 sm:mt-4 max-w-[620px] text-[28px] sm:text-[34px] md:text-[40px] lg:text-[54px] font-bold text-[#F8FAFC] tracking-[-0.035em] leading-[1.18] sm:leading-[1.12]"
               >
                 Building Autonomous AI Systems<br />
                 That Scale Your Business
@@ -201,7 +201,7 @@ export const HeroSection: React.FC = () => {
             >
               <p
                 style={{ fontFamily: "var(--font-manrope), 'Manrope', 'Plus Jakarta Sans', sans-serif" }}
-                className="mt-5 max-w-[560px] text-[rgba(255,255,255,0.72)] font-normal text-[16px] md:text-[17px] lg:text-[18px] tracking-[-0.01em] leading-[1.6]"
+                className="mt-4 sm:mt-5 max-w-[560px] text-[rgba(255,255,255,0.72)] font-normal text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] tracking-[-0.01em] leading-[1.6]"
               >
                 I build AI customer support assistants, sales agents, and intelligent n8n automations that help businesses save time and scale faster.
               </p>
@@ -213,7 +213,7 @@ export const HeroSection: React.FC = () => {
               animate="visible"
               variants={fadeInUpVariant}
               transition={{ delay: 0.5, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-7 flex flex-wrap gap-4 text-xs sm:text-sm font-medium text-slate-200"
+              className="mt-5 sm:mt-7 flex flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm font-medium text-slate-200"
             >
               <div className="flex items-center gap-2">
                 <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
@@ -241,7 +241,7 @@ export const HeroSection: React.FC = () => {
               animate="visible"
               variants={fadeInUpVariant}
               transition={{ delay: 0.6, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 w-full sm:w-auto"
+              className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 w-full sm:w-auto"
             >
               {/* Primary CTA */}
               <m.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
@@ -281,7 +281,7 @@ export const HeroSection: React.FC = () => {
               animate="visible"
               variants={fadeInUpVariant}
               transition={{ delay: 0.7, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8 flex flex-wrap items-center gap-4 text-slate-300 text-xs sm:text-sm font-mono"
+              className="mt-6 sm:mt-8 flex flex-wrap items-center gap-4 text-slate-300 text-xs sm:text-sm font-mono"
             >
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -301,33 +301,33 @@ export const HeroSection: React.FC = () => {
             animate="visible"
             variants={scaleFadeVariant}
             transition={{ delay: 0.4, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative w-full max-w-full h-[520px] sm:h-[580px] flex items-center justify-center overflow-hidden sm:overflow-visible px-1 sm:px-0"
+            className="lg:col-span-5 relative w-full max-w-full h-[360px] sm:h-[580px] flex items-center justify-center overflow-visible px-1 sm:px-0"
           >
             {/* 1. Organic Ambient Blurred Blob Shape behind Portrait */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[300px] md:w-[350px] h-[200px] sm:h-[300px] md:h-[350px] bg-gradient-to-tr from-emerald-500/30 via-purple-500/30 to-teal-400/25 rounded-[45%_55%_60%_40%/50%_45%_55%_50%] blur-3xl pointer-events-none opacity-90" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] sm:w-[300px] md:w-[350px] h-[180px] sm:h-[300px] md:h-[350px] bg-gradient-to-tr from-emerald-500/30 via-purple-500/30 to-teal-400/25 rounded-[45%_55%_60%_40%/50%_45%_55%_50%] blur-3xl pointer-events-none opacity-90" />
 
             {/* 2. Concentric Pulsing Circular Aura Rings ("Gol Animation 1") */}
             <m.div
               animate={{ scale: [1, 1.08, 1], opacity: [0.35, 0.75, 0.35] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-emerald-500/40 w-[180px] sm:w-[270px] md:w-[300px] h-[180px] sm:h-[270px] md:h-[300px] pointer-events-none z-0 shadow-[0_0_20px_rgba(16,185,129,0.2)]"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-emerald-500/40 w-[160px] sm:w-[270px] md:w-[300px] h-[160px] sm:h-[270px] md:h-[300px] pointer-events-none z-0 shadow-[0_0_20px_rgba(16,185,129,0.2)]"
             />
             <m.div
               animate={{ scale: [1, 1.08, 1], opacity: [0.3, 0.7, 0.3] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-500/30 w-[230px] sm:w-[340px] md:w-[380px] h-[230px] sm:h-[340px] md:h-[380px] pointer-events-none z-0 shadow-[0_0_25px_rgba(56,189,248,0.15)]"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-500/30 w-[210px] sm:w-[340px] md:w-[380px] h-[210px] sm:h-[340px] md:h-[380px] pointer-events-none z-0 shadow-[0_0_25px_rgba(56,189,248,0.15)]"
             />
             <m.div
               animate={{ scale: [1, 1.08, 1], opacity: [0.25, 0.65, 0.25] }}
               transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-purple-500/25 w-[280px] sm:w-[410px] md:w-[460px] h-[280px] sm:h-[410px] md:h-[460px] pointer-events-none z-0 shadow-[0_0_30px_rgba(168,85,247,0.15)]"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-purple-500/25 w-[260px] sm:w-[410px] md:w-[460px] h-[260px] sm:h-[410px] md:h-[460px] pointer-events-none z-0 shadow-[0_0_30px_rgba(168,85,247,0.15)]"
             />
 
             {/* 3. Rotating Circular Gradient Orbits with Glowing Orbiting Nodes ("Gol Animation 2") */}
             <m.div
               animate={{ rotate: 360 }}
               transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-emerald-400/50 w-[195px] sm:w-[290px] md:w-[320px] h-[195px] sm:h-[290px] md:h-[320px] pointer-events-none z-0 shadow-[0_0_25px_rgba(16,185,129,0.2)]"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-emerald-400/50 w-[175px] sm:w-[290px] md:w-[320px] h-[175px] sm:h-[290px] md:h-[320px] pointer-events-none z-0 shadow-[0_0_25px_rgba(16,185,129,0.2)]"
             >
               <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-emerald-400 shadow-[0_0_14px_#10B981] animate-pulse" />
               <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-teal-400 shadow-[0_0_10px_#14B8A6]" />
@@ -336,7 +336,7 @@ export const HeroSection: React.FC = () => {
             <m.div
               animate={{ rotate: -360 }}
               transition={{ duration: 36, repeat: Infinity, ease: "linear" }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-purple-500/40 w-[245px] sm:w-[360px] md:w-[400px] h-[245px] sm:h-[360px] md:h-[400px] pointer-events-none z-0 shadow-[0_0_30px_rgba(168,85,247,0.2)]"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-purple-500/40 w-[225px] sm:w-[360px] md:w-[400px] h-[225px] sm:h-[360px] md:h-[400px] pointer-events-none z-0 shadow-[0_0_30px_rgba(168,85,247,0.2)]"
             >
               <div className="absolute top-1/2 -left-1.5 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-purple-400 shadow-[0_0_14px_#A855F7] animate-pulse" />
               <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-3 h-3 rounded-full bg-indigo-400 shadow-[0_0_10px_#6366F1]" />
@@ -345,7 +345,7 @@ export const HeroSection: React.FC = () => {
             <m.div
               animate={{ rotate: 360 }}
               transition={{ duration: 48, repeat: Infinity, ease: "linear" }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dotted border-cyan-400/40 w-[290px] sm:w-[430px] md:w-[480px] h-[290px] sm:h-[430px] md:h-[480px] pointer-events-none z-0"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dotted border-cyan-400/40 w-[270px] sm:w-[430px] md:w-[480px] h-[270px] sm:h-[430px] md:h-[480px] pointer-events-none z-0"
             >
               <div className="absolute top-10 left-12 w-3 h-3 rounded-full bg-cyan-400 shadow-[0_0_12px_#38BDF8] animate-pulse" />
               <div className="absolute bottom-10 right-12 w-2.5 h-2.5 rounded-full bg-sky-300 shadow-[0_0_10px_#7DD3FC]" />
@@ -394,7 +394,7 @@ export const HeroSection: React.FC = () => {
                   className={`absolute ${badge.position}`}
                 >
                   <div
-                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#090B0E]/90 backdrop-blur-md border ${badge.border} text-xs font-mono ${badge.text} shadow-xl select-none cursor-pointer whitespace-nowrap shadow-indigo-500/10 hover:border-emerald-400 hover:text-white transition-colors duration-200`}
+                    className={`flex items-center gap-1 sm:gap-1.5 px-2 min-[360px]:px-2.5 sm:px-3.5 py-0.5 min-[360px]:py-1 sm:py-1.5 rounded-full bg-[#090B0E]/90 backdrop-blur-md border ${badge.border} text-[9px] min-[360px]:text-[10px] sm:text-xs font-mono ${badge.text} shadow-xl select-none cursor-pointer whitespace-nowrap shadow-indigo-500/10 hover:border-emerald-400 hover:text-white transition-colors duration-200`}
                   >
                     {badge.icon}
                     <span>{badge.name}</span>
@@ -407,7 +407,7 @@ export const HeroSection: React.FC = () => {
             <m.div
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-30 px-3.5 py-1.5 rounded-xl bg-[#090B0E]/95 backdrop-blur-md border border-white/10 flex items-center gap-2 text-xs font-mono shadow-2xl whitespace-nowrap"
+              className="absolute -bottom-7 sm:-bottom-6 left-1/2 -translate-x-1/2 z-30 px-2 min-[360px]:px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-xl bg-[#090B0E]/95 backdrop-blur-md border border-white/10 flex items-center gap-1 min-[360px]:gap-1.5 sm:gap-2 text-[9px] min-[360px]:text-[10px] sm:text-xs font-mono shadow-2xl whitespace-nowrap"
             >
               <div className="flex items-center gap-1.5 whitespace-nowrap">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
@@ -425,5 +425,3 @@ export const HeroSection: React.FC = () => {
 };
 
 export default HeroSection;
-
-
