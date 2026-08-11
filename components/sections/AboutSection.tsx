@@ -78,7 +78,7 @@ export const AboutSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
           {/* Left Column: Engineer Profile Card + Resume Download (5 cols) */}
           <MotionSection className="lg:col-span-5 flex flex-col gap-6">
-            <Card variant="feature" className="p-6 sm:p-8 border-purple-500/30 bg-card/95 text-center flex flex-col items-center relative overflow-hidden shadow-2xl">
+            <Card variant="feature" className="p-4 xs:p-6 sm:p-8 border-purple-500/30 bg-card/95 text-center flex flex-col items-center relative overflow-hidden shadow-2xl">
               {/* 1. Portrait inside Profile Card */}
               <m.div
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -86,7 +86,7 @@ export const AboutSection: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ scale: 1.03 }}
-                className="relative mb-6 group cursor-pointer w-full max-w-[280px] aspect-[3/4] mx-auto"
+                className="relative mb-6 group cursor-pointer w-full max-w-[220px] xs:max-w-[250px] sm:max-w-[280px] aspect-[3/4] mx-auto"
               >
                 <div className="w-full h-full rounded-2xl bg-gradient-to-tr from-purple-500 via-emerald-400 to-sky-500 p-[2.5px] shadow-2xl overflow-hidden">
                   <div className="w-full h-full rounded-[13px] bg-[#090B0E] relative overflow-hidden">
@@ -102,7 +102,7 @@ export const AboutSection: React.FC = () => {
                     <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
                   </div>
                 </div>
-                <span className="absolute -bottom-2 right-4 px-3 py-1 rounded-full bg-emerald-500 text-slate-950 text-xs font-mono font-bold shadow-lg flex items-center gap-1">
+                <span className="absolute -bottom-2 right-2 sm:right-4 px-2.5 xs:px-3 py-1 rounded-full bg-emerald-500 text-slate-950 text-[10px] xs:text-xs font-mono font-bold shadow-lg flex items-center gap-1 whitespace-nowrap">
                   <span>✓ Verified AI Engineer</span>
                 </span>
               </m.div>

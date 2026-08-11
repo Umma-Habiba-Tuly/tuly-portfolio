@@ -250,7 +250,7 @@ export const WorkflowSection: React.FC = () => {
             </Card>
 
             {/* Progressive Telemetry Logs Box */}
-            <div className="rounded-2xl border border-white/10 bg-[#07090C] p-5 font-mono text-xs shadow-2xl">
+            <div className="rounded-2xl border border-white/10 bg-[#07090C] p-4 sm:p-5 font-mono text-xs shadow-2xl">
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div className="flex items-center gap-2 text-slate-300">
                   <Terminal className="w-4 h-4 text-emerald-400" />
@@ -263,14 +263,14 @@ export const WorkflowSection: React.FC = () => {
               <MotionStagger className="space-y-2.5">
                 {executionLogs.map((log, idx) => (
                   <MotionItem key={idx}>
-                    <div className="flex items-start justify-between gap-3 text-slate-300 text-[11px]">
-                      <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center justify-between gap-1.5 text-slate-300 text-[10.5px] xs:text-[11px]">
+                      <div className="flex items-center gap-2 truncate min-w-0">
                         <span className="text-slate-400 shrink-0">[{log.time}]</span>
-                        <span className={log.status === "success" ? "text-emerald-400 font-medium" : "text-indigo-300"}>
+                        <span className={`truncate ${log.status === "success" ? "text-emerald-400 font-medium" : "text-indigo-300"}`}>
                           {log.event}
                         </span>
                       </div>
-                      <span className="text-slate-400 shrink-0 text-[10px]">{log.stepName}</span>
+                      <span className="text-slate-400 shrink-0 text-[9.5px] xs:text-[10px] font-mono">{log.stepName}</span>
                     </div>
                   </MotionItem>
                 ))}

@@ -47,7 +47,7 @@ export const TestimonialsSection: React.FC = () => {
         </MotionStagger>
 
         {/* Mid-Page Dedicated CTA (Green CTA Rule) */}
-        <MotionSection className="mt-16 md:mt-20 p-8 md:p-10 rounded-2xl bg-gradient-to-r from-card via-[#0F172A] to-indigo-950/50 border border-emerald-500/30 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-2xl">
+        <MotionSection className="mt-12 sm:mt-16 md:mt-20 p-5 xs:p-6 sm:p-8 md:p-10 rounded-2xl bg-gradient-to-r from-card via-[#0F172A] to-indigo-950/50 border border-emerald-500/30 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-xl text-center md:text-left relative z-10">
@@ -55,19 +55,19 @@ export const TestimonialsSection: React.FC = () => {
               <Sparkles className="w-3.5 h-3.5" />
               Mid-Page Consultation
             </div>
-            <h3 className="text-xl sm:text-2xl md:text-[28px] font-bold text-white tracking-tight">
+            <h3 className="text-lg xs:text-xl sm:text-2xl md:text-[28px] font-bold text-white tracking-tight">
               Ready to Automate Your Business Operations?
             </h3>
-            <p className="mt-2 text-[15px] text-slate-300 leading-[1.6]">
+            <p className="mt-2 text-xs xs:text-sm sm:text-[15px] text-slate-300 leading-[1.6]">
               Book a quick 1-on-1 AI strategy session to discuss your workflow bottlenecks, support backlogs, or custom agent requirements.
             </p>
           </div>
 
-          <m.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="relative z-10 shrink-0">
+          <m.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="relative z-10 shrink-0 w-full sm:w-auto flex justify-center">
             <Button
               variant="primary"
               size="lg"
-              className="gap-2.5 font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-xl shadow-emerald-500/20"
+              className="gap-2.5 font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-xl shadow-emerald-500/20 w-full sm:w-auto text-xs xs:text-sm sm:text-base px-4 sm:px-6"
               onClick={() => {
                 window.location.href = "#contact";
               }}

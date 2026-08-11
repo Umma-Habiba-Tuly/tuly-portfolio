@@ -77,14 +77,14 @@ export const ProjectsSection: React.FC = () => {
             return (
               <MotionItem key={project.id}>
                 <m.div
-                  whileHover={{ y: -4 }}
+                  whileHover={{ y: -2 }}
                   transition={hoverTransition}
                   className="h-full cursor-pointer"
                   onClick={() => setSelectedProject(project)}
                 >
                   <Card
                     variant="interactive"
-                    className={`flex flex-col justify-between p-6 rounded-2xl relative group h-full transition-all duration-300 ${
+                    className={`flex flex-col justify-between p-4 xs:p-5 sm:p-6 rounded-2xl relative group h-full transition-all duration-300 ${
                       isInDevelopment
                         ? "border-amber-500/30 hover:border-amber-400/60 bg-card/90"
                         : "hover:border-purple-500/40 hover:shadow-purple-500/10"

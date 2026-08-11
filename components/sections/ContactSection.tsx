@@ -134,26 +134,26 @@ export const ContactSection: React.FC = () => {
                 <m.div
                   whileHover={{ y: -2, scale: 1.01 }}
                   transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-sky-950/60 via-card to-sky-950/40 border border-sky-500/40 flex items-center justify-between group shadow-xl shadow-sky-500/10 hover:border-sky-400 transition-all duration-300"
+                  className="p-3.5 sm:p-5 rounded-2xl bg-gradient-to-r from-sky-950/60 via-card to-sky-950/40 border border-sky-500/40 flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 sm:gap-4 group shadow-xl shadow-sky-500/10 hover:border-sky-400 transition-all duration-300"
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                     <m.div
                       whileHover={{ scale: 1.1 }}
-                      className="w-11 h-11 rounded-xl bg-sky-500/20 border border-sky-400/40 flex items-center justify-center text-sky-400 shrink-0 shadow-inner"
+                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-sky-500/20 border border-sky-400/40 flex items-center justify-center text-sky-400 shrink-0 shadow-inner"
                     >
-                      <LinkedinIcon className="w-6 h-6 fill-sky-400" />
+                      <LinkedinIcon className="w-5 h-5 sm:w-6 sm:h-6 fill-sky-400" />
                     </m.div>
-                    <div>
+                    <div className="min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono text-sky-300 font-bold uppercase tracking-wider block">
+                        <span className="text-[10px] sm:text-xs font-mono text-sky-300 font-bold uppercase tracking-wider block">
                           Primary Platform • LinkedIn
                         </span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse shrink-0" />
                       </div>
-                      <span className="text-sm font-semibold text-white font-mono block mt-0.5">
+                      <span className="text-xs sm:text-sm font-semibold text-white font-mono block mt-0.5 truncate">
                         Follow My Engineering & Build Posts
                       </span>
-                      <span className="text-xs text-slate-400 block mt-0.5">
+                      <span className="text-[11px] sm:text-xs text-slate-400 block mt-0.5 line-clamp-1 sm:line-clamp-none">
                         Live AI agent walk-throughs, n8n blueprints & case studies
                       </span>
                     </div>
@@ -162,7 +162,7 @@ export const ContactSection: React.FC = () => {
                     href={linkedinSocial?.url || "https://www.linkedin.com/in/umma-habiba-tuly-cse/"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-sky-500/20 border border-sky-400/50 text-xs font-semibold text-sky-300 hover:bg-sky-500/30 transition-all group/link shrink-0"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-sky-500/20 border border-sky-400/50 text-xs font-semibold text-sky-300 hover:bg-sky-500/30 transition-all group/link shrink-0 ml-auto sm:ml-0"
                     aria-label="Follow on LinkedIn"
                   >
                     <span>Follow</span>
@@ -369,7 +369,7 @@ export const ContactSection: React.FC = () => {
             transition={{ delay: 0.2, ...precisionTransition }}
             className="lg:col-span-6 w-full"
           >
-            <Card variant="feature" className="p-6 sm:p-8 border-indigo-500/30 bg-card/90 relative overflow-hidden shadow-2xl">
+            <Card variant="feature" className="p-4 xs:p-6 sm:p-8 border-indigo-500/30 bg-card/90 relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-400 via-indigo-500 to-sky-500" />
 
               <h3 className="text-xl font-bold text-white tracking-tight mb-2">

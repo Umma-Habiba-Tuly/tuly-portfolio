@@ -109,5 +109,14 @@ body {
     color: #10b981;
     font-family: var(--font-mono, monospace);
   }
+
+  /* Hide scrollbar for Chrome, Safari, Firefox and Edge */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 }
 

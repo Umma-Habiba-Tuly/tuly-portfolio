@@ -166,8 +166,8 @@ export const HeroSection: React.FC = () => {
               transition={{ delay: 0.2, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             >
               <h1
-                style={{ fontFamily: "var(--font-sora), 'Sora', 'Plus Jakarta Sans', sans-serif" }}
-                className="text-[40px] sm:text-[48px] md:text-[56px] lg:text-[72px] font-bold text-[#F8FAFC] tracking-[-0.05em] leading-[0.98] sm:leading-[0.95]"
+                style={{ fontFamily: "var(--font-geist-sans), 'Geist', 'Inter', system-ui, sans-serif" }}
+                className="text-[35px] sm:text-[48px] md:text-[56px] lg:text-[72px] font-bold text-[#F8FAFC] tracking-[-0.04em] leading-[0.98] sm:leading-[0.95] whitespace-nowrap"
               >
                 Hi, I'm{" "}
                 <span className="font-bold text-[#8B5CF6]">
@@ -184,11 +184,12 @@ export const HeroSection: React.FC = () => {
               transition={{ delay: 0.3, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             >
               <h2
-                style={{ fontFamily: "var(--font-manrope), 'Manrope', 'Plus Jakarta Sans', sans-serif" }}
-                className="mt-3 sm:mt-4 max-w-[620px] text-[28px] sm:text-[34px] md:text-[40px] lg:text-[54px] font-bold text-[#F8FAFC] tracking-[-0.035em] leading-[1.18] sm:leading-[1.12]"
+                style={{ fontFamily: "var(--font-geist-sans), 'Geist', 'Inter', system-ui, sans-serif" }}
+                className="mt-3 sm:mt-4 w-full max-w-none lg:max-w-[760px] text-[23px] sm:text-[19px] md:text-[25px] lg:text-[39px] font-bold text-[#F8FAFC] tracking-[-0.025em] sm:tracking-[-0.025em] leading-[1.2] sm:leading-[1.18]"
               >
-                Building Autonomous AI Systems<br />
-                That Scale Your Business
+                <span className="whitespace-nowrap">Building Autonomous AI Systems</span>
+                <br />
+                <span className="whitespace-nowrap">That Scale Your Business</span>
               </h2>
             </m.div>
 

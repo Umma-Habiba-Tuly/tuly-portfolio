@@ -25,7 +25,7 @@ export const Section: React.FC<SectionProps> = ({
     <section
       id={id}
       className={cn(
-        "relative py-[56px] md:py-[72px] lg:py-[96px] overflow-hidden",
+        "relative py-10 sm:py-16 md:py-[72px] lg:py-[96px] overflow-hidden",
         variantStyles[variant],
         className
       )}

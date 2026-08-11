@@ -54,21 +54,22 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#06080B] border-t border-white/[0.08] relative z-10 pt-16 pb-12">
       <Container maxWidth="xl">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/[0.06]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 relative">
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[65%] sm:w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
           {/* Brand Column */}
           <div className="md:col-span-5 flex flex-col items-center sm:items-start text-center sm:text-left space-y-4">
             <Logo />
             <p className="text-[15px] text-slate-300 max-w-sm leading-[1.6]">
               Engineering practical AI automation systems, multi-channel support assistants, and agentic workflows. Follow my public build updates on LinkedIn.
             </p>
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 pt-2 text-xs font-mono text-slate-300">
-              <span className="flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4 pt-2 text-xs font-mono text-slate-300 w-full">
+              <span className="flex items-center gap-1.5 shrink-0">
+                <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 {SITE_CONFIG.location}
               </span>
-              <span className="flex items-center gap-1.5">
-                <Mail className="w-3.5 h-3.5 text-emerald-400" />
-                {SITE_CONFIG.email}
+              <span className="flex items-center gap-1.5 truncate max-w-full">
+                <Mail className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span className="truncate">{SITE_CONFIG.email}</span>
               </span>
             </div>
           </div>
@@ -78,7 +79,7 @@ export const Footer: React.FC = () => {
             <span className="font-mono text-xs text-slate-300 font-semibold uppercase tracking-[0.03em] mb-1">
               Navigation
             </span>
-            <div className="flex flex-wrap sm:grid sm:grid-cols-2 justify-center sm:justify-start gap-3 text-sm">
+            <div className="grid grid-cols-2 justify-center sm:justify-start gap-2.5 sm:gap-3 text-xs xs:text-sm text-center sm:text-left w-full max-w-xs sm:max-w-none">
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.id}

@@ -136,13 +136,13 @@ export const SocialProofSection: React.FC = () => {
         </MotionSection>
 
         {/* 4 Social Proof Metric Cards Grid */}
-        <MotionStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <MotionStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-6">
           {stats.map((stat) => (
             <MotionItem key={stat.id}>
               <m.div
-                whileHover={{ y: -5, scale: 1.02 }}
+                whileHover={{ y: -4, scale: 1.01 }}
                 transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className={`p-6 sm:p-7 rounded-2xl bg-card/70 border border-white/10 ${stat.borderColor} ${stat.glowColor} transition-all duration-300 relative overflow-hidden group shadow-xl flex flex-col justify-between h-full`}
+                className={`py-2.5 px-3 sm:p-7 rounded-2xl bg-card/70 border border-white/10 ${stat.borderColor} ${stat.glowColor} transition-all duration-300 relative overflow-hidden group shadow-xl flex flex-row sm:flex-col items-center sm:items-stretch justify-between gap-2.5 sm:gap-0 h-auto sm:h-full`}
               >
                 {/* Top Subtle Animated Gradient Beam */}
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -150,34 +150,49 @@ export const SocialProofSection: React.FC = () => {
                 {/* Ambient Card Radial Tint */}
                 <div className={`absolute -top-12 -right-12 w-32 h-32 bg-gradient-to-br ${stat.accentColor} blur-2xl pointer-events-none rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300`} />
 
-                {/* Header Icon Row */}
-                <div className="flex items-center justify-between mb-5">
-                  <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 ${stat.iconBg} group-hover:scale-110 transition-transform duration-300`}>
+                {/* Mobile Left / Desktop Top Icon & Metric Row */}
+                <div className="flex items-center gap-2.5 sm:justify-between sm:mb-5 shrink-0">
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl border flex items-center justify-center shrink-0 ${stat.iconBg} group-hover:scale-110 transition-transform duration-300`}>
                     {stat.icon}
                   </div>
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                </div>
-
-                {/* Metric Display */}
-                <div>
-                  <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight flex items-baseline gap-1 mb-1.5">
+                  
+                  {/* Metric Display on Mobile (beside Icon) */}
+                  <div className="sm:hidden text-xl min-[360px]:text-2xl font-extrabold text-white tracking-tight flex items-baseline shrink-0 font-mono">
                     {stat.numericValue !== null ? (
                       <AnimatedCounter value={stat.numericValue} suffix={stat.suffix} />
                     ) : (
-                      <span className="font-extrabold font-mono text-white">
+                      <span>{stat.textValue}</span>
+                    )}
+                  </div>
+
+                  {/* Desktop Status Dot */}
+                  <span className="hidden sm:block w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-sm shadow-emerald-400/50" />
+                </div>
+
+                {/* Text Content Area */}
+                <div className="flex-1 min-w-0 sm:flex-initial">
+                  {/* Metric Display on Desktop (above Label) */}
+                  <div className="hidden sm:flex text-3xl sm:text-4xl font-extrabold text-white tracking-tight items-baseline gap-1 mb-1.5">
+                    {stat.numericValue !== null ? (
+                      <AnimatedCounter value={stat.numericValue} suffix={stat.suffix} />
+                    ) : (
+                      <span className="text-3xl sm:text-4xl font-extrabold font-mono text-white tracking-tight truncate block">
                         {stat.textValue}
                       </span>
                     )}
                   </div>
 
-                  <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-200">
+                  <h3 className="font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-200 truncate">
                     {stat.label}
                   </h3>
 
-                  <p className="mt-1 text-xs text-slate-300 leading-relaxed font-normal">
+                  <p className="mt-0.5 sm:mt-1 text-[11px] sm:text-xs text-slate-300 leading-tight sm:leading-relaxed font-normal truncate">
                     {stat.subtext}
                   </p>
                 </div>
+
+                {/* Mobile Status Dot on Far Right */}
+                <span className="sm:hidden w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-sm shadow-emerald-400/50 shrink-0 ml-1" />
               </m.div>
             </MotionItem>
           ))}

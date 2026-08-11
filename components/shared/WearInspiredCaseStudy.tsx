@@ -62,7 +62,7 @@ export const WearInspiredCaseStudy: React.FC<WearInspiredCaseStudyProps> = ({ pr
       >
         <Card
           variant="feature"
-          className="p-6 sm:p-8 md:p-10 border-emerald-500/30 bg-gradient-to-br from-[#0B132B] via-card to-[#0F172A] relative overflow-hidden group shadow-2xl transition-all duration-300 hover:shadow-emerald-500/15"
+          className="p-4 xs:p-6 sm:p-8 md:p-10 border-emerald-500/30 bg-gradient-to-br from-[#0B132B] via-card to-[#0F172A] relative overflow-hidden group shadow-2xl transition-all duration-300 hover:shadow-emerald-500/15"
         >
           {/* Glowing Top Beam */}
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-500 via-indigo-500 to-sky-400" />
@@ -116,30 +116,35 @@ export const WearInspiredCaseStudy: React.FC<WearInspiredCaseStudyProps> = ({ pr
           )}
 
           {/* Interactive Navigation Tabs for Case Study Modules */}
-          <div className="flex items-center gap-2 border-b border-white/10 pb-4 mb-8 overflow-x-auto scrollbar-none">
-            {[
-              { id: "demo", label: "Video Walkthrough & Metrics", icon: Play },
-              { id: "architecture", label: "System Architecture Flow", icon: Workflow },
-              { id: "features", label: "Core AI Capabilities", icon: Sparkles },
-              { id: "impact", label: "Business ROI & Impact", icon: TrendingUp },
-            ].map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all duration-200 shrink-0 cursor-pointer ${
-                    isActive
-                      ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/25 ring-1 ring-indigo-400"
-                      : "bg-white/[0.04] text-slate-400 hover:text-white hover:bg-white/[0.08]"
-                  }`}
-                >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-slate-400"}`} />
-                  <span>{tab.label}</span>
-                </button>
-              );
-            })}
+          <div className="relative w-full mb-8">
+            {/* Subtle Right Fade Gradient on Mobile to indicate scrollability */}
+            <div className="absolute right-0 top-0 bottom-4 w-10 bg-gradient-to-l from-[#0B132B] via-[#0B132B]/80 to-transparent pointer-events-none z-20 sm:hidden" />
+
+            <div className="w-full flex items-center gap-1.5 sm:gap-2 border-b border-white/10 pb-4 overflow-x-auto no-scrollbar touch-pan-x relative z-10">
+              {[
+                { id: "demo", label: "Video Walkthrough & Metrics", icon: Play },
+                { id: "architecture", label: "System Architecture Flow", icon: Workflow },
+                { id: "features", label: "Core AI Capabilities", icon: Sparkles },
+                { id: "impact", label: "Business ROI & Impact", icon: TrendingUp },
+              ].map((tab) => {
+                const Icon = tab.icon;
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id as any)}
+                    className={`flex items-center gap-1.5 px-3 xs:px-4 py-2 rounded-xl text-[11px] xs:text-xs font-mono font-medium transition-all duration-200 shrink-0 whitespace-nowrap cursor-pointer ${
+                      isActive
+                        ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/25 ring-1 ring-indigo-400"
+                        : "bg-white/[0.04] text-slate-400 hover:text-white hover:bg-white/[0.08]"
+                    }`}
+                  >
+                    <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? "text-white" : "text-slate-400"}`} />
+                    <span className="whitespace-nowrap">{tab.label}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Dynamic Tab Panel Content */}
@@ -156,8 +161,6 @@ export const WearInspiredCaseStudy: React.FC<WearInspiredCaseStudyProps> = ({ pr
                 {/* Left Column (Phone Demo only, top-aligned with Metrics card) */}
                 <div className="w-full lg:w-[360px] flex flex-col items-center justify-start self-start">
                   <VideoDemoPlayer
-                    teaserVideoUrl="/videos/wear-inspired-demo.mp4"
-                    fullVideoUrl="/videos/wear-inspired-demo.mp4"
                     posterImage="/images/wear-inspired-poster.png"
                     title="Wear Inspired AI Customer Support Assistant"
                   />
@@ -177,11 +180,15 @@ export const WearInspiredCaseStudy: React.FC<WearInspiredCaseStudyProps> = ({ pr
                       </span>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3.5 mb-4">
+                    <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5 mb-4">
                       {project.metrics?.map((mItem) => (
-                        <div key={mItem.id} className="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-center hover:border-emerald-500/30 transition-colors">
-                          <p className="text-stat">{mItem.value}</p>
-                          <p className="text-xs text-slate-300 font-mono font-medium mt-1">{mItem.label}</p>
+                        <div key={mItem.id} className="p-2.5 xs:p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-center hover:border-emerald-500/30 transition-colors flex flex-col items-center justify-center min-w-0">
+                          <p className="text-base xs:text-lg min-[360px]:text-xl min-[410px]:text-2xl sm:text-[28px] font-extrabold font-mono text-emerald-400 leading-tight whitespace-nowrap tracking-tight">
+                            {mItem.value}
+                          </p>
+                          <p className="text-[10px] xs:text-[11px] sm:text-xs text-slate-300 font-mono font-medium mt-1 text-center leading-snug break-words max-w-full">
+                            {mItem.label}
+                          </p>
                         </div>
                       ))}
                     </div>
