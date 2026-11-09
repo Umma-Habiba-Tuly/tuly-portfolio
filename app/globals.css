@@ -115,7 +115,71 @@ body {
   }
 }
 
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(44px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes wordmark-drift {
+  to {
+    transform: translateY(-70px);
+  }
+}
+
+@layer utilities {
+  .anim-rise {
+    animation: rise-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .anim-fade {
+    animation: fade-in 0.9s ease-out both;
+  }
+  .anim-pop {
+    animation: pop-in 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .wordmark-drift {
+    animation: wordmark-drift linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 700px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .anim-rise,
+  .anim-fade,
+  .anim-pop,
+  .wordmark-drift {
+    animation: none !important;
+  }
+
   html {
     scroll-behavior: auto;
   }

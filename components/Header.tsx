@@ -40,11 +40,12 @@ export default function Header() {
         </a>
 
         <nav aria-label="Main" className="hidden items-center gap-2 md:flex">
-          {NAV_ITEMS.map((item) => (
+          {NAV_ITEMS.map((item, i) => (
             <a
               key={item.href}
               href={item.href}
-              className="inline-flex items-center gap-2 rounded-full border border-surface/25 bg-surface/5 py-1.5 pl-2 pr-4 text-sm font-medium transition hover:border-accent hover:text-accent"
+              style={{ animationDelay: `${150 + i * 90}ms` }}
+              className="anim-pop inline-flex items-center gap-2 rounded-full border border-surface/25 bg-surface/5 py-1.5 pl-2 pr-4 text-sm font-medium transition hover:border-accent hover:text-accent"
             >
               <PillIcon />
               {item.label}
