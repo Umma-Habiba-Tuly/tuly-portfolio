@@ -42,10 +42,10 @@ export default function Services() {
       <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
         <div className="mb-6 h-px w-16 bg-accent" />
         <Reveal className="pb-8">
-          <h2 className="echo-text font-display text-4xl font-extrabold tracking-[-0.03em] sm:text-6xl">What I do</h2>
+          <h2 className="font-display text-4xl font-extrabold tracking-[-0.03em] sm:text-6xl">What I do</h2>
         </Reveal>
         <p className="mt-4 max-w-xl text-lg leading-snug text-surface/80">
-          AI agents, automation, full-stack software and the interfaces people actually use.
+          AI agents, automation, full-stack software and the interfaces around them.
         </p>
 
         <ul className="mt-12 grid gap-4 md:grid-cols-2">
