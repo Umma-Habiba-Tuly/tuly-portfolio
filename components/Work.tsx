@@ -8,6 +8,15 @@ export default function Work() {
   return (
     <section id="work" className="on-deep bg-deep text-surface">
       <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
+        <Reveal className="pb-12">
+          <p
+            aria-hidden="true"
+            className="echo-text font-display font-extrabold leading-[0.9] tracking-[-0.04em]"
+            style={{ fontSize: "clamp(4rem, 15vw, 12rem)" }}
+          >
+            Work
+          </p>
+        </Reveal>
         <SectionHead
           label="Work"
           tone="dark"
@@ -45,7 +54,23 @@ export default function Work() {
             </div>
 
             <div className="flex items-center justify-center lg:justify-end">
-              <PhoneFrame videoSrc={WEAR_INSPIRED_VIDEO} poster={WEAR_INSPIRED_POSTER} />
+              <div className="relative flex w-full justify-center">
+                <div
+                  aria-hidden="true"
+                  className="fan fan-left hidden items-start justify-start rounded-[1.6rem] bg-gradient-to-br from-primary to-deep p-5 shadow-xl ring-1 ring-surface/15 md:flex"
+                >
+                  <span className="font-display text-lg font-bold leading-tight">Website chat</span>
+                </div>
+                <div
+                  aria-hidden="true"
+                  className="fan fan-right hidden items-start justify-end rounded-[1.6rem] bg-surface p-5 text-ink shadow-xl md:flex"
+                >
+                  <span className="font-display text-lg font-bold leading-tight">Instagram</span>
+                </div>
+                <div className="relative z-10">
+                  <PhoneFrame videoSrc={WEAR_INSPIRED_VIDEO} poster={WEAR_INSPIRED_POSTER} />
+                </div>
+              </div>
             </div>
           </div>
         </Reveal>

@@ -41,7 +41,9 @@ export default function Services() {
     <section id="services" className="on-deep bg-ink text-surface">
       <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
         <div className="mb-6 h-px w-16 bg-accent" />
-        <h2 className="font-display text-4xl font-extrabold tracking-[-0.03em] sm:text-6xl">What I do</h2>
+        <Reveal className="pb-8">
+          <h2 className="echo-text font-display text-4xl font-extrabold tracking-[-0.03em] sm:text-6xl">What I do</h2>
+        </Reveal>
         <p className="mt-4 max-w-xl text-lg leading-snug text-surface/80">
           AI agents, automation, full-stack software and the interfaces people actually use.
         </p>
