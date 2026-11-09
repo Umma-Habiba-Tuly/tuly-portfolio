@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal";
 import { SITE_CONFIG } from "@/constants/site";
 
 function PillIcon() {
@@ -40,8 +41,8 @@ export default function Contact() {
 
         <p className="mt-16 text-lg font-semibold">Contact me</p>
         <ul className="mx-auto mt-4 flex max-w-2xl flex-wrap justify-center gap-3 rounded-3xl border border-surface/20 bg-surface/5 p-4">
-          {links.map((l) => (
-            <li key={l.k}>
+          {links.map((l, i) => (
+            <Reveal as="li" key={l.k} delay={i * 70}>
               <a
                 href={l.href}
                 className="inline-flex items-center gap-2 rounded-full border border-surface/25 py-1.5 pl-2 pr-4 text-sm font-medium transition hover:border-accent hover:text-accent"
@@ -49,7 +50,7 @@ export default function Contact() {
                 <PillIcon />
                 {l.k}
               </a>
-            </li>
+            </Reveal>
           ))}
         </ul>
         <p className="mt-5 text-sm text-surface/70">

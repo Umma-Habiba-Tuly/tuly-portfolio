@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal";
 import SectionHead from "@/components/SectionHead";
 import { ABOUT } from "@/data/content";
 
@@ -7,7 +8,7 @@ export default function About() {
       <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
         <SectionHead label="About" title={ABOUT.statement} tone="dark" />
 
-        <div className="mt-12 grid gap-10 md:grid-cols-[13rem_1fr] md:gap-10">
+        <Reveal className="mt-12 grid gap-10 md:grid-cols-[13rem_1fr] md:gap-10" delay={120}>
           <div className="hidden md:block" />
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="space-y-5 text-lg leading-relaxed text-surface/85">
@@ -27,7 +28,7 @@ export default function About() {
               </div>
             </dl>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

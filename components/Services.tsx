@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal";
 import { PROCESS, SERVICES } from "@/data/content";
 
 const ICON_PATHS = [
@@ -47,10 +48,10 @@ export default function Services() {
 
         <ul className="mt-12 grid gap-4 md:grid-cols-2">
           {SERVICES.map((s, i) => (
-            <li key={s.name}>
+            <Reveal as="li" key={s.name} delay={(i % 2) * 90 + Math.floor(i / 2) * 60}>
               <a
                 href="#contact"
-                className="group flex items-center gap-4 rounded-2xl border border-surface/15 bg-surface/5 p-3 pr-5 transition hover:border-accent/70"
+                className="group flex items-center gap-4 rounded-2xl border border-surface/15 bg-surface/5 p-3 pr-5 transition duration-300 hover:-translate-y-0.5 hover:border-accent/70"
               >
                 <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-deep text-accent">
                   <svg
@@ -77,20 +78,20 @@ export default function Services() {
                   →
                 </span>
               </a>
-            </li>
+            </Reveal>
           ))}
         </ul>
 
         <div className="mt-16">
           <p className="text-lg font-semibold">How a project goes</p>
           <ol className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {PROCESS.map((p) => (
-              <li key={p.n} className="flex items-start gap-4">
+            {PROCESS.map((p, i) => (
+              <Reveal as="li" key={p.n} delay={i * 110} className="flex items-start gap-4">
                 <span className="font-display flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-lg font-bold text-ink">
                   {p.n}
                 </span>
                 <p className="pt-1.5 leading-snug text-surface/90">{p.text}</p>
-              </li>
+              </Reveal>
             ))}
           </ol>
         </div>

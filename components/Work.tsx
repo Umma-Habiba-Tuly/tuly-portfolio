@@ -1,4 +1,5 @@
 import PhoneFrame from "@/components/PhoneFrame";
+import Reveal from "@/components/Reveal";
 import SectionHead from "@/components/SectionHead";
 import { WEAR_INSPIRED_POSTER, WEAR_INSPIRED_VIDEO } from "@/constants/site";
 import { FEATURED_WORK as F, OTHER_WORK } from "@/data/content";
@@ -18,7 +19,7 @@ export default function Work() {
           }
         />
 
-        <article className="mt-14">
+        <Reveal as="article" className="mt-14">
           <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
             <div>
               <p className="label text-accent">
@@ -47,11 +48,13 @@ export default function Work() {
               <PhoneFrame videoSrc={WEAR_INSPIRED_VIDEO} poster={WEAR_INSPIRED_POSTER} />
             </div>
           </div>
-        </article>
+        </Reveal>
 
         <ul className="mt-20 border-t-2 border-surface/50">
-          {OTHER_WORK.map((w) => (
-            <li
+          {OTHER_WORK.map((w, i) => (
+            <Reveal
+              as="li"
+              delay={i * 80}
               key={w.name}
               className="grid gap-3 border-b border-surface/25 py-7 md:grid-cols-[1fr_1.3fr_1fr_10rem] md:items-baseline md:gap-8"
             >
@@ -65,7 +68,7 @@ export default function Work() {
                 />
                 {w.status}
               </p>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Typewriter from "@/components/Typewriter";
 import { SITE_CONFIG } from "@/constants/site";
 
 /**
@@ -81,20 +82,31 @@ export default function Hero() {
           </p>
         </div>
 
-        <ul className="anim-fade mt-36 flex flex-wrap justify-center gap-x-10 gap-y-2 text-xl font-bold tracking-tight text-surface/25 sm:text-2xl md:mt-44" style={{ animationDelay: "1200ms" }}>
-          {TOOLS.map((t) => (
-            <li key={t}>{t}</li>
-          ))}
-        </ul>
+        <div
+          className="marquee anim-fade mt-36 overflow-hidden md:mt-44"
+          style={{
+            animationDelay: "1200ms",
+            maskImage: "linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)",
+          }}
+          aria-label="Tools I work with"
+        >
+          <ul className="marquee-track flex w-max gap-12 text-xl font-bold tracking-tight text-surface/25 sm:text-2xl">
+            {[...TOOLS, ...TOOLS].map((t, i) => (
+              <li key={`${t}-${i}`} aria-hidden={i >= TOOLS.length ? "true" : undefined}>
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <div className="mt-14 pb-16 md:mt-20 md:pb-24">
           <div className="mb-6 h-px w-16 bg-accent" />
-          <h2
+          <Typewriter
+            parts={[{ text: "Automate the " }, { text: "busywork.", className: "text-accent" }]}
             className="font-display max-w-4xl font-extrabold leading-[0.98] tracking-[-0.04em]"
             style={{ fontSize: "clamp(2.4rem, 6vw, 4.75rem)" }}
-          >
-            Automate the <span className="text-accent">busywork.</span>
-          </h2>
+          />
           <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
             <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent">
               DM to automate <span aria-hidden="true">→</span>
