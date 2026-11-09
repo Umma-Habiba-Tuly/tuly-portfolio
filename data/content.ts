@@ -54,26 +54,62 @@ export const SERVICES = [
   {
     name: "Support assistants",
     text: "On your website, Messenger or Instagram. They answer from your own information and pass the rest to your team.",
+    points: [
+      "Website chat, Messenger and Instagram in one place",
+      "Answers from your own product and policy data",
+      "A person takes over with the full conversation",
+    ],
+    stack: "n8n, Qdrant, PostgreSQL",
   },
   {
     name: "AI agents and RAG",
     text: "AI agents, RAG knowledge systems and SaaS products, built end to end, from idea to production.",
+    points: [
+      "Agents that take actions, not just answer",
+      "Knowledge systems that cite their source",
+      "SaaS products, from the first idea to live",
+    ],
+    stack: "LangChain, Qdrant, FastAPI",
   },
   {
     name: "Automation",
     text: "n8n workflows, APIs and webhooks that turn repetitive business work into hands-free systems.",
+    points: [
+      "n8n workflows wired to the tools you already use",
+      "APIs and webhooks between your systems",
+      "Leads checked, saved and sent on automatically",
+    ],
+    stack: "n8n, Python, PostgreSQL",
   },
   {
     name: "Full-stack software",
     text: "Web apps and custom software, from polished frontends to solid backends.",
+    points: [
+      "Web apps and custom software",
+      "Frontend and backend built together",
+      "Shipped and run with Docker",
+    ],
+    stack: "Next.js, TypeScript, FastAPI, Docker",
   },
   {
     name: "Frontend development",
     text: "Fast, responsive interfaces built with Next.js, TypeScript and Tailwind CSS.",
+    points: [
+      "Pages that work on phones and desktops",
+      "Clean, reusable components",
+      "Built for speed and search",
+    ],
+    stack: "Next.js, TypeScript, Tailwind CSS",
   },
   {
     name: "UI/UX design",
     text: "Clean, intuitive interfaces and dashboards that people enjoy using.",
+    points: [
+      "Interfaces that are easy to understand",
+      "Dashboards for the people who run the business",
+      "Design that carries straight into code",
+    ],
+    stack: "Layouts, prototypes, design systems",
   },
 ];
 
