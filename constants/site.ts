@@ -1,6 +1,7 @@
 export interface SocialLink {
   name: string;
   url: string;
+  handle: string;
 }
 
 export const SITE_CONFIG = {
@@ -17,9 +18,10 @@ export const SITE_CONFIG = {
   location: "Khulna, Bangladesh",
   replyTime: "Within 24 hours",
   socials: [
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/umma-habiba-tuly-cse/" },
-    { name: "GitHub", url: "https://github.com/Umma-Habiba-Tuly" },
-    { name: "Facebook", url: "https://www.facebook.com/atsync.tech" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/umma-habiba-tuly-cse/", handle: "umma-habiba-tuly-cse" },
+    { name: "GitHub", url: "https://github.com/Umma-Habiba-Tuly", handle: "Umma-Habiba-Tuly" },
+    { name: "Instagram", url: "https://www.instagram.com/tuly.cse/", handle: "@tuly.cse" },
+    { name: "Facebook", url: "https://www.facebook.com/atsync.tech", handle: "atsync.tech" },
   ] as SocialLink[],
 };
 
