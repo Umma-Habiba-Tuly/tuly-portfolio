@@ -12,10 +12,10 @@ export default function Contact() {
       <div className="mx-auto max-w-[1200px] px-5 pb-8 pt-20 sm:px-8 md:pt-28">
         <p className="label border-t-2 border-surface/30 pt-5">Contact</p>
         <h2
-          className="font-display mt-6 max-w-4xl font-semibold leading-[0.98] tracking-[-0.03em]"
+          className="font-display mt-6 max-w-4xl font-extrabold leading-[0.95] tracking-[-0.04em]"
           style={{ fontSize: "clamp(2.6rem, 8vw, 6.5rem)" }}
         >
-          Got a task your team <span className="italic text-accent">hates doing?</span>
+          Got a task your team <span className="text-accent">hates doing?</span>
         </h2>
         <p className="mt-6 max-w-xl text-xl leading-snug">
           Message me what it is. I reply {SITE_CONFIG.replyTime?.toLowerCase()}.

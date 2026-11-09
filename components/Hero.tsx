@@ -11,11 +11,11 @@ export default function Hero() {
         </p>
 
         <h1
-          className="font-display mt-8 font-semibold leading-[0.92] tracking-[-0.03em] md:mt-12"
+          className="font-display mt-8 font-extrabold leading-[0.9] tracking-[-0.04em] md:mt-12"
           style={{ fontSize: "clamp(3.4rem, 12.5vw, 10rem)" }}
         >
           Automate
-          <br className="hidden sm:block" /> the <span className="italic text-accent">busywork.</span>
+          <br className="hidden sm:block" /> the <span className="text-accent">busywork.</span>
         </h1>
 
         <div className="mt-12 grid gap-10 border-t border-surface/30 pt-8 md:mt-16 md:grid-cols-[1fr_auto] md:items-end md:gap-16">

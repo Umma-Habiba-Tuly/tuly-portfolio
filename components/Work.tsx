@@ -15,7 +15,7 @@ export default function Work() {
               <p className="label text-accent">
                 {F.label} · {F.sector}
               </p>
-              <h3 className="mt-5 font-display text-6xl font-semibold leading-[0.95] tracking-[-0.03em] sm:text-7xl">{F.name}</h3>
+              <h3 className="mt-5 font-display text-6xl font-extrabold leading-[0.95] tracking-[-0.04em] sm:text-7xl">{F.name}</h3>
               <p className="mt-4 text-xl font-medium leading-snug sm:text-2xl">{F.title}</p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed">{F.summary}</p>
 
@@ -46,7 +46,7 @@ export default function Work() {
               key={w.name}
               className="grid gap-3 border-b border-ink/25 py-7 md:grid-cols-[1fr_1.3fr_1fr_10rem] md:items-baseline md:gap-8"
             >
-              <h3 className="font-display text-2xl font-semibold tracking-tight">{w.name}</h3>
+              <h3 className="font-display text-2xl font-bold tracking-tight">{w.name}</h3>
               <p className="leading-relaxed text-ink/80">{w.text}</p>
               <p className="mono text-sm text-ink/70">{w.stack}</p>
               <p className="label flex items-center gap-2 whitespace-nowrap md:justify-end">
