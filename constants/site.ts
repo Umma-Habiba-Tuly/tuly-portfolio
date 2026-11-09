@@ -5,16 +5,16 @@ export interface SocialLink {
 
 export const SITE_CONFIG = {
   name: "Umma Habiba Tuly",
-  professionalTitle: "AI Automation Engineer",
+  professionalTitle: "AI Engineer & Full-Stack Developer",
   company: "AT Sync",
   role: "Founder @ AT Sync",
   description:
-    "Building custom AI automation systems, support assistants, and workflow pipelines for growing businesses.",
+    "AI agents, automation, full-stack software and UI/UX design for growing businesses.",
   url: "https://tuly.atsync.tech",
   email: "ummahabibatuly2001@gmail.com",
   whatsappNumber: "+8801954664733",
   whatsappUrl: "https://wa.me/8801954664733",
-  location: "Bangladesh",
+  location: "Khulna, Bangladesh",
   replyTime: "Within 24 hours",
   socials: [
     { name: "LinkedIn", url: "https://www.linkedin.com/in/umma-habiba-tuly-cse/" },

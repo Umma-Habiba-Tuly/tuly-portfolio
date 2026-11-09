@@ -23,9 +23,9 @@ export default function Hero() {
           <div className="order-2 md:order-1 md:pb-28">
             <div className="mb-4 h-px w-16 bg-accent" />
             <p className="text-lg font-medium leading-snug sm:text-xl">
-              AI automation engineer
+              AI engineer &amp; full-stack developer
               <br />
-              &amp; founder, {SITE_CONFIG.company}
+              Founder, {SITE_CONFIG.company}
             </p>
           </div>
 
@@ -59,8 +59,8 @@ export default function Hero() {
           </figure>
 
           <p className="order-3 max-w-sm text-base leading-relaxed text-surface/85 md:pb-28 md:text-right">
-            I build the software that answers customer messages, moves lead data between your tools and
-            searches your documents, so people stop doing it by hand.
+            I build AI agents, automations and the web apps and interfaces around them, so people stop doing
+            repetitive work by hand.
           </p>
         </div>
 

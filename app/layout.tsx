@@ -23,7 +23,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
-  title: `${SITE_CONFIG.name} — ${SITE_CONFIG.professionalTitle} & ${SITE_CONFIG.role}`,
+  title: `${SITE_CONFIG.name} — ${SITE_CONFIG.professionalTitle}`,
   description: SITE_CONFIG.description,
   keywords: [
     "AI Automation Engineer",

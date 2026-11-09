@@ -12,8 +12,8 @@ export default function Work() {
           tone="dark"
           title={
             <>
-              One system in <span className="text-accent">production</span>, two smaller ones finished, one on the
-              way.
+              One system in <span className="text-accent">production</span>, a few smaller builds, and more on
+              GitHub.
             </>
           }
         />

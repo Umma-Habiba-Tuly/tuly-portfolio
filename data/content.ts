@@ -32,6 +32,13 @@ export const OTHER_WORK = [
     live: false,
   },
   {
+    name: "Frontend projects",
+    text: "Pioneer Bank, Panda Commerce, Hot Gadgets and Shopping Card. The code is on my GitHub.",
+    stack: "HTML, CSS, JavaScript",
+    status: "On GitHub",
+    live: false,
+  },
+  {
     name: "Hotel receptionist",
     text: "An assistant for guests: rooms, prices, booking questions and requests.",
     stack: "LangChain, FastAPI, WhatsApp",
@@ -49,32 +56,41 @@ export const SERVICES = [
     text: "On your website, Messenger or Instagram. They answer from your own information and pass the rest to your team.",
   },
   {
-    name: "Lead and sales workflows",
-    text: "Capture, check, route, follow up. Your records stay up to date without anyone typing them in.",
+    name: "AI agents and RAG",
+    text: "AI agents, RAG knowledge systems and SaaS products, built end to end, from idea to production.",
   },
   {
-    name: "Search over your documents",
-    text: "Manuals, SOPs, policies. Ask a question and get the answer and where it came from.",
+    name: "Automation",
+    text: "n8n workflows, APIs and webhooks that turn repetitive business work into hands-free systems.",
   },
   {
-    name: "Custom workflows",
-    text: "Any repetitive job that sits between your tools. I'll look at it and tell you honestly if it's worth automating.",
+    name: "Full-stack software",
+    text: "Web apps and custom software, from polished frontends to solid backends.",
+  },
+  {
+    name: "Frontend development",
+    text: "Fast, responsive interfaces built with Next.js, TypeScript and Tailwind CSS.",
+  },
+  {
+    name: "UI/UX design",
+    text: "Clean, intuitive interfaces and dashboards that people enjoy using.",
   },
 ];
 
 export const PROCESS = [
   { n: "1", text: "We talk through the task that eats your time." },
   { n: "2", text: "I build it on the tools you already use." },
-  { n: "3", text: "We test it on real messages before customers see it." },
+  { n: "3", text: "We test it on real use before your customers see it." },
   { n: "4", text: "I keep it running and fix what breaks." },
 ];
 
 export const ABOUT = {
   statement: "I'd rather build one thing that works every day than a demo that looks good once.",
   bio: [
-    "I'm Umma Habiba Tuly, founder of AT Sync. I work mostly in n8n, Qdrant and LangChain, and write the glue in Python and FastAPI.",
-    "So far: customer support for a clothing brand, document search, and lead handling. Now: an AI receptionist for hotels.",
+    "I'm Umma Habiba Tuly, founder of AT Sync, based in Khulna, Bangladesh. I have a BSc in CSE from North Western University (CGPA 3.70 / 4.00).",
+    "I work mostly in n8n, Qdrant and LangChain, write the glue in Python and FastAPI, and build interfaces in Next.js.",
+    "So far: customer support for a clothing brand, document search, lead handling and a handful of web projects. Now: an AI receptionist for hotels.",
   ],
-  tools: "OpenAI, Anthropic, Gemini, LangChain, Qdrant, n8n, Python, FastAPI, PostgreSQL, Docker, Next.js, TypeScript",
-  worksWith: "E-commerce, hospitality, startups, agencies, education",
+  tools: "OpenAI, Anthropic, Gemini, LangChain, Qdrant, n8n, Python, FastAPI, PostgreSQL, Docker, Next.js, TypeScript, Tailwind CSS",
+  worksWith: "AI, SaaS, software and automation collaborations: e-commerce, hospitality, startups, agencies, education",
 };

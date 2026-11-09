@@ -3,9 +3,7 @@ import { PROCESS, SERVICES } from "@/data/content";
 const ICON_PATHS = [
   // chat
   <path key="chat" d="M4 5h16v11H10l-5 4v-4H4z" />,
-  // funnel
-  <path key="funnel" d="M3 5h18l-7 8v6l-4-2v-4z" />,
-  // document + search
+  // document + search (RAG)
   <g key="doc">
     <path d="M6 3h8l4 4v6M6 3v18h6" />
     <circle cx="16" cy="17" r="3" />
@@ -18,6 +16,23 @@ const ICON_PATHS = [
     <circle cx="12" cy="18" r="2" />
     <path d="M7 6h10M6 8l5 8M18 8l-5 8" />
   </g>,
+  // layers (full-stack)
+  <g key="layers">
+    <path d="M12 3 3 8l9 5 9-5z" />
+    <path d="m3 12 9 5 9-5M3 16l9 5 9-5" />
+  </g>,
+  // browser window (frontend)
+  <g key="browser">
+    <rect x="3" y="4" width="18" height="16" rx="2" />
+    <path d="M3 9h18M7 6.5h.01M10 6.5h.01" />
+  </g>,
+  // layout grid (UI/UX)
+  <g key="grid">
+    <rect x="3" y="3" width="8" height="8" rx="1" />
+    <rect x="13" y="3" width="8" height="5" rx="1" />
+    <rect x="13" y="10" width="8" height="11" rx="1" />
+    <rect x="3" y="13" width="8" height="8" rx="1" />
+  </g>,
 ];
 
 export default function Services() {
@@ -27,8 +42,7 @@ export default function Services() {
         <div className="mb-6 h-px w-16 bg-accent" />
         <h2 className="font-display text-4xl font-extrabold tracking-[-0.03em] sm:text-6xl">What I do</h2>
         <p className="mt-4 max-w-xl text-lg leading-snug text-surface/80">
-          Assistants that answer your customers, workflows that move data between your tools, and search that finds
-          the answer inside your own documents.
+          AI agents, automation, full-stack software and the interfaces people actually use.
         </p>
 
         <ul className="mt-12 grid gap-4 md:grid-cols-2">
