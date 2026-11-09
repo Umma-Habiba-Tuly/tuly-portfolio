@@ -111,11 +111,11 @@ export default function Hero() {
             style={{ fontSize: "clamp(2.4rem, 6vw, 4.75rem)" }}
           />
           <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent cta-glow">
-              DM to automate <span aria-hidden="true">→</span>
+            <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent">
+              Message me on WhatsApp
             </a>
             <a href="#work" className="font-semibold underline decoration-surface/50 underline-offset-8 hover:decoration-accent">
-              See what I&apos;ve built
+              See my work
             </a>
           </div>
         </div>

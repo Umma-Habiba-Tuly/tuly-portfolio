@@ -35,7 +35,7 @@ export default function Contact() {
 
         <div className="mt-8 flex justify-center">
           <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent">
-            DM on WhatsApp <span aria-hidden="true">→</span>
+            Message me on WhatsApp
           </a>
         </div>
 
