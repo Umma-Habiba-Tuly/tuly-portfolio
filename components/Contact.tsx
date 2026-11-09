@@ -8,33 +8,36 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="on-deep bg-deep text-surface">
-      <div className="mx-auto max-w-6xl px-5 pb-10 pt-20 sm:px-8 md:pt-28">
-        <p className="label text-accent">04 — Contact</p>
-        <h2 className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
-          Tell me what&apos;s eating your team&apos;s time.
+    <section id="contact" className="on-accent bg-accent text-ink">
+      <div className="mx-auto max-w-[1200px] px-5 pb-8 pt-20 sm:px-8 md:pt-28">
+        <p className="label border-t-2 border-ink pt-5">Contact</p>
+        <h2
+          className="mt-6 max-w-4xl font-bold leading-[0.95] tracking-[-0.04em]"
+          style={{ fontSize: "clamp(2.6rem, 8vw, 6.5rem)" }}
+        >
+          Got a task your team hates doing?
         </h2>
-        <p className="mt-6 max-w-xl text-lg text-surface/80">
-          Send a message about the task you&apos;d like to hand off. I reply {SITE_CONFIG.replyTime?.toLowerCase()}.
+        <p className="mt-6 max-w-xl text-xl leading-snug">
+          Message me what it is. I reply {SITE_CONFIG.replyTime?.toLowerCase()}.
         </p>
 
         <div className="mt-9 flex flex-wrap gap-3">
-          <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent">
-            DM to automate <span aria-hidden="true">→</span>
+          <a href={SITE_CONFIG.whatsappUrl} className="btn btn-ink">
+            DM on WhatsApp <span aria-hidden="true">→</span>
           </a>
-          <a href={`mailto:${SITE_CONFIG.email}`} className="btn btn-outline-light">
+          <a href={`mailto:${SITE_CONFIG.email}`} className="btn btn-outline-ink">
             Send an email
           </a>
         </div>
 
-        <ul className="mt-16 divide-y divide-surface/15 border-y border-surface/15">
+        <ul className="mt-16 divide-y divide-ink/30 border-y-2 border-ink">
           {rows.map((r) => (
             <li key={r.k}>
               <a
                 href={r.href}
-                className="grid gap-1 py-4 transition hover:text-accent sm:grid-cols-[10rem_1fr_auto] sm:items-center sm:gap-6"
+                className="grid gap-1 py-4 transition hover:pl-2 sm:grid-cols-[10rem_1fr_auto] sm:items-center sm:gap-6"
               >
-                <span className="label text-surface/60">{r.k}</span>
+                <span className="label">{r.k}</span>
                 <span className="break-all">{r.v}</span>
                 <span aria-hidden="true" className="hidden sm:block">
                   ↗
@@ -44,7 +47,7 @@ export default function Contact() {
           ))}
         </ul>
 
-        <footer className="mt-12 flex flex-col justify-between gap-3 border-t border-surface/15 pt-6 text-sm text-surface/60 sm:flex-row">
+        <footer className="mt-10 flex flex-col justify-between gap-2 text-sm sm:flex-row">
           <p>
             © {new Date().getFullYear()} {SITE_CONFIG.name} · {SITE_CONFIG.company}
           </p>

@@ -1,97 +1,80 @@
+export const WORK_INTRO = "One system in production, two smaller ones finished, one on the way.";
+
 export const FEATURED_WORK = {
-  label: "Live in production",
-  sector: "E-commerce / Apparel",
-  title: "Wear Inspired — AI customer support",
+  label: "In production",
+  sector: "Clothing brand",
+  name: "Wear Inspired",
+  title: "Customer support on the website, Messenger and Instagram",
   summary:
-    "One assistant that answers sizing, order and policy questions across Website Chat, Facebook Messenger and Instagram, and hands the conversation to a person when it matters.",
-  channels: ["Website Chat", "Messenger", "Instagram"],
-  pipeline: [
-    { step: "01", title: "Message arrives", text: "A webhook receives the message from any of the three channels." },
-    { step: "02", title: "n8n routes it", text: "Session, history and message type are sorted before the AI sees it." },
-    { step: "03", title: "Agent + Qdrant", text: "The agent searches the product and policy knowledge base, reads images if sent, and decides what to do." },
-    { step: "04", title: "Reply or handoff", text: "A grounded answer goes back, or a human takes over with the full context." },
+    "Customers write to the brand on its website, Messenger and Instagram. The assistant I built answers questions about sizing, orders and returns from the brand's own product and policy data. When it can't, a person takes over with the whole conversation in front of them.",
+  flow: [
+    { k: "Arrives", v: "A message comes in from the website, Messenger or Instagram through a webhook." },
+    { k: "Routed", v: "n8n works out who is writing, loads their history and checks whether it is text or an image." },
+    { k: "Answers", v: "The agent looks up product and policy facts in Qdrant, remembers the chat in PostgreSQL, checks the catalogue in Google Sheets and writes the reply." },
+    { k: "Hands off", v: "If it shouldn't answer, a person gets the conversation with everything said so far." },
   ],
-  outcomes: [
-    "Answers customers around the clock on three channels",
-    "One ingestion pipeline instead of three separate inboxes",
-    "Human handoff keeps the whole conversation context",
-  ],
-  stack: ["n8n", "OpenRouter", "Qdrant", "PostgreSQL", "Meta API", "Google Sheets"],
+  builtWith: "n8n, OpenRouter, Qdrant, PostgreSQL, Meta API, Google Sheets",
 };
 
 export const OTHER_WORK = [
   {
-    status: "Completed",
+    name: "Document search",
+    text: "Staff ask a question in plain language and get an answer with a link back to the source document.",
+    stack: "Qdrant, Python, FastAPI",
+    status: "Finished",
     live: false,
-    sector: "Internal operations",
-    title: "Knowledge base (RAG)",
-    text: "Search across company SOPs, manuals and documents, with answers that point back to the source.",
-    stack: ["Qdrant", "Python", "FastAPI"],
   },
   {
-    status: "Completed",
+    name: "Lead handling",
+    text: "New web leads are checked, saved to PostgreSQL and sent to the team straight away.",
+    stack: "n8n, Python, PostgreSQL",
+    status: "Finished",
     live: false,
-    sector: "Process efficiency",
-    title: "Lead & workflow automation",
-    text: "Web leads are validated, stored in PostgreSQL and sent to the team instantly, with no copy-pasting between tools.",
-    stack: ["n8n", "Python", "PostgreSQL"],
   },
   {
+    name: "Hotel receptionist",
+    text: "An assistant for guests: rooms, prices, booking questions and requests.",
+    stack: "LangChain, FastAPI, WhatsApp",
     status: "In development",
     live: true,
-    sector: "Hospitality",
-    title: "Hotel AI receptionist",
-    text: "A guest-facing agent for room availability, pricing, booking questions and service requests.",
-    stack: ["LangChain", "FastAPI", "WhatsApp"],
   },
 ];
 
+export const SERVICES_STATEMENT =
+  "I build assistants that answer your customers, workflows that move data between your tools, and search that finds the answer inside your own documents.";
+
 export const SERVICES = [
   {
-    title: "AI customer support",
-    text: "Assistants that handle questions on your website, Messenger and Instagram, and pass hard cases to your team with context.",
-    tags: ["n8n", "LangChain", "FastAPI"],
+    name: "Support assistants",
+    text: "On your website, Messenger or Instagram. They answer from your own information and pass the rest to your team.",
   },
   {
-    title: "Lead & sales automation",
-    text: "Pipelines that capture, qualify and route inbound leads, update your records and trigger follow-ups on time.",
-    tags: ["n8n", "Python", "PostgreSQL"],
+    name: "Lead and sales workflows",
+    text: "Capture, check, route, follow up. Your records stay up to date without anyone typing them in.",
   },
   {
-    title: "Knowledge bases (RAG)",
-    text: "Your documents made searchable, so your team and your assistants get accurate answers with sources.",
-    tags: ["Qdrant", "Python", "FastAPI"],
+    name: "Search over your documents",
+    text: "Manuals, SOPs, policies. Ask a question and get the answer and where it came from.",
   },
   {
-    title: "Workflow & agent pipelines",
-    text: "Custom multi-step automations and agents for the repetitive work that connects your tools together.",
-    tags: ["n8n", "LangChain", "Docker"],
+    name: "Custom workflows",
+    text: "Any repetitive job that sits between your tools. I'll look at it and tell you honestly if it's worth automating.",
   },
 ];
 
 export const PROCESS = [
-  { step: "01", title: "Listen", text: "We map where time is lost: the questions, the copy-pasting, the handoffs." },
-  { step: "02", title: "Build", text: "A working pipeline on your channels and tools, with logging at every step." },
-  { step: "03", title: "Test", text: "Real messages and edge cases, before customers see anything." },
-  { step: "04", title: "Run & improve", text: "Live monitoring and adjustments based on what people actually ask." },
+  { n: "1", text: "We talk through the task that eats your time." },
+  { n: "2", text: "I build it on the tools you already use." },
+  { n: "3", text: "We test it on real messages before customers see it." },
+  { n: "4", text: "I keep it running and fix what breaks." },
 ];
 
 export const ABOUT = {
+  statement: "I'd rather build one thing that works every day than a demo that looks good once.",
   bio: [
-    "I build practical AI automation for businesses: support assistants, lead pipelines and knowledge systems that remove repetitive work.",
-    "Instead of a generic chatbot, I design the whole flow around how your team already works, using n8n, Qdrant and LangChain.",
+    "I'm Umma Habiba Tuly, founder of AT Sync. I work mostly in n8n, Qdrant and LangChain, and write the glue in Python and FastAPI.",
+    "So far: customer support for a clothing brand, document search, and lead handling. Now: an AI receptionist for hotels.",
   ],
-  principles: [
-    { title: "Reliable first", text: "Systems that keep answering real customers, every day, not just in a demo." },
-    { title: "Easy to inspect", text: "Clear workflows with step-by-step logs, so you can see what happened and why." },
-    { title: "Judged by time saved", text: "Every build starts from a task that costs your team hours." },
-  ],
-  timeline: [
-    "Founded AT Sync for AI automation and agentic workflows",
-    "Built multi-channel AI support for Website Chat, Messenger and Instagram",
-    "Built RAG knowledge systems on Qdrant",
-    "Developing an AI receptionist for hotels",
-  ],
-  industries: ["E-commerce & apparel", "Hospitality", "Startups & SMBs", "Agencies & operations", "Education"],
-  stack: ["OpenAI", "Anthropic", "Gemini", "LangChain", "Qdrant", "n8n", "Python", "FastAPI", "PostgreSQL", "Docker", "Next.js", "TypeScript"],
+  tools: "OpenAI, Anthropic, Gemini, LangChain, Qdrant, n8n, Python, FastAPI, PostgreSQL, Docker, Next.js, TypeScript",
+  worksWith: "E-commerce, hospitality, startups, agencies, education",
 };

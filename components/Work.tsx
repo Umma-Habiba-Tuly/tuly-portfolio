@@ -1,90 +1,64 @@
 import PhoneFrame from "@/components/PhoneFrame";
+import SectionHead from "@/components/SectionHead";
 import { WEAR_INSPIRED_POSTER, WEAR_INSPIRED_VIDEO } from "@/constants/site";
-import { FEATURED_WORK as F, OTHER_WORK } from "@/data/content";
+import { FEATURED_WORK as F, OTHER_WORK, WORK_INTRO } from "@/data/content";
 
 export default function Work() {
   return (
     <section id="work" className="bg-surface text-ink">
-      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 md:py-28">
-        <p className="label text-ink/70">01 — Selected work</p>
-        <h2 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-          Real systems, handling real customers.
-        </h2>
+      <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
+        <SectionHead label="Work" title={WORK_INTRO} />
 
-        <article className="on-deep mt-12 overflow-hidden rounded-[2rem] bg-deep text-surface">
-          <div className="grid gap-12 p-7 sm:p-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14 lg:p-14">
+        <article className="on-primary mt-14 bg-primary text-surface">
+          <div className="grid gap-12 p-7 sm:p-10 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16 lg:p-14">
             <div>
-              <p className="label flex flex-wrap items-center gap-x-3 gap-y-2 text-surface/70">
-                <span className="inline-flex items-center gap-2 rounded-full bg-accent px-3 py-1 text-[0.65rem] text-ink">
-                  {F.label}
-                </span>
-                {F.sector}
+              <p className="label">
+                {F.label} · {F.sector}
               </p>
-              <h3 className="mt-5 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">{F.title}</h3>
-              <p className="mt-4 max-w-xl text-surface/80">{F.summary}</p>
+              <h3 className="mt-5 text-6xl font-bold leading-[0.95] tracking-[-0.04em] sm:text-7xl">{F.name}</h3>
+              <p className="mt-4 text-xl font-medium leading-snug sm:text-2xl">{F.title}</p>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed">{F.summary}</p>
 
-              <ol className="mt-9 grid gap-px overflow-hidden rounded-2xl bg-surface/15 sm:grid-cols-2">
-                {F.pipeline.map((p) => (
-                  <li key={p.step} className="bg-deep p-5">
-                    <span className="label text-accent">{p.step}</span>
-                    <h4 className="mt-2 font-semibold">{p.title}</h4>
-                    <p className="mt-1 text-sm leading-relaxed text-surface/70">{p.text}</p>
-                  </li>
+              <dl className="mt-10 border-t border-surface/50">
+                {F.flow.map((row) => (
+                  <div key={row.k} className="grid gap-1 border-b border-surface/50 py-4 sm:grid-cols-[7.5rem_1fr] sm:gap-6">
+                    <dt className="label pt-0.5">{row.k}</dt>
+                    <dd className="leading-relaxed">{row.v}</dd>
+                  </div>
                 ))}
-              </ol>
+              </dl>
 
-              <ul className="mt-8 space-y-3">
-                {F.outcomes.map((o) => (
-                  <li key={o} className="flex gap-3 text-surface/90">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                    {o}
-                  </li>
-                ))}
-              </ul>
-
-              <ul className="mt-8 flex flex-wrap gap-2">
-                {F.stack.map((t) => (
-                  <li key={t} className="label normal-case rounded-full border border-surface/30 px-3 py-1.5 text-[0.7rem] text-surface/85">
-                    {t}
-                  </li>
-                ))}
-              </ul>
+              <p className="mt-6 text-sm leading-relaxed">
+                <span className="label mr-3">Built with</span>
+                <span className="mono">{F.builtWith}</span>
+              </p>
             </div>
 
-            <div className="flex flex-col items-center justify-center gap-5">
+            <div className="flex items-center justify-center lg:justify-end">
               <PhoneFrame videoSrc={WEAR_INSPIRED_VIDEO} poster={WEAR_INSPIRED_POSTER} />
-              <p className="label text-center text-surface/60">{F.channels.join(" · ")}</p>
             </div>
           </div>
         </article>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
+        <ul className="mt-14 border-t-2 border-ink">
           {OTHER_WORK.map((w) => (
-            <article key={w.title} className="flex flex-col rounded-3xl border border-ink/15 bg-white/50 p-7">
-              <div className="flex items-center justify-between gap-3">
-                <span className="label text-ink/60">{w.sector}</span>
+            <li
+              key={w.name}
+              className="grid gap-3 border-b border-ink/25 py-7 md:grid-cols-[1fr_1.3fr_1fr_10rem] md:items-baseline md:gap-8"
+            >
+              <h3 className="text-2xl font-bold tracking-tight">{w.name}</h3>
+              <p className="leading-relaxed text-ink/80">{w.text}</p>
+              <p className="mono text-sm text-ink/70">{w.stack}</p>
+              <p className="label flex items-center gap-2 whitespace-nowrap md:justify-end">
                 <span
-                  className={
-                    w.live
-                      ? "label rounded-full bg-accent px-3 py-1 text-[0.65rem] text-ink"
-                      : "label rounded-full border border-ink/30 px-3 py-1 text-[0.65rem] text-ink/70"
-                  }
-                >
-                  {w.status}
-                </span>
-              </div>
-              <h3 className="mt-5 text-xl font-semibold tracking-tight">{w.title}</h3>
-              <p className="mt-3 flex-1 text-ink/75">{w.text}</p>
-              <ul className="mt-6 flex flex-wrap gap-2">
-                {w.stack.map((t) => (
-                  <li key={t} className="label normal-case rounded-full bg-primary px-3 py-1.5 text-[0.7rem] text-surface">
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </article>
+                  className={`h-2 w-2 rounded-full ${w.live ? "bg-primary" : "border border-ink"}`}
+                  aria-hidden="true"
+                />
+                {w.status}
+              </p>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
