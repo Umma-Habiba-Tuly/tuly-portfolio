@@ -75,25 +75,45 @@ export default function Work() {
           </div>
         </Reveal>
 
-        <ul className="mt-20 border-t-2 border-surface/50">
-          {OTHER_WORK.map((w, i) => (
-            <Reveal
-              as="li"
-              delay={i * 80}
-              key={w.name}
-              className="grid gap-3 border-b border-surface/25 py-7 md:grid-cols-[1fr_1.3fr_1fr_10rem] md:items-baseline md:gap-8"
-            >
-              <h3 className="font-display text-2xl font-bold tracking-tight">{w.name}</h3>
-              <p className="leading-relaxed text-surface/85">{w.text}</p>
-              <p className="mono text-sm text-surface/75">{w.stack}</p>
-              <p className="label flex items-center gap-2 whitespace-nowrap md:justify-end">
-                <span
-                  className={`h-2 w-2 rounded-full ${w.live ? "bg-accent" : "border border-surface"}`}
-                  aria-hidden="true"
-                />
-                {w.status}
-              </p>
-            </Reveal>
+        <div className="mt-20 grid gap-4 md:grid-cols-6">
+          {OTHER_WORK.map((w, i) => {
+            const looks = [
+              "md:col-span-3 bg-gradient-to-br from-primary to-deep text-surface",
+              "md:col-span-3 bg-accent text-ink",
+              "md:col-span-2 bg-surface text-ink",
+              "md:col-span-4 bg-ink text-surface ring-1 ring-surface/15",
+            ];
+            return (
+              <Reveal
+                key={w.name}
+                delay={i * 80}
+                className={`flex min-h-[15rem] flex-col justify-between rounded-[1.75rem] p-7 ${looks[i % looks.length]}`}
+              >
+                <div>
+                  <p className="inline-flex items-center gap-2 text-sm font-semibold">
+                    <span
+                      className={`h-2 w-2 rounded-full ${w.live ? "bg-accent ring-2 ring-accent/40" : "border border-current"}`}
+                      aria-hidden="true"
+                    />
+                    {w.status}
+                  </p>
+                  <h3 className="font-display mt-4 text-3xl font-extrabold leading-tight tracking-[-0.02em]">{w.name}</h3>
+                  <p className="mt-3 max-w-md leading-snug opacity-85">{w.text}</p>
+                </div>
+                <p className="mt-6 text-sm font-medium opacity-75">{w.stack}</p>
+              </Reveal>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="marquee mt-4 overflow-hidden bg-accent py-3 text-ink" aria-hidden="true">
+        <ul className="marquee-track flex w-max gap-8 text-sm font-bold uppercase tracking-[0.16em]">
+          {[...Array(12)].map((_, i) => (
+            <li key={i} className="flex items-center gap-8">
+              Message me
+              <span>✦</span>
+            </li>
           ))}
         </ul>
       </div>
