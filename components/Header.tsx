@@ -39,19 +39,28 @@ export default function Header() {
           <span className="font-display text-lg font-bold tracking-tight">{SITE_CONFIG.name}</span>
         </a>
 
-        <nav aria-label="Main" className="hidden items-center gap-2 md:flex">
+        <nav
+          aria-label="Main"
+          className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 rounded-full border border-surface/25 bg-surface/5 p-1.5 md:flex"
+        >
           {NAV_ITEMS.map((item, i) => (
             <a
               key={item.href}
               href={item.href}
               style={{ animationDelay: `${150 + i * 90}ms` }}
-              className="anim-pop inline-flex items-center gap-2 rounded-full border border-surface/25 bg-surface/5 py-1.5 pl-2 pr-4 text-sm font-medium transition hover:border-accent hover:text-accent"
+              className="anim-pop rounded-full px-5 py-2 text-sm font-medium transition hover:bg-surface/10 hover:text-accent"
             >
-              <PillIcon />
               {item.label}
             </a>
           ))}
         </nav>
+
+        <a
+          href={SITE_CONFIG.whatsappUrl}
+          className="hidden rounded-full border border-accent/70 px-5 py-2 text-sm font-semibold text-accent transition hover:bg-accent hover:text-ink md:inline-flex"
+        >
+          Message me
+        </a>
 
         <details className="relative md:hidden">
           <summary className="flex cursor-pointer list-none rounded-full border border-surface/40 px-4 py-2 text-sm font-medium [&::-webkit-details-marker]:hidden">

@@ -10,10 +10,11 @@ type TypewriterProps = {
   speed?: number;
   className?: string;
   style?: React.CSSProperties;
+  as?: "h1" | "h2";
 };
 
 /** Types the text out once. The full text is always in the layout, so nothing jumps. */
-export default function Typewriter({ parts, startDelay = 1300, speed = 70, className = "", style }: TypewriterProps) {
+export default function Typewriter({ parts, startDelay = 1300, speed = 70, className = "", style, as = "h2" }: TypewriterProps) {
   const full = parts.map((p) => p.text).join("");
   const [count, setCount] = useState(0);
 
@@ -37,9 +38,10 @@ export default function Typewriter({ parts, startDelay = 1300, speed = 70, class
     };
   }, [full.length, speed, startDelay]);
 
+  const Tag = as;
   let used = 0;
   return (
-    <h2 className={className} style={style} aria-label={full}>
+    <Tag className={className} style={style} aria-label={full}>
       {parts.map((p, idx) => {
         const visible = Math.max(0, Math.min(p.text.length, count - used));
         used += p.text.length;
@@ -54,6 +56,6 @@ export default function Typewriter({ parts, startDelay = 1300, speed = 70, class
         aria-hidden="true"
         className={`ml-1 inline-block h-[0.8em] w-[0.06em] translate-y-[0.08em] bg-accent ${count >= full.length ? "caret-blink" : ""}`}
       />
-    </h2>
+    </Tag>
   );
 }

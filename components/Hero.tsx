@@ -4,18 +4,21 @@ import Typewriter from "@/components/Typewriter";
 import { SITE_CONFIG } from "@/constants/site";
 
 /**
- * Hero image. Today this is the portrait, cropped into an arch.
- * Swap for a transparent 3D avatar PNG (e.g. "/images/avatar.png") when ready.
+ * Hero avatar. Swap for a looping video (e.g. "/videos/avatar.webm") by setting HERO_VIDEO.
  */
-const HERO_IMAGE = "/images/tuly-portrait.jpg";
-
-/**
- * Animated avatar. Set to a looping video with a transparent or dark background
- * (e.g. "/videos/avatar.webm") and it replaces the portrait.
- */
+const HERO_IMAGE = "/images/avatar.webp";
 const HERO_VIDEO = "";
 
 const TOOLS = ["n8n", "Qdrant", "PostgreSQL", "LangChain", "FastAPI", "Docker"];
+
+function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" rx="2.5" />
+      <path d="m4 7 8 6 8-6" />
+    </svg>
+  );
+}
 
 export default function Hero() {
   return (
@@ -23,82 +26,105 @@ export default function Hero() {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(55% 45% at 50% 34%, rgba(16,132,126,0.45), transparent 70%)" }}
+        style={{
+          background:
+            "radial-gradient(55% 75% at 78% 62%, rgba(16,132,126,0.55), transparent 70%), linear-gradient(100deg, #0a1f1d 0%, #0e2e2b 55%, #0e2e2b 100%)",
+        }}
       />
 
-      <div className="relative mx-auto max-w-[1200px] px-5 pt-8 sm:px-8 md:pt-10">
-        <div className="text-center">
-          <Typewriter
-            parts={[{ text: "Automate the " }, { text: "busywork.", className: "text-accent" }]}
-            startDelay={500}
-            speed={60}
-            className="font-display mx-auto font-extrabold leading-[1] tracking-[-0.04em]"
-            style={{ fontSize: "clamp(2.2rem, 5.5vw, 4.25rem)" }}
-          />
-        </div>
-
-        <div className="mt-8 grid items-end gap-10 md:mt-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
-          <div className="anim-fade order-2 md:order-1 md:pb-28" style={{ animationDelay: "900ms" }}>
-            <div className="mb-4 h-px w-16 bg-accent" />
-            <p className="text-lg font-medium leading-snug sm:text-xl">
-              AI engineer &amp; full-stack developer
-              <br />
-              Founder, {SITE_CONFIG.company}
+      <div className="relative mx-auto max-w-[1200px] px-5 pt-8 sm:px-8 md:pt-8">
+        <div className="grid items-center gap-8 md:grid-cols-[1.05fr_0.95fr] md:gap-4">
+          <div className="pb-4 md:pb-10">
+            <p className="anim-rise text-xl text-surface/85 sm:text-2xl" style={{ animationDelay: "100ms" }}>
+              Hey, I&apos;m <span className="font-bold text-accent">Tuly</span>
+              <span className="sr-only"> (Umma Habiba Tuly)</span>
             </p>
+
+            <Typewriter
+              as="h1"
+              parts={[{ text: "Automate the " }, { text: "busywork.", className: "text-accent" }]}
+              startDelay={450}
+              speed={55}
+              className="font-display mt-3 max-w-[11ch] font-bold leading-[1.02] tracking-[-0.035em]"
+              style={{ fontSize: "clamp(2.8rem, 6vw, 4.9rem)" }}
+            />
+
+            <p className="anim-fade mt-5 text-base font-medium text-surface/70 sm:text-lg" style={{ animationDelay: "800ms" }}>
+              AI engineer &amp; full-stack developer · Founder, {SITE_CONFIG.company}
+            </p>
+            <p className="anim-fade mt-3 max-w-md text-base leading-relaxed text-surface/85 sm:text-lg" style={{ animationDelay: "900ms" }}>
+              I build AI agents, automations and the web apps and interfaces around them, so people stop doing
+              repetitive work by hand.
+            </p>
+
+            <div className="anim-fade mt-8 flex items-center gap-3" style={{ animationDelay: "1000ms" }}>
+              <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent !rounded-full">
+                Message me on WhatsApp
+              </a>
+              <a
+                href={`mailto:${SITE_CONFIG.email}`}
+                aria-label="Send an email"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-surface/35 transition hover:border-accent hover:text-accent"
+              >
+                <MailIcon />
+              </a>
+            </div>
+
+            <div className="anim-fade mt-8 h-px max-w-md bg-surface/20" style={{ animationDelay: "1100ms" }} />
+
+            <a
+              href="#work"
+              className="anim-fade group mt-6 block max-w-sm rounded-3xl border border-surface/15 bg-surface/[0.07] p-5 backdrop-blur-md transition hover:border-accent/60"
+              style={{ animationDelay: "1200ms" }}
+            >
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
+                <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
+                Live in production
+              </span>
+              <span className="mt-2 block leading-snug text-surface/90">
+                Wear Inspired: an AI assistant that answers customers on website chat, Messenger and Instagram.
+              </span>
+              <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold">
+                See the case
+                <span aria-hidden="true" className="transition group-hover:translate-x-0.5">
+                  →
+                </span>
+              </span>
+            </a>
           </div>
 
-          <figure className="anim-rise relative order-1 mx-auto w-[17rem] sm:w-[21rem] md:order-2" style={{ animationDelay: "150ms" }}>
+          <div className="anim-rise relative mx-auto w-full max-w-[30rem]" style={{ animationDelay: "250ms" }}>
             <MouseParallax>
-            <div
-              className={`relative aspect-[4/5] overflow-hidden ${HERO_VIDEO ? "" : "rounded-t-[999px] bg-primary"}`}
-              style={{
-                maskImage: "linear-gradient(to bottom, #000 62%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to bottom, #000 62%, transparent 100%)",
-              }}
-            >
-              {HERO_VIDEO ? (
-                <video
-                  src={HERO_VIDEO}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="h-full w-full object-contain object-bottom"
-                />
-              ) : (
-                <Image
-                  src={HERO_IMAGE}
-                  alt={`Portrait of ${SITE_CONFIG.name}`}
-                  fill
-                  priority
-                  sizes="(min-width: 640px) 336px, 272px"
-                  className="object-cover object-top"
-                />
-              )}
-            </div>
-            </MouseParallax>
-
-            <h1 className="anim-rise wordmark-drift absolute bottom-0 left-1/2 z-10 w-max -translate-x-1/2 translate-y-[34%] whitespace-nowrap text-center leading-[0.8]" style={{ animationDelay: "550ms" }}>
-              <span className="block text-base font-bold tracking-[0.3em] text-accent sm:text-lg">UMMA HABIBA</span>
-              <span
-                className="font-display block bg-gradient-to-b from-surface via-surface to-surface/10 bg-clip-text font-extrabold tracking-[-0.05em] text-transparent"
-                style={{ fontSize: "clamp(6rem, 22vw, 15rem)" }}
+              <div
+                className="relative aspect-[784/802]"
+                style={{
+                  maskImage: "linear-gradient(to right, transparent 0%, #000 22%, #000 82%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 24%, #000 92%, transparent 100%)",
+                  WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 22%, #000 82%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 24%, #000 92%, transparent 100%)",
+                  maskComposite: "intersect",
+                  WebkitMaskComposite: "source-in",
+                }}
               >
-                Tuly
-              </span>
-            </h1>
-          </figure>
-
-          <p className="anim-fade order-3 max-w-sm text-base leading-relaxed text-surface/85 md:pb-28 md:text-right" style={{ animationDelay: "1000ms" }}>
-            I build AI agents, automations and the web apps and interfaces around them, so people stop doing
-            repetitive work by hand.
-          </p>
+                {HERO_VIDEO ? (
+                  <video src={HERO_VIDEO} autoPlay muted loop playsInline className="h-full w-full object-contain object-bottom" />
+                ) : (
+                  <Image
+                    src={HERO_IMAGE}
+                    alt={`Illustrated avatar of ${SITE_CONFIG.name}`}
+                    fill
+                    priority
+                    sizes="(min-width: 768px) 34rem, 90vw"
+                    className="object-contain object-bottom"
+                  />
+                )}
+              </div>
+            </MouseParallax>
+          </div>
         </div>
 
         <div
-          className="marquee anim-fade mt-36 overflow-hidden md:mt-44"
+          className="marquee anim-fade mt-6 overflow-hidden pb-10 md:mt-2 md:pb-14"
           style={{
-            animationDelay: "1200ms",
+            animationDelay: "1300ms",
             maskImage: "linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)",
             WebkitMaskImage: "linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)",
           }}
@@ -111,17 +137,6 @@ export default function Hero() {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="mt-12 pb-16 md:mt-14 md:pb-24">
-                    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-            <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent">
-              Message me on WhatsApp
-            </a>
-            <a href="#work" className="font-semibold underline decoration-surface/50 underline-offset-8 hover:decoration-accent">
-              See my work
-            </a>
-          </div>
         </div>
       </div>
     </section>
