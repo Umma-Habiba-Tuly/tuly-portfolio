@@ -1,13 +1,22 @@
 import PhoneFrame from "@/components/PhoneFrame";
 import SectionHead from "@/components/SectionHead";
 import { WEAR_INSPIRED_POSTER, WEAR_INSPIRED_VIDEO } from "@/constants/site";
-import { FEATURED_WORK as F, OTHER_WORK, WORK_INTRO } from "@/data/content";
+import { FEATURED_WORK as F, OTHER_WORK } from "@/data/content";
 
 export default function Work() {
   return (
     <section id="work" className="on-deep bg-deep text-surface">
       <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
-        <SectionHead label="Work" title={WORK_INTRO} tone="dark" />
+        <SectionHead
+          label="Work"
+          tone="dark"
+          title={
+            <>
+              One system in <span className="text-accent">production</span>, two smaller ones finished, one on the
+              way.
+            </>
+          }
+        />
 
         <article className="mt-14">
           <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
