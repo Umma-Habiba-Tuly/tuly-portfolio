@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
+
 type SectionHeadProps = {
   label: string;
-  title: string;
+  title: ReactNode;
   tone?: "light" | "dark";
 };
 

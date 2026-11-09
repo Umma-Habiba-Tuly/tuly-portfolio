@@ -1,17 +1,28 @@
 import SectionHead from "@/components/SectionHead";
-import { PROCESS, SERVICES, SERVICES_STATEMENT } from "@/data/content";
+import { PROCESS, SERVICES } from "@/data/content";
 
 export default function Services() {
   return (
     <section id="services" className="on-deep bg-deep text-surface">
       <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
-        <SectionHead label="Services" title={SERVICES_STATEMENT} tone="dark" />
+        <SectionHead
+          label="Services"
+          tone="dark"
+          title={
+            <>
+              I build <span className="text-accent">assistants</span> that answer your customers,{" "}
+              <span className="text-accent">workflows</span> that move data between your tools, and{" "}
+              <span className="text-accent">search</span> that finds the answer inside your own documents.
+            </>
+          }
+        />
 
-        <div className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2">
-          {SERVICES.map((s) => (
-            <div key={s.name} className="border-t border-surface/30 pt-5">
-              <h3 className="font-display text-2xl font-bold tracking-tight">{s.name}</h3>
-              <p className="mt-3 max-w-md leading-relaxed text-surface/85">{s.text}</p>
+        <div className="mt-14 grid gap-4 md:grid-cols-2">
+          {SERVICES.map((s, i) => (
+            <div key={s.name} className="border-t-2 border-primary bg-primary/15 p-6 sm:p-8">
+              <span className="font-display text-lg font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="font-display mt-3 text-2xl font-bold tracking-tight">{s.name}</h3>
+              <p className="mt-3 max-w-md leading-relaxed text-surface/90">{s.text}</p>
             </div>
           ))}
         </div>
