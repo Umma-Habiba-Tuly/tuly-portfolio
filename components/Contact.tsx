@@ -1,53 +1,62 @@
 import { SITE_CONFIG } from "@/constants/site";
 
+function PillIcon() {
+  return (
+    <span
+      className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[0.7rem] font-bold leading-none text-ink"
+      aria-hidden="true"
+    >
+      ↗
+    </span>
+  );
+}
+
 export default function Contact() {
-  const rows = [
-    { k: "Email", v: SITE_CONFIG.email, href: `mailto:${SITE_CONFIG.email}` },
-    { k: "WhatsApp", v: SITE_CONFIG.whatsappNumber, href: SITE_CONFIG.whatsappUrl },
-    ...SITE_CONFIG.socials.map((s) => ({ k: s.name, v: s.url.replace(/^https?:\/\/(www\.)?/, ""), href: s.url })),
+  const links = [
+    { k: "Email", href: `mailto:${SITE_CONFIG.email}` },
+    { k: "WhatsApp", href: SITE_CONFIG.whatsappUrl },
+    ...SITE_CONFIG.socials.map((s) => ({ k: s.name, href: s.url })),
   ];
 
   return (
     <section id="contact" className="on-deep bg-deep text-surface">
-      <div className="mx-auto max-w-[1200px] px-5 pb-8 pt-20 sm:px-8 md:pt-28">
-        <p className="label border-t-2 border-surface/30 pt-5">Contact</p>
+      <div className="mx-auto max-w-[1200px] px-5 pb-10 pt-20 text-center sm:px-8 md:pt-28">
+        <div className="mx-auto mb-6 h-px w-16 bg-accent" />
         <h2
-          className="font-display mt-6 max-w-4xl font-extrabold leading-[0.95] tracking-[-0.04em]"
-          style={{ fontSize: "clamp(2.6rem, 8vw, 6.5rem)" }}
+          className="font-display mx-auto max-w-3xl font-extrabold leading-[1.02] tracking-[-0.03em]"
+          style={{ fontSize: "clamp(2.4rem, 6.5vw, 4.75rem)" }}
         >
           Got a task your team <span className="text-accent">hates doing?</span>
         </h2>
-        <p className="mt-6 max-w-xl text-xl leading-snug">
+        <p className="mx-auto mt-5 max-w-lg text-lg text-surface/80">
           Message me what it is. I reply {SITE_CONFIG.replyTime?.toLowerCase()}.
         </p>
 
-        <div className="mt-9 flex flex-wrap gap-3">
+        <div className="mt-8 flex justify-center">
           <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent">
             DM on WhatsApp <span aria-hidden="true">→</span>
           </a>
-          <a href={`mailto:${SITE_CONFIG.email}`} className="btn btn-outline-light">
-            Send an email
-          </a>
         </div>
 
-        <ul className="mt-16 divide-y divide-surface/20 border-y-2 border-surface/30">
-          {rows.map((r) => (
-            <li key={r.k}>
+        <p className="mt-16 text-lg font-semibold">Contact me</p>
+        <ul className="mx-auto mt-4 flex max-w-2xl flex-wrap justify-center gap-3 rounded-3xl border border-surface/20 bg-surface/5 p-4">
+          {links.map((l) => (
+            <li key={l.k}>
               <a
-                href={r.href}
-                className="grid gap-1 py-4 transition hover:pl-2 sm:grid-cols-[10rem_1fr_auto] sm:items-center sm:gap-6"
+                href={l.href}
+                className="inline-flex items-center gap-2 rounded-full border border-surface/25 py-1.5 pl-2 pr-4 text-sm font-medium transition hover:border-accent hover:text-accent"
               >
-                <span className="label">{r.k}</span>
-                <span className="break-all">{r.v}</span>
-                <span aria-hidden="true" className="hidden sm:block">
-                  ↗
-                </span>
+                <PillIcon />
+                {l.k}
               </a>
             </li>
           ))}
         </ul>
+        <p className="mt-5 text-sm text-surface/70">
+          {SITE_CONFIG.email} · {SITE_CONFIG.whatsappNumber}
+        </p>
 
-        <footer className="mt-10 flex flex-col justify-between gap-2 text-sm sm:flex-row">
+        <footer className="mt-14 flex flex-col items-center justify-between gap-2 border-t border-surface/15 pt-6 text-sm text-surface/60 sm:flex-row">
           <p>
             © {new Date().getFullYear()} {SITE_CONFIG.name} · {SITE_CONFIG.company}
           </p>

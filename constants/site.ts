@@ -24,7 +24,7 @@ export const SITE_CONFIG = {
 };
 
 export const NAV_ITEMS = [
-  { label: "Services", href: "#services" },
+  { label: "What I do", href: "#services" },
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
