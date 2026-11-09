@@ -26,8 +26,18 @@ export default function Hero() {
         style={{ background: "radial-gradient(55% 45% at 50% 34%, rgba(16,132,126,0.45), transparent 70%)" }}
       />
 
-      <div className="relative mx-auto max-w-[1200px] px-5 pt-10 sm:px-8 md:pt-14">
-        <div className="grid items-end gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
+      <div className="relative mx-auto max-w-[1200px] px-5 pt-8 sm:px-8 md:pt-10">
+        <div className="text-center">
+          <Typewriter
+            parts={[{ text: "Automate the " }, { text: "busywork.", className: "text-accent" }]}
+            startDelay={500}
+            speed={60}
+            className="font-display mx-auto font-extrabold leading-[1] tracking-[-0.04em]"
+            style={{ fontSize: "clamp(2.2rem, 5.5vw, 4.25rem)" }}
+          />
+        </div>
+
+        <div className="mt-8 grid items-end gap-10 md:mt-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
           <div className="anim-fade order-2 md:order-1 md:pb-28" style={{ animationDelay: "900ms" }}>
             <div className="mb-4 h-px w-16 bg-accent" />
             <p className="text-lg font-medium leading-snug sm:text-xl">
@@ -103,14 +113,8 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className="mt-14 pb-16 md:mt-20 md:pb-24">
-          <div className="mb-6 h-px w-16 bg-accent" />
-          <Typewriter
-            parts={[{ text: "Automate the " }, { text: "busywork.", className: "text-accent" }]}
-            className="font-display max-w-4xl font-extrabold leading-[0.98] tracking-[-0.04em]"
-            style={{ fontSize: "clamp(2.4rem, 6vw, 4.75rem)" }}
-          />
-          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+        <div className="mt-12 pb-16 md:mt-14 md:pb-24">
+                    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
             <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent">
               Message me on WhatsApp
             </a>
