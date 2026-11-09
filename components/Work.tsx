@@ -5,12 +5,12 @@ import { FEATURED_WORK as F, OTHER_WORK, WORK_INTRO } from "@/data/content";
 
 export default function Work() {
   return (
-    <section id="work" className="bg-surface text-ink">
+    <section id="work" className="on-deep bg-deep text-surface">
       <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
-        <SectionHead label="Work" title={WORK_INTRO} />
+        <SectionHead label="Work" title={WORK_INTRO} tone="dark" />
 
-        <article className="on-deep mt-14 bg-deep text-surface">
-          <div className="grid gap-12 p-7 sm:p-10 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16 lg:p-14">
+        <article className="mt-14">
+          <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
             <div>
               <p className="label text-accent">
                 {F.label} · {F.sector}
@@ -40,18 +40,18 @@ export default function Work() {
           </div>
         </article>
 
-        <ul className="mt-14 border-t-2 border-ink">
+        <ul className="mt-20 border-t-2 border-surface/50">
           {OTHER_WORK.map((w) => (
             <li
               key={w.name}
-              className="grid gap-3 border-b border-ink/25 py-7 md:grid-cols-[1fr_1.3fr_1fr_10rem] md:items-baseline md:gap-8"
+              className="grid gap-3 border-b border-surface/25 py-7 md:grid-cols-[1fr_1.3fr_1fr_10rem] md:items-baseline md:gap-8"
             >
               <h3 className="font-display text-2xl font-bold tracking-tight">{w.name}</h3>
-              <p className="leading-relaxed text-ink/80">{w.text}</p>
-              <p className="mono text-sm text-ink/70">{w.stack}</p>
+              <p className="leading-relaxed text-surface/85">{w.text}</p>
+              <p className="mono text-sm text-surface/75">{w.stack}</p>
               <p className="label flex items-center gap-2 whitespace-nowrap md:justify-end">
                 <span
-                  className={`h-2 w-2 rounded-full ${w.live ? "bg-primary" : "border border-ink"}`}
+                  className={`h-2 w-2 rounded-full ${w.live ? "bg-accent" : "border border-surface"}`}
                   aria-hidden="true"
                 />
                 {w.status}

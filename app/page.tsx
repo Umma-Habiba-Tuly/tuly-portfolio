@@ -10,8 +10,8 @@ export default function Home() {
     <main className="min-h-screen overflow-x-clip">
       <Header />
       <Hero />
-      <Work />
       <Services />
+      <Work />
       <About />
       <Contact />
     </main>
