@@ -1,56 +1,91 @@
 import Image from "next/image";
 import { SITE_CONFIG } from "@/constants/site";
 
+/**
+ * Hero image. Today this is the portrait, cropped into an arch.
+ * Swap for a transparent 3D avatar PNG (e.g. "/images/avatar.png") when ready.
+ */
+const HERO_IMAGE = "/images/tuly-portrait.jpg";
+
+const TOOLS = ["n8n", "Qdrant", "PostgreSQL", "LangChain", "FastAPI", "Docker"];
+
 export default function Hero() {
   return (
-    <section id="top" className="on-deep bg-deep text-surface">
-      <div className="mx-auto max-w-[1200px] px-5 pb-16 pt-8 sm:px-8 md:pb-24">
-        <p className="label flex justify-between gap-4 text-surface/70">
-          <span>AI automation · {SITE_CONFIG.company}</span>
-          <span>{SITE_CONFIG.location}</span>
-        </p>
+    <section id="top" className="on-deep relative overflow-hidden bg-deep text-surface">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{ background: "radial-gradient(55% 45% at 50% 34%, rgba(16,132,126,0.45), transparent 70%)" }}
+      />
 
-        <h1
-          className="font-display mt-8 font-extrabold leading-[0.9] tracking-[-0.04em] md:mt-12"
-          style={{ fontSize: "clamp(3.4rem, 12.5vw, 10rem)" }}
-        >
-          Automate
-          <br className="hidden sm:block" /> the <span className="text-accent">busywork.</span>
-        </h1>
-
-        <div className="mt-12 grid gap-10 border-t border-surface/30 pt-8 md:mt-16 md:grid-cols-[1fr_auto] md:items-end md:gap-16">
-          <div>
-            <p className="max-w-xl text-xl leading-snug sm:text-2xl">
-              I&apos;m Tuly. I build the software that answers customer messages, moves lead data between your
-              tools and searches your documents, so people stop doing it by hand.
+      <div className="relative mx-auto max-w-[1200px] px-5 pt-10 sm:px-8 md:pt-14">
+        <div className="grid items-end gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
+          <div className="order-2 md:order-1 md:pb-28">
+            <div className="mb-4 h-px w-16 bg-accent" />
+            <p className="text-lg font-medium leading-snug sm:text-xl">
+              AI automation engineer
+              <br />
+              &amp; founder, {SITE_CONFIG.company}
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent">
-                DM to automate <span aria-hidden="true">→</span>
-              </a>
-              <a href="#work" className="label underline decoration-surface/50 underline-offset-8 font-semibold hover:decoration-accent">
-                See what I&apos;ve built
-              </a>
-            </div>
           </div>
 
-          <figure className="w-44 shrink-0 sm:w-52">
-            <div className="relative aspect-[4/5] overflow-hidden bg-primary">
+          <figure className="relative order-1 mx-auto w-[17rem] sm:w-[21rem] md:order-2">
+            <div
+              className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] bg-primary"
+              style={{
+                maskImage: "linear-gradient(to bottom, #000 62%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, #000 62%, transparent 100%)",
+              }}
+            >
               <Image
-                src="/images/tuly-portrait.jpg"
+                src={HERO_IMAGE}
                 alt={`Portrait of ${SITE_CONFIG.name}`}
                 fill
                 priority
-                sizes="208px"
+                sizes="(min-width: 640px) 336px, 272px"
                 className="object-cover object-top"
               />
             </div>
-            <figcaption className="label mt-3 text-surface/70">
-              {SITE_CONFIG.name}
-              <br />
-              Founder, {SITE_CONFIG.company}
-            </figcaption>
+
+            <h1 className="absolute bottom-0 left-1/2 z-10 w-max -translate-x-1/2 translate-y-[34%] whitespace-nowrap text-center leading-[0.8]">
+              <span className="block text-base font-bold tracking-[0.3em] text-accent sm:text-lg">UMMA HABIBA</span>
+              <span
+                className="font-display block bg-gradient-to-b from-surface via-surface to-surface/10 bg-clip-text font-extrabold tracking-[-0.05em] text-transparent"
+                style={{ fontSize: "clamp(6rem, 22vw, 15rem)" }}
+              >
+                Tuly
+              </span>
+            </h1>
           </figure>
+
+          <p className="order-3 max-w-sm text-base leading-relaxed text-surface/85 md:pb-28 md:text-right">
+            I build the software that answers customer messages, moves lead data between your tools and
+            searches your documents, so people stop doing it by hand.
+          </p>
+        </div>
+
+        <ul className="mt-36 flex flex-wrap justify-center gap-x-10 gap-y-2 text-xl font-bold tracking-tight text-surface/25 sm:text-2xl md:mt-44">
+          {TOOLS.map((t) => (
+            <li key={t}>{t}</li>
+          ))}
+        </ul>
+
+        <div className="mt-14 pb-16 md:mt-20 md:pb-24">
+          <div className="mb-6 h-px w-16 bg-accent" />
+          <h2
+            className="font-display max-w-4xl font-extrabold leading-[0.98] tracking-[-0.04em]"
+            style={{ fontSize: "clamp(2.4rem, 6vw, 4.75rem)" }}
+          >
+            Automate the <span className="text-accent">busywork.</span>
+          </h2>
+          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent">
+              DM to automate <span aria-hidden="true">→</span>
+            </a>
+            <a href="#work" className="font-semibold underline decoration-surface/50 underline-offset-8 hover:decoration-accent">
+              See what I&apos;ve built
+            </a>
+          </div>
         </div>
       </div>
     </section>
