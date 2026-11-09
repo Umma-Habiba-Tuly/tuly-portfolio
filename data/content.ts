@@ -87,7 +87,7 @@ export const PROCESS = [
 export const ABOUT = {
   statement: "I'd rather build one thing that works every day than a demo that looks good once.",
   bio: [
-    "I'm Umma Habiba Tuly, founder of AT Sync, based in Khulna, Bangladesh. I have a BSc in CSE from North Western University (CGPA 3.70 / 4.00).",
+    "I'm Umma Habiba Tuly, founder of AT Sync, based in Khulna, Bangladesh. I have a BSc in CSE (CGPA 3.70 / 4.00).",
     "I work mostly in n8n, Qdrant and LangChain, write the glue in Python and FastAPI, and build interfaces in Next.js.",
     "So far: customer support for a clothing brand, document search, lead handling and a handful of web projects. Now: an AI receptionist for hotels.",
   ],
