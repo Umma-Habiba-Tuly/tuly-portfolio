@@ -1,38 +1,39 @@
-import { SocialLink } from "@/types/common";
-
-export interface SiteConfig {
+export interface SocialLink {
   name: string;
-  professionalTitle: string;
-  company: string;
-  role: string;
-  description: string;
   url: string;
-  email: string;
-  whatsappNumber?: string;
-  whatsappUrl?: string;
-  location: string;
-  replyTime?: string;
-  socials: SocialLink[];
 }
 
-export const SITE_CONFIG: SiteConfig = {
+export const SITE_CONFIG = {
   name: "Umma Habiba Tuly",
   professionalTitle: "AI Automation Engineer",
   company: "AT Sync",
   role: "Founder @ AT Sync",
-  description: "Building custom AI automation systems, support assistants, and workflow pipelines for growing businesses.",
-  url: "https://atsync.tech",
+  description:
+    "Building custom AI automation systems, support assistants, and workflow pipelines for growing businesses.",
+  url: "https://tuly.atsync.tech",
   email: "ummahabibatuly2001@gmail.com",
   whatsappNumber: "+8801954664733",
   whatsappUrl: "https://wa.me/8801954664733",
   location: "Bangladesh",
   replyTime: "Within 24 hours",
   socials: [
-    { name: "Email", url: "mailto:ummahabibatuly2001@gmail.com", iconName: "Mail" },
-    { name: "WhatsApp", url: "https://wa.me/8801954664733", iconName: "MessageCircle" },
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/umma-habiba-tuly-cse/", iconName: "Linkedin" },
-    { name: "Facebook", url: "https://www.facebook.com/atsync.tech", iconName: "Facebook" },
-    { name: "GitHub", url: "https://github.com/Umma-Habiba-Tuly", iconName: "Github" },
-  ],
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/umma-habiba-tuly-cse/" },
+    { name: "GitHub", url: "https://github.com/Umma-Habiba-Tuly" },
+    { name: "Facebook", url: "https://www.facebook.com/atsync.tech" },
+  ] as SocialLink[],
 };
 
+export const NAV_ITEMS = [
+  { label: "Work", href: "#work" },
+  { label: "Services", href: "#services" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
+
+/**
+ * Wear Inspired demo video, shown inside the phone frame.
+ * Leave empty to keep the phone screen blank. Set to a video URL
+ * (e.g. "/videos/wear-inspired-demo.mp4" or a hosted .mp4) to play it.
+ */
+export const WEAR_INSPIRED_VIDEO = "";
+export const WEAR_INSPIRED_POSTER = "";

@@ -2,123 +2,114 @@
 @source "../components";
 @source "../app";
 
+/* Circuit Teal — brand kit v1 */
 :root {
-  --background: #090b0e;
-  --foreground: #f8fafc;
-  --card: #11141b;
-  --card-hover: #181c26;
-  --muted: #0e1117;
-  --border-default: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(255, 255, 255, 0.18);
-  /* Accent Color System:
-     - GREEN (--accent-primary / #10B981): Primary CTAs, Key Metrics/Stats, Active/Available Status.
-     - PURPLE (--accent-brand / #A855F7): Brand Name Highlight ("Tuly."), Section Eyebrow Badges.
-  */
-  --accent-primary: #10b981;
-  --accent-brand: #a855f7;
-  --text-primary: #f8fafc;   /* 17.5:1 WCAG AAA contrast */
-  --text-secondary: #cbd5e1; /* 9.8:1 WCAG AAA contrast */
-  --text-muted: #94a3b8;     /* 5.4:1 WCAG AA contrast */
+  --brand-base: #0e2e2b;
+  --brand-primary: #10847e;
+  --brand-accent: #b7e85a;
+  --brand-surface: #effaf6;
+  --brand-ink: #10201d;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-hover: var(--card-hover);
-  --color-muted: var(--muted);
-  --color-accent: var(--accent-primary);
-  --color-accent-brand: var(--accent-brand);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-deep: var(--brand-base);
+  --color-primary: var(--brand-primary);
+  --color-accent: var(--brand-accent);
+  --color-surface: var(--brand-surface);
+  --color-ink: var(--brand-ink);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
 }
 
 html {
-  color-scheme: dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  background: var(--brand-surface);
+  color: var(--brand-ink);
+  font-family: var(--font-plex-sans), system-ui, -apple-system, sans-serif;
 }
 
-/* ==========================================================================
-   GLOBAL TYPOGRAPHY UTILITIES & DESIGN TOKENS
-   ========================================================================== */
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+}
+
+.on-deep :focus-visible {
+  outline-color: var(--brand-accent);
+}
+
+::selection {
+  background: var(--brand-accent);
+  color: var(--brand-ink);
+}
+
 @layer utilities {
-  /* H1 Hero Heading: 48-56px desktop / 32-36px mobile, weight 800 */
-  .text-h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.025em;
-  }
-  
-  /* H2 Section Heading: 32-36px desktop / 24-28px mobile, weight 700 */
-  .text-h2 {
-    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-  }
-  
-  /* H3 Card / Subsection Title: 18-20px desktop & mobile, weight 600 */
-  .text-h3 {
-    font-size: clamp(1.125rem, 2vw, 1.25rem);
-    font-weight: 600;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-  }
-  
-  /* Body Text: 15-16px, weight 400, line-height 1.6, WCAG AAA slate-300 */
-  .text-body {
-    font-size: clamp(0.9375rem, 1.5vw, 1rem);
-    font-weight: 400;
-    line-height: 1.6;
-    color: #cbd5e1;
+  .label {
+    font-family: var(--font-plex-mono), ui-monospace, monospace;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
   }
 
-  .text-body-muted {
-    font-size: clamp(0.9375rem, 1.5vw, 1rem);
-    font-weight: 400;
-    line-height: 1.6;
-    color: #94a3b8;
-  }
-  
-  /* Small / Label / Badge Text: 12-13px, weight 500-600, tracking +0.03em */
-  .text-label {
-    font-size: 0.75rem;
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border-radius: 9999px;
+    padding: 0.85rem 1.5rem;
+    font-family: var(--font-plex-mono), ui-monospace, monospace;
+    font-size: 0.8125rem;
     font-weight: 500;
-    line-height: 1.4;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
   }
 
-  .text-badge {
-    font-size: 0.75rem;
-    font-weight: 600;
-    line-height: 1.4;
-    letter-spacing: 0.03em;
-  }
-  
-  /* Key Stat / Metric Numbers: 28-32px, weight 800, accent green */
-  .text-stat {
-    font-size: clamp(1.75rem, 3vw, 2rem);
-    font-weight: 800;
-    line-height: 1.1;
-    color: #10b981;
-    font-family: var(--font-mono, monospace);
+  .btn:hover {
+    transform: translateY(-1px);
   }
 
-  /* Hide scrollbar for Chrome, Safari, Firefox and Edge */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  .btn-accent {
+    background: var(--brand-accent);
+    color: var(--brand-ink);
   }
-  .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+
+  .btn-outline-light {
+    border: 1px solid rgba(239, 250, 246, 0.4);
+    color: var(--brand-surface);
+  }
+
+  .btn-outline-light:hover {
+    background: rgba(239, 250, 246, 0.1);
+  }
+
+  .btn-outline-ink {
+    border: 1px solid rgba(16, 32, 29, 0.35);
+    color: var(--brand-ink);
+  }
+
+  .btn-outline-ink:hover {
+    background: rgba(16, 32, 29, 0.06);
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(rgba(239, 250, 246, 0.22) 1px, transparent 1px);
+    background-size: 18px 18px;
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .btn {
+    transition: none;
+  }
+  .btn:hover {
+    transform: none;
+  }
+}

@@ -1,34 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Manrope, Sora } from "next/font/google";
-import { MotionProvider } from "@/components/motion/MotionProvider";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import { SITE_CONFIG } from "@/constants/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
   subsets: ["latin"],
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["400", "700", "800"],
-});
-
-const sora = Sora({
-  variable: "--font-sora",
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "500"],
 });
 
 export const viewport: Viewport = {
-  themeColor: "#050608",
-  colorScheme: "dark",
+  themeColor: "#0E2E2B",
   width: "device-width",
   initialScale: 1,
 };
@@ -137,7 +125,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${sora.variable} dark h-full antialiased`}
+      className={`${plexSans.variable} ${plexMono.variable} h-full antialiased`}
     >
       <head>
         <script
@@ -145,8 +133,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground antialiased font-sans overflow-x-hidden relative w-full">
-        <MotionProvider>{children}</MotionProvider>
+      <body className="min-h-full flex flex-col bg-surface text-ink antialiased font-sans overflow-x-hidden w-full">
+        {children}
       </body>
     </html>
   );
