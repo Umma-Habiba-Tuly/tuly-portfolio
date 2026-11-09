@@ -10,7 +10,7 @@ export default function Services() {
         <div className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2">
           {SERVICES.map((s) => (
             <div key={s.name} className="border-t border-surface/30 pt-5">
-              <h3 className="text-2xl font-bold tracking-tight">{s.name}</h3>
+              <h3 className="font-display text-2xl font-semibold tracking-tight">{s.name}</h3>
               <p className="mt-3 max-w-md leading-relaxed text-surface/85">{s.text}</p>
             </div>
           ))}
@@ -21,7 +21,7 @@ export default function Services() {
           <ol className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS.map((p) => (
               <li key={p.n}>
-                <span className="block text-6xl font-bold leading-none tracking-tighter text-accent">{p.n}</span>
+                <span className="font-display block text-6xl font-semibold italic leading-none tracking-tighter text-accent">{p.n}</span>
                 <p className="mt-4 max-w-[16rem] leading-snug">{p.text}</p>
               </li>
             ))}

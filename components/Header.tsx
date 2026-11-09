@@ -25,7 +25,7 @@ export default function Header() {
       <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5 sm:px-8">
         <a href="#top" className="flex items-center gap-3">
           <Mark />
-          <span className="text-base font-semibold tracking-tight">{SITE_CONFIG.name}</span>
+          <span className="font-display text-lg font-semibold tracking-tight">{SITE_CONFIG.name}</span>
         </a>
 
         <nav aria-label="Main" className="hidden items-center gap-9 md:flex">
