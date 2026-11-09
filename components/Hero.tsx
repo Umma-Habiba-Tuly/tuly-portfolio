@@ -1,4 +1,5 @@
 import Image from "next/image";
+import MouseParallax from "@/components/MouseParallax";
 import Typewriter from "@/components/Typewriter";
 import { SITE_CONFIG } from "@/constants/site";
 
@@ -37,6 +38,7 @@ export default function Hero() {
           </div>
 
           <figure className="anim-rise relative order-1 mx-auto w-[17rem] sm:w-[21rem] md:order-2" style={{ animationDelay: "150ms" }}>
+            <MouseParallax>
             <div
               className={`relative aspect-[4/5] overflow-hidden ${HERO_VIDEO ? "" : "rounded-t-[999px] bg-primary"}`}
               style={{
@@ -64,6 +66,7 @@ export default function Hero() {
                 />
               )}
             </div>
+            </MouseParallax>
 
             <h1 className="anim-rise wordmark-drift absolute bottom-0 left-1/2 z-10 w-max -translate-x-1/2 translate-y-[34%] whitespace-nowrap text-center leading-[0.8]" style={{ animationDelay: "550ms" }}>
               <span className="block text-base font-bold tracking-[0.3em] text-accent sm:text-lg">UMMA HABIBA</span>
@@ -108,7 +111,7 @@ export default function Hero() {
             style={{ fontSize: "clamp(2.4rem, 6vw, 4.75rem)" }}
           />
           <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent">
+            <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent cta-glow">
               DM to automate <span aria-hidden="true">→</span>
             </a>
             <a href="#work" className="font-semibold underline decoration-surface/50 underline-offset-8 hover:decoration-accent">
