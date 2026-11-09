@@ -9,27 +9,27 @@ export default function Work() {
       <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
         <SectionHead label="Work" title={WORK_INTRO} />
 
-        <article className="on-primary mt-14 bg-primary text-surface">
+        <article className="on-deep mt-14 bg-deep text-surface">
           <div className="grid gap-12 p-7 sm:p-10 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16 lg:p-14">
             <div>
-              <p className="label">
+              <p className="label text-accent">
                 {F.label} · {F.sector}
               </p>
               <h3 className="mt-5 text-6xl font-bold leading-[0.95] tracking-[-0.04em] sm:text-7xl">{F.name}</h3>
               <p className="mt-4 text-xl font-medium leading-snug sm:text-2xl">{F.title}</p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed">{F.summary}</p>
 
-              <dl className="mt-10 border-t border-surface/50">
+              <dl className="mt-10 border-t border-surface/25">
                 {F.flow.map((row) => (
-                  <div key={row.k} className="grid gap-1 border-b border-surface/50 py-4 sm:grid-cols-[7.5rem_1fr] sm:gap-6">
-                    <dt className="label pt-0.5">{row.k}</dt>
+                  <div key={row.k} className="grid gap-1 border-b border-surface/25 py-4 sm:grid-cols-[7.5rem_1fr] sm:gap-6">
+                    <dt className="label pt-0.5 text-accent">{row.k}</dt>
                     <dd className="leading-relaxed">{row.v}</dd>
                   </div>
                 ))}
               </dl>
 
               <p className="mt-6 text-sm leading-relaxed">
-                <span className="label mr-3">Built with</span>
+                <span className="label mr-3 text-accent">Built with</span>
                 <span className="mono">{F.builtWith}</span>
               </p>
             </div>
