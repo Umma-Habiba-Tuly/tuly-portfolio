@@ -7,6 +7,7 @@ import Showcase from "@/components/Showcase";
 import Services from "@/components/Services";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
+import FloatingAvatar from "@/components/FloatingAvatar";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Work />
       <About />
       <Contact />
+      <FloatingAvatar />
     </main>
   );
 }

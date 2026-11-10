@@ -1,18 +1,15 @@
 import Image from "next/image";
 import Mascot from "@/components/Mascot";
 import { ICONS } from "@/components/icons";
-import PhoneFrame from "@/components/PhoneFrame";
 import Reveal from "@/components/Reveal";
-import { SITE_CONFIG, WEAR_INSPIRED_POSTER, WEAR_INSPIRED_VIDEO } from "@/constants/site";
-import { ABOUT, FEATURED_WORK } from "@/data/content";
+import { SITE_CONFIG } from "@/constants/site";
+import { ABOUT } from "@/data/content";
 
 const SKILLS = [
   { k: "AI and automation", v: "n8n, Make, LangChain, LlamaIndex, Qdrant, Pinecone, OpenAI, Anthropic" },
   { k: "Software", v: "Python, TypeScript, Next.js, React, Node.js, FastAPI, PostgreSQL, MySQL, Docker" },
   { k: "Design", v: "UI/UX design, Figma, Adobe XD, Photoshop, Illustrator" },
 ];
-
-const FLOW = ["Webhook", "n8n", "Agent", "Reply"];
 
 export default function About() {
   const links = [
@@ -67,53 +64,28 @@ export default function About() {
 
           {/* right column */}
           <div className="flex flex-col gap-2.5">
-            <Reveal delay={100} className="relative flex flex-1 flex-col rounded-3xl bg-deep p-3.5 sm:p-4">
-              <Mascot pose="notebook" mode="peek" className="bottom-full right-24 hidden w-20 sm:block" bubble="My work" bubbleAt="top-[52%]" />
-              <div className="flex items-center justify-between gap-4">
-                <h3 className="font-display text-xl font-bold">Featured Work</h3>
-                <a href="#work" className="text-sm font-semibold text-accent hover:underline">
-                  View project ↗
-                </a>
-              </div>
-
-              <div className="mt-2.5 grid flex-1 gap-2 sm:grid-cols-2">
-                <div className="flex min-h-[4.5rem] items-center rounded-2xl bg-surface p-4 text-ink">
-                  <p className="text-base font-semibold leading-snug">
-                    A support assistant that hands over to a person when it should.
-                  </p>
+            <Reveal delay={100} className="relative flex flex-1 flex-col rounded-3xl bg-deep p-4 sm:p-5">
+              <Mascot pose="notebook" mode="peek" className="bottom-full right-24 hidden w-20 sm:block" bubble="A bit about me" bubbleAt="top-[52%]" />
+              <dl className="grid gap-x-6 gap-y-4 text-sm sm:grid-cols-2">
+                <div>
+                  <dt className="text-base font-bold">Education</dt>
+                  <dd className="mt-1 leading-snug text-surface/75">
+                    BSc in Computer Science and Engineering
+                    <span className="mt-1 block font-bold text-surface">CGPA 3.70</span>
+                  </dd>
                 </div>
-
-                <div className="flex min-h-[4.5rem] flex-col justify-center gap-2 rounded-2xl bg-accent p-4 text-ink">
-                  <p className="text-sm font-semibold">How a message travels</p>
-                  <ol className="flex flex-wrap items-center gap-1.5 text-sm font-semibold">
-                    {FLOW.map((f, i) => (
-                      <li key={f} className="flex items-center gap-1.5">
-                        <span className="rounded-full bg-ink px-3 py-1 text-surface">{f}</span>
-                        {i < FLOW.length - 1 && <span aria-hidden="true">→</span>}
-                      </li>
-                    ))}
-                  </ol>
+                <div>
+                  <dt className="text-base font-bold">Based in</dt>
+                  <dd className="mt-1 text-surface/75">{SITE_CONFIG.location}</dd>
                 </div>
-
-                <div className="relative flex min-h-[6rem] flex-col justify-center gap-2 overflow-hidden rounded-2xl bg-accent p-5 text-ink sm:col-span-2 sm:pr-40">
-                  <div>
-                    <p className="text-sm font-semibold">{FEATURED_WORK.sector}</p>
-                    <p className="font-display text-2xl font-extrabold leading-tight">{FEATURED_WORK.name}</p>
+                {SKILLS.map((s) => (
+                  <div key={s.k}>
+                    <dt className="text-base font-bold">{s.k}</dt>
+                    <dd className="mt-1 leading-snug text-surface/75">{s.v}</dd>
                   </div>
-                  <p className="flex flex-wrap gap-1.5 text-xs font-semibold">
-                    {FEATURED_WORK.builtWith.split(", ").map((t) => (
-                      <span key={t} className="rounded-full bg-surface px-2.5 py-1">
-                        {t}
-                      </span>
-                    ))}
-                  </p>
-                  <div className="pointer-events-none absolute right-8 top-3 hidden w-[270px] origin-top-right scale-[0.42] sm:block">
-                    <PhoneFrame videoSrc={WEAR_INSPIRED_VIDEO} poster={WEAR_INSPIRED_POSTER} />
-                  </div>
-                </div>
-              </div>
+                ))}
+              </dl>
             </Reveal>
-
             <Reveal delay={160} className="flex flex-col items-center justify-between gap-4 rounded-3xl border border-surface/20 p-2 sm:flex-row sm:rounded-full sm:pl-6">
               <ul className="flex flex-wrap justify-center gap-2.5">
                 {links.map((l) => (
@@ -140,27 +112,6 @@ export default function About() {
           </div>
         </div>
 
-        <Reveal delay={140} className="mt-2.5 rounded-3xl bg-deep p-4">
-          <dl className="grid gap-x-5 gap-y-3 text-[0.8rem] sm:grid-cols-2 lg:grid-cols-5">
-            <div>
-              <dt className="text-sm font-bold">Education</dt>
-              <dd className="mt-1 leading-snug text-surface/75">
-                BSc in Computer Science and Engineering
-                <span className="mt-1 block font-bold text-surface">CGPA 3.70</span>
-              </dd>
-            </div>
-            {SKILLS.map((s) => (
-              <div key={s.k}>
-                <dt className="text-sm font-bold">{s.k}</dt>
-                <dd className="mt-1 leading-snug text-surface/75">{s.v}</dd>
-              </div>
-            ))}
-            <div>
-              <dt className="text-sm font-bold">Based in</dt>
-              <dd className="mt-1 text-surface/75">{SITE_CONFIG.location}</dd>
-            </div>
-          </dl>
-        </Reveal>
       </div>
     </section>
   );

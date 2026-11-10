@@ -8,7 +8,7 @@ export default function Services() {
   return (
     <section id="services" className="bg-surface text-ink">
       <div className="relative mx-auto max-w-[1200px] px-5 py-12 sm:px-8 md:py-16">
-        <Mascot pose="desk" className="right-5 top-6 w-32 sm:right-8 md:top-2 md:w-52" bubble="Pick one" />
+        <Mascot pose="desk" className="right-5 top-6 hidden w-32 sm:right-8 md:top-2 md:block md:w-52" bubble="Pick one" />
         <Reveal>
           <div className="mb-4 h-px w-16 bg-primary" />
           <h2 className="font-display text-4xl font-extrabold tracking-[-0.03em] sm:text-5xl">What I do</h2>
