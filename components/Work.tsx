@@ -210,12 +210,12 @@ export default function Work() {
         </div>
       </div>
 
-      <div className="mt-2 bg-accent text-ink">
-        <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-3 px-5 py-4 sm:flex-row sm:px-8">
-          <p className="font-display text-lg font-extrabold tracking-[-0.01em] sm:text-xl">Have a task your team hates doing?</p>
+      <div className="mt-0 bg-accent text-ink">
+        <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-2 px-5 py-2 sm:flex-row sm:px-8">
+          <p className="font-display text-base font-extrabold tracking-[-0.01em] sm:text-lg">Have a task your team hates doing?</p>
           <a
             href={SITE_CONFIG.whatsappUrl}
-            className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2 text-sm font-semibold text-accent transition hover:bg-deep"
+            className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-1 text-[0.8rem] font-semibold text-accent transition hover:bg-deep"
           >
             Message me <span aria-hidden="true">↗</span>
           </a>
