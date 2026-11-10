@@ -10,21 +10,6 @@ export default function Showcase() {
         style={{ background: "radial-gradient(60% 50% at 50% 100%, rgba(16,132,126,0.35), transparent 70%)" }}
       />
 
-      <div className="relative border-b border-surface/15" aria-hidden="true">
-        <div className="marquee overflow-hidden py-3">
-          <ul className="marquee-track flex w-max gap-10 text-xs font-semibold uppercase tracking-[0.18em] text-surface/60">
-            {[...Array(2)].flatMap((_, k) =>
-              ["Open for projects", "AI agents", "Automation", "Full-stack software", "UI/UX design", "Message me"].map((t) => (
-                <li key={`${k}-${t}`} className="flex items-center gap-10">
-                  {t}
-                  <span className="text-accent">✦</span>
-                </li>
-              )),
-            )}
-          </ul>
-        </div>
-      </div>
-
       <div className="relative mx-auto max-w-[1200px] px-5 pt-16 sm:px-8 md:pt-24">
         <div className="relative mx-auto max-w-4xl text-center">
           <Reveal>

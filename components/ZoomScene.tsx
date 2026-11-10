@@ -156,14 +156,17 @@ export default function ZoomScene() {
         </div>
 
         <div
-          className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/85 to-transparent px-5 pb-6 pt-16 text-center sm:pb-9"
+          className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/85 to-transparent px-5 pb-6 pt-10 text-center sm:pb-8"
           style={{ opacity: caption, transform: `translateY(${(1 - caption) * 16}px)` }}
         >
-          <p className="font-display mx-auto max-w-2xl text-2xl font-bold leading-tight tracking-tight sm:text-4xl">
-            Zoom out. <span className="text-accent">This is what I work with.</span>
+          <p
+            className="font-display mx-auto max-w-5xl font-extrabold leading-[1.02] tracking-[-0.035em]"
+            style={{ fontSize: "clamp(2.1rem, 5.4vw, 4.6rem)" }}
+          >
+            My toolkit. <span className="text-accent">Your product.</span>
           </p>
-          <p className="mx-auto mt-1 text-sm text-surface/65">
-            Away from the screen: acrylic painting.
+          <p className="mx-auto mt-3 max-w-xl text-sm text-surface/70 sm:text-base">
+            AI agents, automation and full-stack software, built end to end.
           </p>
         </div>
       </div>
