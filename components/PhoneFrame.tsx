@@ -1,18 +1,19 @@
 type PhoneFrameProps = {
   videoSrc?: string;
   poster?: string;
+  size?: "md" | "sm";
 };
 
 /**
  * A phone mock-up. With no `videoSrc` the screen stays blank,
  * ready for the demo video to be added later.
  */
-export default function PhoneFrame({ videoSrc, poster }: PhoneFrameProps) {
+export default function PhoneFrame({ videoSrc, poster, size = "md" }: PhoneFrameProps) {
   return (
-    <div className="mx-auto w-[240px] sm:w-[270px]">
-      <div className="relative rounded-[2.6rem] bg-ink p-2.5 ring-1 ring-surface/25">
-        <div className="absolute left-1/2 top-4 z-10 h-5 w-20 -translate-x-1/2 rounded-full bg-ink" aria-hidden="true" />
-        <div className="relative aspect-[9/19] overflow-hidden rounded-[2.1rem] bg-primary">
+    <div className={`mx-auto ${size === "sm" ? "w-[150px] sm:w-[165px]" : "w-[240px] sm:w-[270px]"}`}>
+      <div className="relative rounded-[2rem] bg-ink p-2 ring-1 ring-surface/25">
+        <div className="absolute left-1/2 top-3 z-10 h-4 w-14 -translate-x-1/2 rounded-full bg-ink" aria-hidden="true" />
+        <div className="relative aspect-[9/19] overflow-hidden rounded-[1.6rem] bg-primary">
           {videoSrc ? (
             <video
               src={videoSrc}

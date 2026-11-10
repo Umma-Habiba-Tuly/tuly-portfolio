@@ -94,13 +94,13 @@ const CARDS = [
 export default function Work() {
   return (
     <section id="work" className="on-deep bg-deep text-surface">
-      <div className="relative mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
-        <Mascot pose="sitLaptop" className="right-12 top-11 hidden w-52 md:block" ledge="teal" bubble="Real builds" />
-        <Reveal className="pb-12">
+      <div className="relative mx-auto max-w-[1200px] px-5 py-12 sm:px-8 md:py-14">
+        <Mascot pose="sitLaptop" className="right-12 top-6 hidden w-40 md:block" ledge="teal" bubble="Real builds" />
+        <Reveal className="pb-6">
           <p
             aria-hidden="true"
             className="echo-text font-display font-extrabold leading-[0.9] tracking-[-0.04em]"
-            style={{ fontSize: "clamp(4rem, 15vw, 12rem)" }}
+            style={{ fontSize: "clamp(3.5rem, 11vw, 8.5rem)" }}
           >
             Work
           </p>
@@ -115,31 +115,31 @@ export default function Work() {
           }
         />
 
-        <Reveal as="article" className="mt-14">
-          <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
+        <Reveal as="article" className="mt-8">
+          <div className="grid gap-6 lg:grid-cols-[1.5fr_0.5fr] lg:gap-8">
             <div>
               <p className="label text-accent">
                 {F.label} · {F.sector}
               </p>
-              <h3 className="mt-5 font-display text-4xl font-extrabold leading-[1] tracking-[-0.03em] sm:text-5xl">{F.name}</h3>
-              <p className="mt-4 text-xl font-medium leading-snug sm:text-2xl">{F.title}</p>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed">{F.summary}</p>
+              <h3 className="mt-3 font-display text-3xl font-extrabold leading-[1] tracking-[-0.03em] sm:text-4xl">{F.name}</h3>
+              <p className="mt-2 text-lg font-medium leading-snug">{F.title}</p>
+              <p className="mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-surface/85">{F.summary}</p>
 
-              <dl className="mt-7 grid gap-2.5 sm:grid-cols-2">
+              <dl className="mt-4 grid gap-2 sm:grid-cols-2">
                 {F.flow.map((row, n) => (
-                  <div key={row.k} className="rounded-2xl bg-surface/[0.07] p-3.5 ring-1 ring-surface/15">
+                  <div key={row.k} className="rounded-xl bg-surface/[0.07] p-3 ring-1 ring-surface/15">
                     <dt className="flex items-center gap-2 text-sm font-bold text-accent">
                       <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[0.7rem] font-extrabold text-ink">
                         {n + 1}
                       </span>
                       {row.k}
                     </dt>
-                    <dd className="mt-1.5 text-[0.82rem] leading-snug text-surface/85">{row.v}</dd>
+                    <dd className="mt-1 text-[0.78rem] leading-snug text-surface/85">{row.v}</dd>
                   </div>
                 ))}
               </dl>
 
-              <ul className="mt-4 flex flex-wrap items-center gap-1.5" aria-label="Built with">
+              <ul className="mt-3 flex flex-wrap items-center gap-1.5" aria-label="Built with">
                 <li className="label mr-1 text-accent">Built with</li>
                 {F.builtWith.split(", ").map((t) => (
                   <li key={t} className="rounded-full bg-surface/12 px-2.5 py-0.5 text-xs font-semibold">
@@ -153,25 +153,25 @@ export default function Work() {
               <div className="relative flex w-full justify-center">
                 <div
                   aria-hidden="true"
-                  className="fan fan-left hidden items-start justify-start rounded-[1.6rem] bg-gradient-to-br from-primary to-deep p-5 shadow-xl ring-1 ring-surface/15 md:flex"
+                  className="fan fan-left hidden items-start justify-start rounded-[1.6rem] bg-gradient-to-br from-primary to-deep p-3.5 shadow-xl ring-1 ring-surface/15 md:flex"
                 >
-                  <span className="font-display text-lg font-bold leading-tight">Website chat</span>
+                  <span className="font-display text-sm font-bold leading-tight">Website chat</span>
                 </div>
                 <div
                   aria-hidden="true"
-                  className="fan fan-right hidden items-start justify-end rounded-[1.6rem] bg-surface p-5 text-ink shadow-xl md:flex"
+                  className="fan fan-right hidden items-start justify-end rounded-[1.6rem] bg-surface p-3.5 text-ink shadow-xl md:flex"
                 >
-                  <span className="font-display text-lg font-bold leading-tight">Instagram</span>
+                  <span className="font-display text-sm font-bold leading-tight">Instagram</span>
                 </div>
                 <div className="relative z-10">
-                  <PhoneFrame videoSrc={WEAR_INSPIRED_VIDEO} poster={WEAR_INSPIRED_POSTER} />
+                  <PhoneFrame size="sm" videoSrc={WEAR_INSPIRED_VIDEO} poster={WEAR_INSPIRED_POSTER} />
                 </div>
               </div>
             </div>
           </div>
         </Reveal>
 
-        <div className="mt-20 grid gap-4 md:grid-cols-6">
+        <div className="mt-10 grid gap-3 md:grid-cols-6">
           {OTHER_WORK.map((w, i) => {
             const card = CARDS[i % CARDS.length];
             return (

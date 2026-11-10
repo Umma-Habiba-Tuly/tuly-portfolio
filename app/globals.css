@@ -277,10 +277,10 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 11.5rem;
-  height: 17rem;
-  margin-left: -5.75rem;
-  margin-top: -8.5rem;
+  width: 7.6rem;
+  height: 11.2rem;
+  margin-left: -3.8rem;
+  margin-top: -5.6rem;
   border-radius: 1.6rem;
   transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s, opacity 1s ease 0.3s;
   opacity: 0;
@@ -288,12 +288,12 @@ body {
 
 .reveal-in .fan-left {
   opacity: 1;
-  transform: translateX(-11.2rem) rotate(-13deg);
+  transform: translateX(-5.6rem) rotate(-13deg);
 }
 
 .reveal-in .fan-right {
   opacity: 1;
-  transform: translateX(11.2rem) rotate(11deg) translateY(1.2rem);
+  transform: translateX(5.6rem) rotate(11deg) translateY(1rem);
 }
 
 .outline-fill {
