@@ -73,6 +73,18 @@ export default function ZoomScene() {
                 "radial-gradient(52% 58% at 50% 50%, rgba(16,132,126,0.55) 0%, rgba(16,132,126,0.16) 45%, rgba(16,132,126,0) 75%), radial-gradient(30% 34% at 50% 46%, rgba(183,232,90,0.16) 0%, rgba(183,232,90,0) 70%)",
             }}
           />
+          <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center" style={{ transform: `scale(${1 + (1 - e) * 0.5})` }}>
+            <span
+              className="condensed font-display select-none font-extrabold uppercase leading-none tracking-[-0.02em]"
+              style={{
+                fontSize: "clamp(12rem, 44vw, 36rem)",
+                color: "rgba(16,132,126,0.42)",
+                transform: "translateY(-6%)",
+              }}
+            >
+              Tuly
+            </span>
+          </div>
           <div
             aria-hidden="true"
             className="absolute inset-x-0 bottom-0 h-1/3"
