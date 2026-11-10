@@ -60,11 +60,11 @@ export default function Hero() {
 
       {/* stage: giant word behind, character in front */}
       <div className="relative h-[27rem] md:absolute md:inset-0 md:h-auto" aria-hidden="true">
-        <div className="absolute inset-x-0 top-[8%] flex justify-center overflow-hidden md:top-[9%]">
+        <div className="absolute inset-x-0 top-[33%] flex justify-center overflow-hidden md:top-[26%]">
           <span
             key={slide.word}
-            className="font-display condensed anim-rise block whitespace-nowrap font-extrabold uppercase leading-[0.82] tracking-[-0.02em]"
-            style={{ fontSize: "clamp(5rem, 19vw, 17.5rem)", color: slide.wordColor, transition: "color 0.9s ease" }}
+            className="font-display condensed anim-rise block whitespace-nowrap font-extrabold uppercase leading-[0.82] tracking-[-0.02em] [font-size:clamp(5rem,19vw,17.5rem)] md:[font-size:clamp(7rem,14vw,13rem)]"
+            style={{ color: slide.wordColor, transition: "color 0.9s ease" }}
           >
             {slide.word}
           </span>
