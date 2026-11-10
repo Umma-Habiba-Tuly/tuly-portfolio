@@ -6,7 +6,7 @@ import MouseParallax from "@/components/MouseParallax";
 import { SITE_CONFIG } from "@/constants/site";
 
 /** Hero avatar. Set HERO_VIDEO to a looping video to replace the still image. */
-const HERO_IMAGE = "/images/avatar-person7.webp";
+const HERO_IMAGE = "/images/avatar-person8.webp";
 const HERO_VIDEO = "";
 
 const SLIDES = [
