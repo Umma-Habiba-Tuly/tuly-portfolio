@@ -6,7 +6,7 @@ import { SITE_CONFIG } from "@/constants/site";
 /**
  * Hero avatar. Swap for a looping video (e.g. "/videos/avatar.webm") by setting HERO_VIDEO.
  */
-const HERO_IMAGE = "/images/avatar-cutout.webp";
+const HERO_IMAGE = "/images/avatar-person.webp";
 const HERO_VIDEO = "";
 
 const TOOLS = ["n8n", "Qdrant", "PostgreSQL", "LangChain", "FastAPI", "Docker"];
@@ -93,29 +93,44 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="anim-rise relative mx-auto w-full max-w-[30rem]" style={{ animationDelay: "250ms" }}>
+          <div className="anim-rise relative mx-auto aspect-square w-full max-w-[32rem]" style={{ animationDelay: "250ms" }}>
             <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-              {[64, 92, 122].map((d, i) => (
+              {[62, 86, 112].map((d, i) => (
                 <span
                   key={d}
                   className="absolute rounded-full border"
                   style={{
                     width: `${d}%`,
                     aspectRatio: "1",
-                    left: "58%",
-                    top: "62%",
+                    left: "50%",
+                    top: "54%",
                     transform: "translate(-50%, -50%)",
-                    borderColor: i === 0 ? "rgba(183,232,90,0.28)" : "rgba(239,250,246,0.14)",
+                    borderColor: i === 0 ? "rgba(183,232,90,0.3)" : "rgba(239,250,246,0.12)",
                   }}
                 />
               ))}
+              {[
+                { t: "n8n", cls: "left-[2%] top-[22%]", d: "0s" },
+                { t: "Qdrant", cls: "right-[0%] top-[12%]", d: "-1.6s" },
+                { t: "Next.js", cls: "left-[-9%] top-[50%]", d: "-3s" },
+                { t: "Python", cls: "right-[2%] top-[56%]", d: "-4.4s" },
+              ].map((b) => (
+                <span
+                  key={b.t}
+                  className={`float-y absolute rounded-full border border-surface/25 bg-deep/80 px-4 py-1.5 text-sm font-semibold backdrop-blur ${b.cls}`}
+                  style={{ animationDelay: b.d }}
+                >
+                  <span className="mr-2 inline-block h-2 w-2 rounded-full bg-accent" />
+                  {b.t}
+                </span>
+              ))}
             </div>
-            <MouseParallax>
+            <MouseParallax className="absolute inset-x-[10%] bottom-0 top-[8%]">
               <div
-                className="relative aspect-[784/802]"
+                className="relative h-full w-full"
                 style={{
-                  maskImage: "linear-gradient(to bottom, #000 86%, transparent 100%)",
-                  WebkitMaskImage: "linear-gradient(to bottom, #000 86%, transparent 100%)",
+                  maskImage: "linear-gradient(to bottom, #000 88%, transparent 100%)",
+                  WebkitMaskImage: "linear-gradient(to bottom, #000 88%, transparent 100%)",
                 }}
               >
                 {HERO_VIDEO ? (
@@ -126,7 +141,7 @@ export default function Hero() {
                     alt={`Illustrated avatar of ${SITE_CONFIG.name}`}
                     fill
                     priority
-                    sizes="(min-width: 768px) 34rem, 90vw"
+                    sizes="(min-width: 768px) 28rem, 90vw"
                     className="object-contain object-bottom"
                   />
                 )}

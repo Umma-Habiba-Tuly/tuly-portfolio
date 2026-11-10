@@ -74,7 +74,7 @@ function Face({ c }: { c: Card }) {
         <>
           <div className="absolute inset-x-0 bottom-0 top-28 overflow-hidden">
             <Image
-              src="/images/avatar-cutout.webp"
+              src="/images/avatar-person.webp"
               alt="Illustrated avatar of Umma Habiba Tuly"
               fill
               sizes="240px"
