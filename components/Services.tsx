@@ -1,3 +1,4 @@
+import Mascot from "@/components/Mascot";
 import Reveal from "@/components/Reveal";
 import ServicesExplorer from "@/components/ServicesExplorer";
 import { PROCESS } from "@/data/content";
@@ -5,7 +6,8 @@ import { PROCESS } from "@/data/content";
 export default function Services() {
   return (
     <section id="services" className="bg-surface text-ink">
-      <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
+      <div className="relative mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
+        <Mascot className="right-5 top-16 w-28 sm:right-8 md:top-20 md:w-48" ledge="light" bubble="Pick one" />
         <Reveal>
           <div className="mb-6 h-px w-16 bg-primary" />
           <h2 className="font-display text-4xl font-extrabold tracking-[-0.03em] sm:text-6xl">What I do</h2>

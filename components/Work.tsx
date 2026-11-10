@@ -1,3 +1,4 @@
+import Mascot from "@/components/Mascot";
 import PhoneFrame from "@/components/PhoneFrame";
 import Reveal from "@/components/Reveal";
 import SectionHead from "@/components/SectionHead";
@@ -7,7 +8,8 @@ import { FEATURED_WORK as F, OTHER_WORK } from "@/data/content";
 export default function Work() {
   return (
     <section id="work" className="on-deep bg-deep text-surface">
-      <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
+      <div className="relative mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
+        <Mascot className="right-8 top-24 hidden w-48 md:block" ledge="teal" bubble="Real builds" />
         <Reveal className="pb-12">
           <p
             aria-hidden="true"

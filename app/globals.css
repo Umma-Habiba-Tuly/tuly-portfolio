@@ -400,3 +400,54 @@ body {
     transform: none;
   }
 }
+
+/* Avatar peeking over section edges */
+.mascot-rise {
+  transform: translateY(106%);
+  transition: transform 1.15s cubic-bezier(0.2, 0.9, 0.25, 1.08);
+}
+
+.mascot-on .mascot-rise {
+  transform: translateY(0);
+}
+
+.mascot-sway {
+  transform-origin: 50% 100%;
+  animation: mascot-sway 5.5s ease-in-out infinite alternate;
+}
+
+@keyframes mascot-sway {
+  from {
+    transform: rotate(-1.6deg) translateY(1px);
+  }
+  to {
+    transform: rotate(1.6deg) translateY(-3px);
+  }
+}
+
+.mascot-bubble {
+  opacity: 0;
+  transform: translateX(-100%) scale(0.7);
+  transform-origin: 100% 60%;
+  transition: opacity 0.4s ease, transform 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.3);
+}
+
+.mascot-on .mascot-bubble {
+  opacity: 1;
+  transform: translateX(-100%) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mascot-rise {
+    transform: none;
+    transition: none;
+  }
+  .mascot-sway {
+    animation: none;
+  }
+  .mascot-bubble {
+    opacity: 1;
+    transform: translateX(-100%);
+    transition: none;
+  }
+}

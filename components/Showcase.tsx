@@ -1,4 +1,5 @@
 import CurvedGallery from "@/components/CurvedGallery";
+import Mascot from "@/components/Mascot";
 import Reveal from "@/components/Reveal";
 
 export default function Showcase() {
@@ -11,6 +12,7 @@ export default function Showcase() {
       />
 
       <div className="relative mx-auto max-w-[1200px] px-5 pt-16 sm:px-8 md:pt-24">
+        <Mascot className="right-8 top-24 hidden w-44 lg:block" ledge="dark" bubble="Hi, I'm Tuly" />
         <div className="relative mx-auto max-w-4xl text-center">
           <Reveal>
             <p className="inline-flex items-center gap-2 rounded-full border border-surface/20 bg-surface/5 px-4 py-1.5 text-sm text-surface/85">
