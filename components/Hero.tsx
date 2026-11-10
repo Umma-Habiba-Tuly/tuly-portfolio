@@ -7,6 +7,9 @@ import { SITE_CONFIG } from "@/constants/site";
 
 /** Hero avatar. Set HERO_VIDEO to a looping video to replace the still image. */
 const HERO_IMAGE = "/images/avatar-person10.webp";
+
+/** The jacket colour changes with the background so it always keeps its contrast. */
+const JACKET = ["/images/avatar-jlime.webp", "/images/avatar-jdeep.webp", HERO_IMAGE];
 const HERO_VIDEO = "";
 
 const SLIDES = [
@@ -69,14 +72,18 @@ export default function Hero() {
               <video src={HERO_VIDEO} autoPlay muted loop playsInline className="h-full w-full object-contain object-bottom" />
             ) : (
               <div className="relative h-full w-full">
-                <Image
-                  src={HERO_IMAGE}
-                  alt=""
-                  fill
-                  priority
-                  sizes="(min-width: 768px) 34rem, 92vw"
-                  className="object-contain object-bottom"
-                />
+                {JACKET.map((src, n) => (
+                  <Image
+                    key={src}
+                    src={src}
+                    alt=""
+                    fill
+                    priority={n === 0}
+                    sizes="(min-width: 768px) 34rem, 92vw"
+                    className="object-contain object-bottom"
+                    style={{ opacity: i === n ? 1 : 0, transition: "opacity 0.9s ease" }}
+                  />
+                ))}
               </div>
             )}
           </MouseParallax>
