@@ -114,13 +114,13 @@ export default function CurvedGallery() {
   };
 
   return (
-    <Reveal className="mt-14 md:mt-20" delay={150}>
+    <Reveal className="mt-8 md:mt-2" delay={150}>
       {/* desktop: curved 3D gallery */}
       <div
         ref={stage}
         onPointerMove={onMove}
         onPointerLeave={() => setTilt(0)}
-        className="relative hidden h-[30rem] md:block"
+        className="relative hidden h-[26rem] md:block"
         style={{ perspective: "1500px" }}
       >
         <div
