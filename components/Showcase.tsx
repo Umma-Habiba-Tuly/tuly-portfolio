@@ -11,7 +11,7 @@ export default function Showcase() {
         style={{ background: "radial-gradient(60% 50% at 50% 100%, rgba(16,132,126,0.35), transparent 70%)" }}
       />
 
-      <div className="relative mx-auto max-w-[1200px] px-5 pt-16 sm:px-8 md:pt-24">
+      <div className="relative mx-auto max-w-[1200px] px-5 pb-5 pt-16 sm:px-8 md:pt-24">
         <Mascot pose="beanbag" className="right-0 top-20 hidden w-44 xl:block" ledge="dark" bubble="Hi, I'm Tuly" />
         <div className="relative mx-auto max-w-4xl text-center">
           <Reveal>
