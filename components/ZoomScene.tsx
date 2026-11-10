@@ -65,7 +65,7 @@ export default function ZoomScene() {
         <div
           aria-hidden="true"
           className="absolute inset-0"
-          style={{ background: "radial-gradient(circle at 50% 50%, #1b5e57 0%, #0E2E2B 55%, #08201e 100%)" }}
+          style={{ background: "radial-gradient(circle at 50% 50%, #1b5e57 0%, #0E2E2B 55%, #0a2421 100%)" }}
         />
 
         <div
@@ -123,6 +123,13 @@ export default function ZoomScene() {
             <circle cx="800" cy="445" r="138" fill="none" stroke="#EFFAF6" strokeOpacity="0.25" strokeDasharray="4 10" />
           </svg>
         </div>
+
+        {/* matches the hero's bottom fade so the two sections join without a line */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 z-20 h-40"
+          style={{ background: "linear-gradient(to bottom, #0a2421 0%, rgba(10,36,33,0.7) 45%, rgba(10,36,33,0) 100%)", opacity: clamp(1 - p * 6) }}
+        />
 
         <div
           aria-hidden="true"

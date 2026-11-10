@@ -54,6 +54,13 @@ export default function Hero() {
     >
       <h1 className="sr-only">Umma Habiba Tuly: Automate the busywork. AI engineer and full-stack developer.</h1>
 
+      {/* soft hand-over to the next scene: fades whatever the hero colour is into the scene's deep teal */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-40 md:h-56"
+        style={{ background: "linear-gradient(to bottom, rgba(10,36,33,0) 0%, rgba(10,36,33,0.55) 55%, #0a2421 100%)" }}
+      />
+
       {/* stage: giant word behind, character in front */}
       <div className="relative h-[27rem] md:absolute md:inset-0 md:h-auto" aria-hidden="true">
         <div className="absolute inset-x-0 top-[8%] flex justify-center overflow-hidden md:top-[9%]">
@@ -91,7 +98,7 @@ export default function Hero() {
       </div>
 
       {/* info columns */}
-      <div className="relative z-10 mx-auto grid max-w-[1200px] gap-8 px-5 pb-12 pt-6 sm:px-8 md:min-h-[41rem] md:grid-cols-2 md:items-end md:pb-14 md:pt-0">
+      <div className="relative z-10 mx-auto grid max-w-[1200px] gap-8 px-5 pb-20 pt-6 sm:px-8 md:min-h-[43rem] md:grid-cols-2 md:items-end md:pb-28 md:pt-0">
         <div className="max-w-xs">
           <p className="text-sm font-bold uppercase leading-snug tracking-[0.06em]">
             AI engineer &amp;
