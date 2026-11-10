@@ -1,14 +1,6 @@
 import CurvedGallery from "@/components/CurvedGallery";
 import Reveal from "@/components/Reveal";
 
-function Cursor({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 20 20" className={`h-5 w-5 ${className}`} aria-hidden="true">
-      <path d="M2 2 17 8.5 10 10.5 8 17.5z" fill="currentColor" />
-    </svg>
-  );
-}
-
 export default function Showcase() {
   return (
     <section id="showcase" className="on-deep starfield relative overflow-hidden bg-ink text-surface">
@@ -35,22 +27,6 @@ export default function Showcase() {
 
       <div className="relative mx-auto max-w-[1200px] px-5 pt-16 sm:px-8 md:pt-24">
         <div className="relative mx-auto max-w-4xl text-center">
-          <span
-            aria-hidden="true"
-            className="float-y absolute -left-2 top-2 hidden items-center gap-1.5 md:inline-flex lg:-left-24"
-          >
-            <Cursor className="-rotate-12 text-accent" />
-            <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-surface">Wear Inspired</span>
-          </span>
-          <span
-            aria-hidden="true"
-            className="float-y absolute -right-2 top-40 hidden items-center gap-1.5 md:inline-flex lg:-right-24"
-            style={{ animationDelay: "-2.5s" }}
-          >
-            <Cursor className="text-surface" />
-            <span className="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-ink">n8n</span>
-          </span>
-
           <Reveal>
             <p className="inline-flex items-center gap-2 rounded-full border border-surface/20 bg-surface/5 px-4 py-1.5 text-sm text-surface/85">
               <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
