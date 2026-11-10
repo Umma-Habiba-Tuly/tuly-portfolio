@@ -26,17 +26,17 @@ export default function About() {
 
   return (
     <section id="about" className="on-deep bg-ink text-surface">
-      <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
+      <div className="mx-auto max-w-[1200px] px-5 py-12 sm:px-8 md:py-14">
         <Reveal className="flex items-center gap-5">
           <span className="h-px flex-1 bg-gradient-to-r from-transparent to-surface/40" />
           <h2 className="font-display text-center text-3xl font-bold tracking-tight sm:text-5xl">About me</h2>
           <span className="h-px flex-1 bg-gradient-to-l from-transparent to-surface/40" />
         </Reveal>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-[22rem_1fr]">
+        <div className="mt-10 grid gap-3 lg:grid-cols-[21rem_1fr]">
           {/* left column */}
-          <div className="flex flex-col gap-4">
-            <Reveal className="relative h-64 overflow-hidden rounded-3xl bg-gradient-to-b from-deep to-primary/70">
+          <div className="flex flex-col gap-3">
+            <Reveal className="relative h-52 overflow-hidden rounded-3xl bg-gradient-to-b from-deep to-primary/70">
               <Image
                 src="/images/tuly/cheer.webp"
                 alt="Illustrated avatar of Umma Habiba Tuly"
@@ -53,18 +53,18 @@ export default function About() {
               </span>
             </Reveal>
 
-            <Reveal delay={80} className="relative rounded-3xl bg-accent p-6 pt-7 text-ink">
+            <Reveal delay={80} className="relative rounded-3xl bg-accent p-5 pt-6 text-ink">
               <span className="font-display absolute left-4 top-1 text-6xl font-extrabold leading-none" aria-hidden="true">
                 “
               </span>
-              <p className="relative text-2xl font-medium">
+              <p className="relative text-xl font-medium">
                 Hello, I&apos;m <span className="font-extrabold">Tuly</span>
               </p>
               <p className="relative mt-2 leading-snug">{ABOUT.statement}</p>
             </Reveal>
 
-            <Reveal delay={140} className="rounded-3xl bg-deep p-6">
-              <dl className="space-y-5 text-sm">
+            <Reveal delay={140} className="rounded-3xl bg-deep p-5">
+              <dl className="space-y-3 text-sm">
                 <div>
                   <dt className="text-base font-bold">Education</dt>
                   <dd className="mt-1 flex justify-between gap-4 text-surface/75">
@@ -87,9 +87,9 @@ export default function About() {
           </div>
 
           {/* right column */}
-          <div className="flex flex-col gap-4">
-            <Reveal delay={100} className="relative flex flex-1 flex-col rounded-3xl bg-deep p-5 sm:p-7">
-              <Mascot pose="notebook" mode="peek" className="bottom-full right-24 hidden w-40 sm:block" bubble="My work" />
+          <div className="flex flex-col gap-3">
+            <Reveal delay={100} className="relative flex flex-1 flex-col rounded-3xl bg-deep p-4 sm:p-5">
+              <Mascot pose="notebook" mode="peek" className="bottom-full right-24 hidden w-28 sm:block" bubble="My work" />
               <div className="flex items-center justify-between gap-4">
                 <h3 className="font-display text-2xl font-bold">Featured Work</h3>
                 <a href="#work" className="text-sm font-semibold text-accent hover:underline">
@@ -97,14 +97,14 @@ export default function About() {
                 </a>
               </div>
 
-              <div className="mt-5 grid flex-1 gap-3 sm:grid-cols-2 sm:grid-rows-[auto_1fr]">
-                <div className="flex min-h-[9rem] items-center rounded-2xl bg-surface p-5 text-ink">
-                  <p className="text-xl font-semibold leading-snug">
+              <div className="mt-3 grid flex-1 gap-2.5 sm:grid-cols-2 sm:grid-rows-[auto_1fr]">
+                <div className="flex min-h-[6.5rem] items-center rounded-2xl bg-surface p-5 text-ink">
+                  <p className="text-lg font-semibold leading-snug">
                     A support assistant that hands over to a person when it should.
                   </p>
                 </div>
 
-                <div className="flex min-h-[9rem] flex-col justify-center gap-3 rounded-2xl bg-accent p-5 text-ink">
+                <div className="flex min-h-[6.5rem] flex-col justify-center gap-3 rounded-2xl bg-accent p-5 text-ink">
                   <p className="text-sm font-semibold">How a message travels</p>
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm font-semibold">
                     {FLOW.map((f, i) => (
@@ -116,7 +116,7 @@ export default function About() {
                   </ol>
                 </div>
 
-                <div className="flex min-h-[17rem] flex-col justify-between gap-5 rounded-2xl bg-accent p-5 text-ink">
+                <div className="flex min-h-[12rem] flex-col justify-between gap-4 rounded-2xl bg-accent p-5 text-ink">
                   <div>
                     <p className="text-sm font-semibold">{FEATURED_WORK.sector}</p>
                     <p className="font-display mt-1 text-3xl font-extrabold leading-tight">{FEATURED_WORK.name}</p>
@@ -130,22 +130,22 @@ export default function About() {
                   </p>
                 </div>
 
-                <div className="relative min-h-[17rem] overflow-hidden rounded-2xl bg-surface">
-                  <div className="absolute left-1/2 top-6 w-[270px] origin-top -translate-x-1/2 scale-[0.74]">
+                <div className="relative min-h-[12rem] overflow-hidden rounded-2xl bg-surface">
+                  <div className="absolute left-1/2 top-5 w-[270px] origin-top -translate-x-1/2 scale-[0.6]">
                     <PhoneFrame videoSrc={WEAR_INSPIRED_VIDEO} poster={WEAR_INSPIRED_POSTER} />
                   </div>
                 </div>
               </div>
             </Reveal>
 
-            <Reveal delay={160} className="flex flex-col items-center justify-between gap-4 rounded-3xl border border-surface/20 p-4 sm:flex-row sm:rounded-full sm:pl-6">
+            <Reveal delay={160} className="flex flex-col items-center justify-between gap-4 rounded-3xl border border-surface/20 p-3 sm:flex-row sm:rounded-full sm:pl-6">
               <ul className="flex flex-wrap justify-center gap-2.5">
                 {links.map((l) => (
                   <li key={l.k}>
                     <a
                       href={l.href}
                       aria-label={l.k}
-                      className="flex h-12 w-12 items-center justify-center rounded-2xl bg-deep text-surface transition hover:-translate-y-0.5 hover:bg-accent hover:text-ink"
+                      className="flex h-11 w-11 items-center justify-center rounded-2xl bg-deep text-surface transition hover:-translate-y-0.5 hover:bg-accent hover:text-ink"
                     >
                       <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
                         {ICONS[l.k]}
@@ -156,7 +156,7 @@ export default function About() {
               </ul>
               <a
                 href={SITE_CONFIG.whatsappUrl}
-                className="inline-flex items-center gap-2 rounded-full bg-surface px-7 py-3 text-base font-semibold text-ink transition hover:bg-accent"
+                className="inline-flex items-center gap-2 rounded-full bg-surface px-6 py-2.5 text-base font-semibold text-ink transition hover:bg-accent"
               >
                 Message me <span aria-hidden="true">↗</span>
               </a>
