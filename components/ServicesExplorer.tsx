@@ -104,16 +104,6 @@ export default function ServicesExplorer() {
           {String(active + 1).padStart(2, "0")}
         </span>
 
-        <Image
-          key={`b-${active}`}
-          src={`/images/tuly/${BADGES[active % BADGES.length]}.webp`}
-          alt=""
-          width={120}
-          height={135}
-          unoptimized
-          className="anim-pop absolute right-5 top-5 h-20 w-auto drop-shadow-lg sm:right-8 sm:top-7 sm:h-24"
-        />
-
         <div key={active} className="anim-rise relative" style={{ animationDuration: "0.5s" }}>
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-accent/60 text-accent">
             <svg
@@ -147,9 +137,20 @@ export default function ServicesExplorer() {
             {s.stack}
           </p>
 
-          <a href="#contact" className="btn btn-accent mt-7">
-            Talk about this
-          </a>
+          <div className="mt-7 flex items-center gap-4">
+            <a href="#contact" className="btn btn-accent">
+              Talk about this
+            </a>
+            <Image
+              key={`b-${active}`}
+              src={`/images/tuly/${BADGES[active % BADGES.length]}.webp`}
+              alt=""
+              width={120}
+              height={135}
+              unoptimized
+              className="anim-pop h-16 w-auto drop-shadow-lg"
+            />
+          </div>
         </div>
       </div>
     </div>
