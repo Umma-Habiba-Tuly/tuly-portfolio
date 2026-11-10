@@ -26,7 +26,7 @@ export default function About() {
       <div className="mx-auto max-w-[1200px] px-5 pb-9 pt-9 sm:px-8 md:pb-10 md:pt-16">
         <Reveal className="flex items-center gap-5">
           <span className="h-px flex-1 bg-gradient-to-r from-transparent to-surface/40" />
-          <h2 className="font-display text-center text-2xl font-bold tracking-tight sm:text-4xl">About me</h2>
+          <h2 className="font-display text-center text-3xl font-bold tracking-tight sm:text-4xl">About me</h2>
           <span className="h-px flex-1 bg-gradient-to-l from-transparent to-surface/40" />
         </Reveal>
 

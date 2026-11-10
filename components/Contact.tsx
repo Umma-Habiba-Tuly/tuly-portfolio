@@ -22,7 +22,7 @@ export default function Contact() {
       <div className="mx-auto max-w-[1200px] px-5 pb-6 pt-16 sm:px-8 md:pt-20">
         <Reveal className="flex items-center gap-5">
           <span className="h-px flex-1 bg-gradient-to-r from-transparent to-surface/40" />
-          <h2 className="font-display text-center text-3xl font-bold tracking-tight sm:text-5xl">Contact me</h2>
+          <h2 className="font-display text-center text-3xl font-bold tracking-tight sm:text-4xl">Contact me</h2>
           <span className="h-px flex-1 bg-gradient-to-l from-transparent to-surface/40" />
         </Reveal>
 
