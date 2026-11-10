@@ -2,16 +2,13 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { GROUPS } from "@/data/skills";
 
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const ease = (t: number) => t * t * (3 - 2 * t);
 
 // City blocks around the pitch (x, y, w, h, tone)
 const BLOCKS: [number, number, number, number, number][] = [
-  [40, 70, 220, 150, 1], [280, 70, 60, 150, 0], [40, 240, 220, 120, 0], [280, 240, 60, 120, 1],
-  [40, 390, 150, 180, 1], [210, 390, 130, 180, 0], [40, 590, 220, 140, 0], [280, 590, 60, 140, 1],
-  [1260, 70, 60, 150, 1], [1340, 70, 220, 150, 0], [1260, 240, 60, 120, 0], [1340, 240, 220, 120, 1],
-  [1260, 390, 130, 180, 0], [1410, 390, 150, 180, 1], [1260, 590, 60, 140, 1], [1340, 590, 220, 140, 0],
   [380, -30, 360, 80, 0], [760, -30, 460, 80, 1], [380, 790, 300, 90, 1], [700, 790, 520, 90, 0],
 ];
 const TONES = ["#10847E", "#143f3b"];
@@ -60,8 +57,8 @@ export default function ZoomScene() {
   return (
     <section
       ref={wrap}
-      id="scene"
-      aria-label="Zoom out from the avatar"
+      id="skills"
+      aria-label="Zoom out from the avatar to the skills"
       className={`on-deep relative bg-deep text-surface ${still ? "" : "h-[270vh]"}`}
     >
       <div className={`${still ? "relative h-[34rem]" : "sticky top-16 h-[calc(100vh-4rem)]"} overflow-hidden`}>
@@ -154,12 +151,42 @@ export default function ZoomScene() {
           </div>
         </div>
 
+        {/* skills: left and right of the pitch (desktop) */}
+        <div className="pointer-events-none absolute inset-0 hidden md:block">
+          {[GROUPS.slice(0, 3), GROUPS.slice(3, 6)].map((col, ci) => (
+            <div
+              key={ci}
+              className={`absolute top-4 bottom-4 flex w-[min(21rem,24vw)] flex-col justify-center gap-3 ${ci === 0 ? "left-4 lg:left-8" : "right-4 lg:right-8"}`}
+            >
+              {col.map((g, i) => {
+                const vis = clamp((p - (0.74 + (ci * 3 + i) * 0.03)) / 0.14);
+                return (
+                  <div
+                    key={g.n}
+                    className={`pointer-events-auto rounded-2xl p-4 shadow-xl ${g.look}`}
+                    style={{ opacity: vis, transform: `translateX(${(1 - vis) * (ci === 0 ? -40 : 40)}px)` }}
+                  >
+                    <p className="flex items-baseline gap-2">
+                      <span className="font-display text-sm font-bold opacity-60">{g.n}</span>
+                      <span className="font-display text-xl font-extrabold leading-tight tracking-[-0.01em]">{g.title}</span>
+                    </p>
+                    <p className="mt-2 text-[13px] font-medium leading-snug opacity-90">{g.skills.join(" · ")}</p>
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+
         <div
           className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/85 to-transparent px-5 pb-6 pt-16 text-center sm:pb-9"
           style={{ opacity: caption, transform: `translateY(${(1 - caption) * 16}px)` }}
         >
           <p className="font-display mx-auto max-w-2xl text-2xl font-bold leading-tight tracking-tight sm:text-4xl">
             Zoom out. <span className="text-accent">This is what I work with.</span>
+          </p>
+          <p className="mx-auto mt-1 text-sm text-surface/65">
+            Away from the screen: acrylic painting.
           </p>
         </div>
       </div>
