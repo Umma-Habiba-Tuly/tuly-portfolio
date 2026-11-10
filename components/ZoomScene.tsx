@@ -42,7 +42,7 @@ export default function ZoomScene() {
   }, []);
 
   const e = ease(p);
-  const avatarScale = 2.7 - 1.7 * e;
+  const avatarScale = 1.7 - 0.7 * e;
   const mapScale = 2.2 - 1.2 * e;
   const iris = 34 + 118 * ease(clamp((p - 0.1) / 0.78));
   const caption = clamp((p - 0.74) / 0.2);
