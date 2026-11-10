@@ -31,7 +31,7 @@ export default function Hero() {
   useEffect(() => {
     if (paused) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = setInterval(() => setI((n) => (n + 1) % SLIDES.length), 4800);
+    const t = setInterval(() => setI((n) => (n + 1) % SLIDES.length), 3000);
     return () => clearInterval(t);
   }, [paused]);
 
