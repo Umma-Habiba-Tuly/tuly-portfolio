@@ -51,7 +51,7 @@ export default function Contact() {
           </div>
 
           <Reveal delay={140} className="relative flex flex-col rounded-3xl bg-ink p-4 sm:p-5">
-            <Mascot pose="sip" mode="peek" className="bottom-full right-6 w-28 sm:right-8 sm:w-36" bubble="Say hi" />
+            <Mascot pose="sip" mode="peek" className="bottom-full right-6 hidden w-28 sm:right-8 sm:w-36 lg:block" bubble="Say hi" />
             <div className="flex items-center justify-between gap-4">
               <h3 className="font-display text-xl font-bold">Find me here</h3>
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
