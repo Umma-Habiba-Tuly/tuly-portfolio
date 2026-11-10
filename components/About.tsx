@@ -37,7 +37,7 @@ export default function About() {
           <div className="flex flex-col gap-4">
             <Reveal className="relative h-64 overflow-hidden rounded-3xl bg-gradient-to-b from-deep to-primary/70">
               <Image
-                src="/images/avatar-person5.webp"
+                src="/images/avatar-person6.webp"
                 alt="Illustrated avatar of Umma Habiba Tuly"
                 fill
                 sizes="352px"
