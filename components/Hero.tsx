@@ -98,7 +98,7 @@ export default function Hero() {
                       opacity: i === n ? 1 : 0,
                       transform: i === n ? "translateY(0) scale(1)" : "translateY(18px) scale(0.97)",
                       transition: "opacity 0.8s ease, transform 0.9s cubic-bezier(0.2,0.8,0.25,1)",
-                      filter: "drop-shadow(0 12px 22px rgba(0,0,0,0.25))",
+                      filter: "drop-shadow(0 6px 9px rgba(0,0,0,0.16))",
                     }}
                   />
                 ))
