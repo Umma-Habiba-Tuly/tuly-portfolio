@@ -21,7 +21,7 @@ export default function Services() {
 
         <div className="mt-10">
           <p className="text-lg font-semibold">How a project goes</p>
-          <ol className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-4 grid grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-4">
             {PROCESS.map((p, i) => (
               <Reveal as="li" key={p.n} delay={i * 110} className="border-t-2 border-ink pt-4">
                 <div className="relative h-[4.5rem] w-24">

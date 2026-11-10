@@ -13,6 +13,15 @@ export default function ZoomScene() {
   const wrap = useRef<HTMLElement | null>(null);
   const [p, setP] = useState(0);
   const [still, setStill] = useState(false);
+  const [narrow, setNarrow] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const on = () => setNarrow(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -117,9 +126,9 @@ export default function ZoomScene() {
           <div
             className="relative"
             style={{
-              height: "min(60vh, 31rem)",
+              height: narrow ? "min(44vh, 21rem)" : "min(60vh, 31rem)",
               aspectRatio: "585 / 1365",
-              transform: `translateY(${(1 - e) * 36 - e * 9}%) scale(${avatarScale})`,
+              transform: `translateY(${(1 - e) * 36 - e * (narrow ? 14 : 9)}%) scale(${avatarScale})`,
               transformOrigin: "50% 12%",
               filter: `drop-shadow(0 ${12 * e}px ${24 * e}px rgba(0,0,0,0.4))`,
             }}
@@ -174,7 +183,7 @@ export default function ZoomScene() {
         >
           <p
             className="font-display mx-auto max-w-5xl font-extrabold leading-[1.02] tracking-[-0.035em]"
-            style={{ fontSize: "clamp(2.1rem, 5.4vw, 4.6rem)" }}
+            style={{ fontSize: narrow ? "1.85rem" : "clamp(2.1rem, 5.4vw, 4.6rem)" }}
           >
             My toolkit. <span className="text-accent">Your product.</span>
           </p>
