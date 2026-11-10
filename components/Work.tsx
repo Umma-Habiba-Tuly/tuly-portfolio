@@ -2,7 +2,6 @@ import Image from "next/image";
 import Mascot from "@/components/Mascot";
 import PhoneFrame from "@/components/PhoneFrame";
 import Reveal from "@/components/Reveal";
-import SectionHead from "@/components/SectionHead";
 import { SITE_CONFIG, WEAR_INSPIRED_POSTER, WEAR_INSPIRED_VIDEO } from "@/constants/site";
 import { FEATURED_WORK as F, OTHER_WORK } from "@/data/content";
 
@@ -95,7 +94,7 @@ export default function Work() {
   return (
     <section id="work" className="on-deep bg-deep text-surface">
       <div className="relative mx-auto max-w-[1200px] px-5 py-12 sm:px-8 md:py-14">
-        <Mascot pose="sitLaptop" className="right-12 top-6 hidden w-40 md:block" ledge="teal" bubble="Real builds" />
+        <Mascot pose="sitLaptop" className="right-12 -top-3 hidden w-40 md:block" ledge="teal" bubble="Real builds" />
         <Reveal className="pb-6">
           <p
             aria-hidden="true"
@@ -105,19 +104,11 @@ export default function Work() {
             Work
           </p>
         </Reveal>
-        <SectionHead
-          tone="dark"
-          title={
-            <>
-              Two systems in <span className="text-accent">development</span>,
-              <br className="hidden md:block" /> a few smaller builds, and more on GitHub.
-            </>
-          }
-        />
+        <div className="border-t-2 border-surface/40" aria-hidden="true" />
 
         <Reveal
           as="article"
-          className="mt-8 overflow-hidden rounded-[2rem] bg-gradient-to-br from-ink to-deep ring-1 ring-surface/15 lg:grid lg:grid-cols-[1.4fr_1fr]"
+          className="mt-6 overflow-hidden rounded-[2rem] bg-gradient-to-br from-ink to-deep ring-1 ring-surface/15 lg:grid lg:grid-cols-[1.4fr_1fr]"
         >
           <div className="p-6 sm:p-8">
             <p className="flex flex-wrap items-center gap-2 text-xs font-bold">
