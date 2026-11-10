@@ -36,7 +36,7 @@ export default function About() {
         <div className="mt-10 grid gap-3 lg:grid-cols-[21rem_1fr]">
           {/* left column */}
           <div className="flex flex-col gap-3">
-            <Reveal className="relative h-52 overflow-hidden rounded-3xl bg-gradient-to-b from-deep to-primary/70">
+            <Reveal className="relative h-44 overflow-hidden rounded-3xl bg-gradient-to-b from-deep to-primary/70">
               <Image
                 src="/images/tuly/cheer.webp"
                 alt="Illustrated avatar of Umma Habiba Tuly"
@@ -63,27 +63,6 @@ export default function About() {
               <p className="relative mt-2 leading-snug">{ABOUT.statement}</p>
             </Reveal>
 
-            <Reveal delay={140} className="rounded-3xl bg-deep p-5">
-              <dl className="space-y-3 text-sm">
-                <div>
-                  <dt className="text-base font-bold">Education</dt>
-                  <dd className="mt-1 flex justify-between gap-4 text-surface/75">
-                    <span>BSc in Computer Science and Engineering</span>
-                    <span className="shrink-0 font-bold text-surface">CGPA 3.70</span>
-                  </dd>
-                </div>
-                {SKILLS.map((s) => (
-                  <div key={s.k}>
-                    <dt className="text-base font-bold">{s.k}</dt>
-                    <dd className="mt-1 leading-snug text-surface/75">{s.v}</dd>
-                  </div>
-                ))}
-                <div>
-                  <dt className="text-base font-bold">Based in</dt>
-                  <dd className="mt-1 text-surface/75">{SITE_CONFIG.location}</dd>
-                </div>
-              </dl>
-            </Reveal>
           </div>
 
           {/* right column */}
@@ -91,20 +70,20 @@ export default function About() {
             <Reveal delay={100} className="relative flex flex-1 flex-col rounded-3xl bg-deep p-4 sm:p-5">
               <Mascot pose="notebook" mode="peek" className="bottom-full right-24 hidden w-28 sm:block" bubble="My work" />
               <div className="flex items-center justify-between gap-4">
-                <h3 className="font-display text-2xl font-bold">Featured Work</h3>
+                <h3 className="font-display text-xl font-bold">Featured Work</h3>
                 <a href="#work" className="text-sm font-semibold text-accent hover:underline">
                   View project ↗
                 </a>
               </div>
 
-              <div className="mt-3 grid flex-1 gap-2.5 sm:grid-cols-2 sm:grid-rows-[auto_1fr]">
-                <div className="flex min-h-[6.5rem] items-center rounded-2xl bg-surface p-5 text-ink">
+              <div className="mt-3 grid flex-1 gap-2.5 sm:grid-cols-2">
+                <div className="flex min-h-[5.5rem] items-center rounded-2xl bg-surface p-4 text-ink">
                   <p className="text-lg font-semibold leading-snug">
                     A support assistant that hands over to a person when it should.
                   </p>
                 </div>
 
-                <div className="flex min-h-[6.5rem] flex-col justify-center gap-3 rounded-2xl bg-accent p-5 text-ink">
+                <div className="flex min-h-[5.5rem] flex-col justify-center gap-2 rounded-2xl bg-accent p-4 text-ink">
                   <p className="text-sm font-semibold">How a message travels</p>
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm font-semibold">
                     {FLOW.map((f, i) => (
@@ -116,10 +95,10 @@ export default function About() {
                   </ol>
                 </div>
 
-                <div className="flex min-h-[12rem] flex-col justify-between gap-4 rounded-2xl bg-accent p-5 text-ink">
+                <div className="relative flex min-h-[7.5rem] flex-col justify-center gap-2 overflow-hidden rounded-2xl bg-accent p-5 text-ink sm:col-span-2 sm:pr-48">
                   <div>
                     <p className="text-sm font-semibold">{FEATURED_WORK.sector}</p>
-                    <p className="font-display mt-1 text-3xl font-extrabold leading-tight">{FEATURED_WORK.name}</p>
+                    <p className="font-display text-2xl font-extrabold leading-tight">{FEATURED_WORK.name}</p>
                   </div>
                   <p className="flex flex-wrap gap-1.5 text-xs font-semibold">
                     {FEATURED_WORK.builtWith.split(", ").map((t) => (
@@ -128,10 +107,7 @@ export default function About() {
                       </span>
                     ))}
                   </p>
-                </div>
-
-                <div className="relative min-h-[12rem] overflow-hidden rounded-2xl bg-surface">
-                  <div className="absolute left-1/2 top-5 w-[270px] origin-top -translate-x-1/2 scale-[0.6]">
+                  <div className="pointer-events-none absolute right-8 top-5 hidden w-[270px] origin-top-right scale-[0.5] sm:block">
                     <PhoneFrame videoSrc={WEAR_INSPIRED_VIDEO} poster={WEAR_INSPIRED_POSTER} />
                   </div>
                 </div>
@@ -163,6 +139,28 @@ export default function About() {
             </Reveal>
           </div>
         </div>
+
+        <Reveal delay={140} className="mt-3 rounded-3xl bg-deep p-5">
+          <dl className="grid gap-x-6 gap-y-4 text-sm sm:grid-cols-2 lg:grid-cols-5">
+            <div>
+              <dt className="text-base font-bold">Education</dt>
+              <dd className="mt-1 leading-snug text-surface/75">
+                BSc in Computer Science and Engineering
+                <span className="mt-1 block font-bold text-surface">CGPA 3.70</span>
+              </dd>
+            </div>
+            {SKILLS.map((s) => (
+              <div key={s.k}>
+                <dt className="text-base font-bold">{s.k}</dt>
+                <dd className="mt-1 leading-snug text-surface/75">{s.v}</dd>
+              </div>
+            ))}
+            <div>
+              <dt className="text-base font-bold">Based in</dt>
+              <dd className="mt-1 text-surface/75">{SITE_CONFIG.location}</dd>
+            </div>
+          </dl>
+        </Reveal>
       </div>
     </section>
   );
