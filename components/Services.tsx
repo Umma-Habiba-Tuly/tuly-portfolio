@@ -24,18 +24,22 @@ export default function Services() {
           <ol className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS.map((p, i) => (
               <Reveal as="li" key={p.n} delay={i * 110} className="border-t-2 border-ink pt-4">
-                <div className="flex items-center justify-between">
-                  <span className="font-display flex h-12 w-12 items-center justify-center rounded-full bg-deep text-lg font-bold text-accent">
-                    {p.n}
-                  </span>
+                <div className="relative h-[4.5rem] w-24">
                   <Image
                     src={`/images/tuly/${["b-think", "b-wink", "b-laugh", "b-cool"][i % 4]}.webp`}
                     alt=""
                     width={96}
                     height={108}
                     unoptimized
-                    className="h-14 w-14 object-contain object-right drop-shadow-md"
+                    className="absolute left-0 top-0 h-[4.5rem] w-[4.5rem] object-contain drop-shadow-md"
                   />
+                  {/* the number card she "holds" */}
+                  <span
+                    className="font-display absolute bottom-0 left-12 flex h-9 w-9 -rotate-6 items-center justify-center rounded-lg bg-deep text-xl font-extrabold text-accent shadow-lg ring-2 ring-surface"
+                    aria-label={`Step ${p.n}`}
+                  >
+                    {p.n}
+                  </span>
                 </div>
                 <p className="mt-3 max-w-[16rem] text-sm leading-snug">{p.text}</p>
               </Reveal>
