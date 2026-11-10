@@ -40,7 +40,7 @@ export default function ServicesExplorer() {
   const s = SERVICES[active];
 
   return (
-    <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
+    <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
       <div role="tablist" aria-label="Services" className="border-t-2 border-ink">
         {SERVICES.map((item, i) => {
           const on = i === active;
@@ -68,13 +68,13 @@ export default function ServicesExplorer() {
                   (document.getElementById(`svc-tab-${n}`) as HTMLElement | null)?.focus();
                 }
               }}
-              className="group flex w-full items-baseline gap-4 border-b border-ink/20 py-4 text-left transition-colors sm:gap-6 sm:py-5"
+              className="group flex w-full items-baseline gap-4 border-b border-ink/20 py-2.5 text-left transition-colors sm:gap-5 sm:py-3"
             >
               <span className={`font-display w-8 text-base font-bold transition-colors ${on ? "text-primary" : "text-ink/35"}`}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span
-                className={`font-display flex-1 text-[1.7rem] font-extrabold leading-tight tracking-[-0.02em] transition-all duration-300 sm:text-4xl ${
+                className={`font-display flex-1 text-2xl font-extrabold leading-tight tracking-[-0.02em] transition-all duration-300 sm:text-[1.9rem] ${
                   on ? "translate-x-2 text-ink" : "text-ink/35 group-hover:text-ink/60"
                 }`}
               >
@@ -95,7 +95,7 @@ export default function ServicesExplorer() {
         id="svc-panel"
         role="tabpanel"
         aria-labelledby={`svc-tab-${active}`}
-        className="on-deep relative overflow-hidden rounded-3xl bg-deep p-7 text-surface sm:p-10 lg:sticky lg:top-24 lg:self-start"
+        className="on-deep relative overflow-hidden rounded-3xl bg-deep p-6 text-surface sm:p-7 lg:sticky lg:top-24 lg:self-start"
       >
         <span
           aria-hidden="true"
@@ -105,10 +105,10 @@ export default function ServicesExplorer() {
         </span>
 
         <div key={active} className="anim-rise relative" style={{ animationDuration: "0.5s" }}>
-          <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-accent/60 text-accent">
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-accent/60 text-accent">
             <svg
               viewBox="0 0 24 24"
-              className="h-7 w-7"
+              className="h-6 w-6"
               fill="none"
               stroke="currentColor"
               strokeWidth="1.7"
@@ -120,24 +120,24 @@ export default function ServicesExplorer() {
             </svg>
           </span>
 
-          <h3 className="font-display mt-6 text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl">{s.name}</h3>
-          <p className="mt-3 max-w-md text-lg leading-snug text-surface/85">{s.text}</p>
+          <h3 className="font-display mt-4 text-2xl font-extrabold tracking-[-0.02em] sm:text-3xl">{s.name}</h3>
+          <p className="mt-2 max-w-md text-base leading-snug text-surface/85">{s.text}</p>
 
-          <ul className="mt-7 space-y-3">
+          <ul className="mt-4 space-y-2 text-[0.95rem]">
             {s.points.map((p) => (
               <li key={p} className="flex gap-3 text-surface/90">
-                <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
                 {p}
               </li>
             ))}
           </ul>
 
-          <p className="mt-8 border-t border-surface/20 pt-5 text-sm text-surface/70">
+          <p className="mt-5 border-t border-surface/20 pt-4 text-sm text-surface/70">
             <span className="mr-3 font-semibold text-accent">Built with</span>
             {s.stack}
           </p>
 
-          <div className="mt-7 flex items-end justify-between gap-4">
+          <div className="mt-5 flex items-end justify-between gap-4">
             <a href="#contact" className="btn btn-accent">
               Talk about this
             </a>
@@ -148,7 +148,7 @@ export default function ServicesExplorer() {
               width={120}
               height={135}
               unoptimized
-              className="anim-pop -mb-3 -mr-2 h-24 w-auto drop-shadow-lg sm:-mr-4"
+              className="anim-pop -mb-2 -mr-2 h-20 w-auto drop-shadow-lg sm:-mr-4"
             />
           </div>
         </div>
