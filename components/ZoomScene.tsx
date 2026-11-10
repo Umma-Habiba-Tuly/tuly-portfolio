@@ -22,27 +22,21 @@ const ICON = {
 };
 
 const NODES: N[] = [
-  { id: "web", x: 175, y: 215, w: 220, label: "Website chat", sub: "Customer writes", kind: "in", icon: ICON.chat },
-  { id: "msg", x: 175, y: 335, w: 220, label: "Messenger", sub: "Customer writes", kind: "in", icon: ICON.send },
-  { id: "ig", x: 175, y: 455, w: 220, label: "Instagram", sub: "Customer writes", kind: "in", icon: ICON.camera },
-  { id: "hook", x: 480, y: 335, w: 200, label: "Webhook", sub: "Receives the event", kind: "route", icon: ICON.bolt },
-  { id: "n8n", x: 760, y: 335, w: 180, label: "n8n", sub: "Routes, prepares", kind: "route", icon: ICON.flow },
-  { id: "agent", x: 1070, y: 335, w: 240, h: 84, label: "AI agent", sub: "Decides what to do", kind: "agent", icon: ICON.brain },
-  { id: "qd", x: 1455, y: 190, w: 210, label: "Qdrant", sub: "Product, policy facts", kind: "data", icon: ICON.layers },
-  { id: "pg", x: 1455, y: 295, w: 210, label: "PostgreSQL", sub: "Chat memory", kind: "data", icon: ICON.db },
-  { id: "gs", x: 1455, y: 400, w: 210, label: "Google Sheets", sub: "Product catalogue", kind: "data", icon: ICON.sheet },
-  { id: "rep", x: 1455, y: 525, w: 210, label: "Reply", sub: "Back to the customer", kind: "out", icon: ICON.reply },
-  { id: "human", x: 1070, y: 525, w: 240, label: "Human handoff", sub: "With full context", kind: "out", icon: ICON.user },
+  { id: "in", x: 190, y: 330, w: 280, h: 118, label: "Customer", sub: "Web, Messenger, IG", kind: "in", icon: ICON.chat },
+  { id: "n8n", x: 590, y: 330, w: 240, h: 118, label: "n8n", sub: "Routes it", kind: "route", icon: ICON.flow },
+  { id: "agent", x: 1000, y: 330, w: 300, h: 140, label: "AI agent", sub: "Decides what to do", kind: "agent", icon: ICON.brain },
+  { id: "rep", x: 1400, y: 330, w: 230, h: 118, label: "Reply", sub: "Sent back", kind: "out", icon: ICON.reply },
+  { id: "mem", x: 1000, y: 135, w: 420, h: 118, label: "Memory", sub: "Qdrant, PostgreSQL, Sheets", kind: "data", icon: ICON.layers },
+  { id: "human", x: 1130, y: 555, w: 300, h: 118, label: "Handoff", sub: "To a person", kind: "out", icon: ICON.user },
 ];
 const EDGES: { a: string; b: string; label?: string }[] = [
-  { a: "web", b: "hook" }, { a: "msg", b: "hook", label: "message" }, { a: "ig", b: "hook" },
-  { a: "hook", b: "n8n", label: "session" }, { a: "n8n", b: "agent", label: "context" },
-  { a: "agent", b: "qd", label: "search" }, { a: "agent", b: "pg", label: "remember" }, { a: "agent", b: "gs", label: "look up" },
-  { a: "agent", b: "rep", label: "answer" }, { a: "agent", b: "human", label: "if unsure" },
+  { a: "in", b: "n8n", label: "message" },
+  { a: "n8n", b: "agent", label: "context" },
+  { a: "agent", b: "rep", label: "answer" },
+  { a: "agent", b: "mem", label: "looks up" },
+  { a: "agent", b: "human", label: "if unsure" },
 ];
-const ZONES = [
-  { x: 175, t: "CHANNELS" }, { x: 480, t: "RECEIVE" }, { x: 760, t: "ROUTE" }, { x: 1070, t: "DECIDE" }, { x: 1455, t: "MEMORY AND OUTPUT" },
-];
+const ZONES: { x: number; t: string }[] = [];
 
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const ease = (t: number) => t * t * (3 - 2 * t);
@@ -92,9 +86,13 @@ export default function ZoomScene() {
   const byId = Object.fromEntries(NODES.map((n) => [n.id, n]));
 
   const path = (a: N, b: N) => {
+    if (Math.abs(a.x - b.x) < 40) {
+      const down = b.y > a.y;
+      const y1 = a.y + (down ? 1 : -1) * H(a) / 2, y2 = b.y + (down ? -1 : 1) * H(b) / 2;
+      return `M${a.x} ${y1} L${b.x} ${y2}`;
+    }
     const x1 = a.x + a.w / 2, y1 = a.y, x2 = b.x - b.w / 2, y2 = b.y;
-    const dx = Math.max(60, (x2 - x1) * 0.5);
-    return `M${x1} ${y1} C${x1 + dx} ${y1} ${x2 - dx} ${y2} ${x2} ${y2}`;
+    return `M${x1} ${y1} L${x2} ${y2}`;
   };
 
   return (
@@ -158,7 +156,8 @@ export default function ZoomScene() {
             {EDGES.map(({ a, b, label }, i) => {
               const A = byId[a], B = byId[b];
               const d = path(A, B);
-              const mx = (A.x + A.w / 2 + B.x - B.w / 2) / 2, my = (A.y + B.y) / 2;
+              const vert = Math.abs(A.x - B.x) < 40;
+              const mx = vert ? A.x : (A.x + A.w / 2 + B.x - B.w / 2) / 2, my = vert ? (A.y + B.y) / 2 : (A.y + B.y) / 2 - 2;
               return (
                 <g key={a + b}>
                   <path d={d} fill="none" stroke="#EFFAF6" strokeOpacity="0.12" strokeWidth="2" />
@@ -174,9 +173,9 @@ export default function ZoomScene() {
                     strokeOpacity="0.9"
                   />
                   {label && draw > 0.9 && (
-                    <g transform={`translate(${mx} ${my - 12})`}>
-                      <rect x={-label.length * 4.4 - 10} y="-14" width={label.length * 8.8 + 20} height="24" rx="12" fill="#0E2E2B" stroke="#B7E85A" strokeOpacity="0.4" />
-                      <text textAnchor="middle" y="3" fontSize="13" fontWeight="600" fill="#EFFAF6">
+                    <g transform={`translate(${mx} ${my})`}>
+                      <rect x={-label.length * 5.4 - 14} y="-18" width={label.length * 10.8 + 28} height="34" rx="17" fill="#0E2E2B" stroke="#B7E85A" strokeOpacity="0.5" />
+                      <text textAnchor="middle" y="5" fontSize="18" fontWeight="700" fill="#EFFAF6">
                         {label}
                       </text>
                     </g>
@@ -195,6 +194,7 @@ export default function ZoomScene() {
             {/* nodes */}
             {NODES.map((n) => {
               const h = H(n);
+              const k = h / 64;
               const lime = n.kind === "agent";
               const teal = n.kind === "out";
               const fill = lime ? "#B7E85A" : teal ? "#10847E" : "url(#card)";
@@ -203,20 +203,20 @@ export default function ZoomScene() {
               return (
                 <g key={n.id} transform={`translate(${n.x - n.w / 2} ${n.y - h / 2})`} opacity={nodesIn} filter="url(#soft)">
                   {lime && live && (
-                    <rect x="-8" y="-8" width={n.w + 16} height={h + 16} rx="26" fill="none" stroke="#B7E85A" strokeWidth="2">
+                    <rect x="-8" y="-8" width={n.w + 16} height={h + 16} rx="30" fill="none" stroke="#B7E85A" strokeWidth="2">
                       <animate attributeName="opacity" values="0.7;0;0.7" dur="2.4s" repeatCount="indefinite" />
                       <animate attributeName="stroke-width" values="2;8;2" dur="2.4s" repeatCount="indefinite" />
                     </rect>
                   )}
-                  <rect width={n.w} height={h} rx="18" fill={fill} stroke="#EFFAF6" strokeOpacity={lime || teal ? 0 : 0.22} />
-                  <circle cx="34" cy={h / 2} r="21" fill={lime ? "#10201D" : "#EFFAF6"} fillOpacity={lime ? 1 : 0.1} />
-                  <g transform={`translate(${34 - 12} ${h / 2 - 12})`} color={lime ? "#B7E85A" : "#B7E85A"}>
+                  <rect width={n.w} height={h} rx={20 + 6 * (k - 1)} fill={fill} stroke="#EFFAF6" strokeOpacity={lime || teal ? 0 : 0.22} />
+                  <circle cx={22 + h * 0.27} cy={h / 2} r={h * 0.27} fill={lime ? "#10201D" : "#EFFAF6"} fillOpacity={lime ? 1 : 0.1} />
+                  <g transform={`translate(${22 + h * 0.27 - 12 * (h * 0.27 / 21)} ${h / 2 - 12 * (h * 0.27 / 21)}) scale(${h * 0.27 / 21})`} color="#B7E85A">
                     {n.icon}
                   </g>
-                  <text x="66" y={h / 2 - 3} fontSize="21" fontWeight="700" fill={fg}>
+                  <text x={22 + h * 0.54 + 18} y={h / 2 - 2} fontSize={16 + h * 0.12} fontWeight="800" fill={fg}>
                     {n.label}
                   </text>
-                  <text x="66" y={h / 2 + 19} fontSize="14" fontWeight="500" fill={sub} fillOpacity="0.72">
+                  <text x={22 + h * 0.54 + 18} y={h / 2 + 26} fontSize={13 + h * 0.035} fontWeight="500" fill={sub} fillOpacity="0.78">
                     {n.sub}
                   </text>
                 </g>
