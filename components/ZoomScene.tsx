@@ -120,19 +120,11 @@ export default function ZoomScene() {
               transform: `translateY(${(1 - e) * 0.2 * 100 + e * 9}%) scale(${avatarScale})`,
               transformOrigin: "52% 30%",
               filter: `drop-shadow(0 ${14 * e}px ${30 * e}px rgba(0,0,0,0.45))`,
-              maskImage: "linear-gradient(to bottom, #000 60%, transparent 98%)",
-              WebkitMaskImage: "linear-gradient(to bottom, #000 60%, transparent 98%)",
+              maskImage: "linear-gradient(to bottom, #000 72%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, #000 72%, transparent 100%)",
             }}
           >
-            <div
-              className="absolute inset-0"
-              style={{
-                maskImage: "linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%)",
-              }}
-            >
-              <Image src="/images/avatar-jprim3.webp" alt="Illustrated avatar of Umma Habiba Tuly" fill sizes="34rem" className="object-contain object-bottom" />
-            </div>
+            <Image src="/images/avatar-jprim3.webp" alt="Illustrated avatar of Umma Habiba Tuly" fill sizes="34rem" className="object-contain object-bottom" />
           </div>
         </div>
 
