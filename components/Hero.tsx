@@ -78,7 +78,7 @@ export default function Hero() {
             <div className="relative h-full w-full">
               <div
                 aria-hidden="true"
-                className="absolute -bottom-3 left-1/2 h-8 w-[60%] -translate-x-1/2 rounded-[50%]"
+                className="absolute -bottom-2 left-1/2 h-6 w-[52%] -translate-x-1/2 rounded-[50%]"
                 style={{ background: "radial-gradient(closest-side, rgba(0,0,0,0.38), rgba(0,0,0,0))" }}
               />
               {HERO_VIDEO ? (
