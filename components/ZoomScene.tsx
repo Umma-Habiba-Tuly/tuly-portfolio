@@ -7,12 +7,6 @@ import { GROUPS } from "@/data/skills";
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const ease = (t: number) => t * t * (3 - 2 * t);
 
-// City blocks around the pitch (x, y, w, h, tone)
-const BLOCKS: [number, number, number, number, number][] = [
-  [380, -30, 360, 80, 0], [760, -30, 460, 80, 1], [380, 790, 300, 90, 1], [700, 790, 520, 90, 0],
-];
-const TONES = ["#10847E", "#143f3b"];
-
 export default function ZoomScene() {
   const wrap = useRef<HTMLElement | null>(null);
   const [p, setP] = useState(0);
@@ -52,7 +46,6 @@ export default function ZoomScene() {
   const iris = 34 + 118 * ease(clamp((p - 0.1) / 0.78));
   const caption = clamp((p - 0.74) / 0.2);
   const draw = clamp((p - 0.3) / 0.45);
-  const blocksIn = clamp((p - 0.25) / 0.4);
 
   return (
     <section
@@ -94,33 +87,30 @@ export default function ZoomScene() {
             </defs>
             <rect x="0" y="-45" width="1600" height="900" fill="url(#grid2)" />
 
-            {/* blocks around, like a city seen from above */}
-            <g opacity={blocksIn}>
-              {BLOCKS.map(([x, y, w, h, t], i) => (
-                <rect key={i} x={x} y={y} width={w} height={h} rx="16" fill={TONES[t]} fillOpacity={t ? 0.9 : 0.55} stroke="#EFFAF6" strokeOpacity="0.08" />
+            {/* orbit stage: concentric rings, ticks and spokes */}
+            <circle cx="800" cy="445" r="620" fill="url(#glow2)" />
+            <g fill="none" stroke="#B7E85A">
+              {[170, 270, 370, 470, 570].map((r, i) => (
+                <circle
+                  key={r}
+                  cx="800"
+                  cy="445"
+                  r={r}
+                  strokeWidth={i % 2 ? 2 : 3}
+                  strokeOpacity={i % 2 ? 0.28 : 0.55}
+                  strokeDasharray={i % 2 ? "3 14" : undefined}
+                  pathLength={i % 2 ? undefined : 1}
+                  style={i % 2 ? undefined : { strokeDasharray: 1, strokeDashoffset: 1 - draw }}
+                />
               ))}
+              <path d="M964.2 489.0L1340.9 589.9 M920.2 565.2L1196.0 841.0 M844.0 609.2L944.9 985.9 M756.0 609.2L655.1 985.9 M679.8 565.2L404.0 841.0 M635.8 489.0L259.1 589.9 M635.8 401.0L259.1 300.1 M679.8 324.8L404.0 49.0 M756.0 280.8L655.1 -95.9 M844.0 280.8L944.9 -95.9 M920.2 324.8L1196.0 49.0 M964.2 401.0L1340.9 300.1" strokeWidth="1.5" strokeOpacity="0.16" />
+              <path d="M1375.0 445.0L1401.0 445.0 M1372.8 495.1L1380.8 495.8 M1366.3 544.8L1374.1 546.2 M1355.4 593.8L1368.9 597.4 M1340.3 641.7L1347.8 644.4 M1321.1 688.0L1328.4 691.4 M1298.0 732.5L1320.5 745.5 M1271.0 774.8L1277.6 779.4 M1240.5 814.6L1246.6 819.7 M1206.6 851.6L1216.5 861.5 M1169.6 885.5L1174.7 891.6 M1129.8 916.0L1134.4 922.6 M1087.5 943.0L1100.5 965.5 M1043.0 966.1L1046.4 973.4 M996.7 985.3L999.4 992.8 M948.8 1000.4L952.4 1013.9 M899.8 1011.3L901.2 1019.1 M850.1 1017.8L850.8 1025.8 M800.0 1020.0L800.0 1046.0 M749.9 1017.8L749.2 1025.8 M700.2 1011.3L698.8 1019.1 M651.2 1000.4L647.6 1013.9 M603.3 985.3L600.6 992.8 M557.0 966.1L553.6 973.4 M512.5 943.0L499.5 965.5 M470.2 916.0L465.6 922.6 M430.4 885.5L425.3 891.6 M393.4 851.6L383.5 861.5 M359.5 814.6L353.4 819.7 M329.0 774.8L322.4 779.4 M302.0 732.5L279.5 745.5 M278.9 688.0L271.6 691.4 M259.7 641.7L252.2 644.4 M244.6 593.8L231.1 597.4 M233.7 544.8L225.9 546.2 M227.2 495.1L219.2 495.8 M225.0 445.0L199.0 445.0 M227.2 394.9L219.2 394.2 M233.7 345.2L225.9 343.8 M244.6 296.2L231.1 292.6 M259.7 248.3L252.2 245.6 M278.9 202.0L271.6 198.6 M302.0 157.5L279.5 144.5 M329.0 115.2L322.4 110.6 M359.5 75.4L353.4 70.3 M393.4 38.4L383.5 28.5 M430.4 4.5L425.3 -1.6 M470.2 -26.0L465.6 -32.6 M512.5 -53.0L499.5 -75.5 M557.0 -76.1L553.6 -83.4 M603.3 -95.3L600.6 -102.8 M651.2 -110.4L647.6 -123.9 M700.2 -121.3L698.8 -129.1 M749.9 -127.8L749.2 -135.8 M800.0 -130.0L800.0 -156.0 M850.1 -127.8L850.8 -135.8 M899.8 -121.3L901.2 -129.1 M948.8 -110.4L952.4 -123.9 M996.7 -95.3L999.4 -102.8 M1043.0 -76.1L1046.4 -83.4 M1087.5 -53.0L1100.5 -75.5 M1129.8 -26.0L1134.4 -32.6 M1169.6 4.5L1174.7 -1.6 M1206.6 38.4L1216.5 28.5 M1240.5 75.4L1246.6 70.3 M1271.0 115.2L1277.6 110.6 M1298.0 157.5L1320.5 144.5 M1321.1 202.0L1328.4 198.6 M1340.3 248.3L1347.8 245.6 M1355.4 296.2L1368.9 292.6 M1366.3 345.2L1374.1 343.8 M1372.8 394.9L1380.8 394.2" strokeWidth="2" strokeOpacity="0.45" />
             </g>
+            <g opacity={draw}><circle cx="1029.8" cy="637.8" r="7" fill="#B7E85A" /><circle cx="499.3" cy="554.4" r="7" fill="#B7E85A" /><circle cx="760.8" cy="893.3" r="5" fill="#B7E85A" /><circle cx="683.5" cy="10.3" r="5" fill="#B7E85A" /><circle cx="521.5" cy="250.0" r="7" fill="#B7E85A" /><circle cx="1326.2" cy="636.5" r="5" fill="#B7E85A" /><circle cx="273.8" cy="253.5" r="5" fill="#B7E85A" /><circle cx="925.0" cy="228.5" r="7" fill="#B7E85A" /></g>
 
-            {/* the pitch */}
-            <g filter="url(#soft2)">
-              <rect x="400" y="120" width="800" height="650" rx="26" fill="#0b2a27" />
-              {[0, 1, 2, 3, 4, 5].map((i) => (
-                <rect key={i} x="400" y={120 + i * 108.3} width="800" height="108.3" fill={i % 2 ? "#0d332f" : "#0b2a27"} />
-              ))}
-            </g>
-            <rect x="400" y="120" width="800" height="650" rx="26" fill="none" stroke="#B7E85A" strokeWidth="4" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - draw} />
-            <g fill="none" stroke="#B7E85A" strokeWidth="3" strokeOpacity="0.9">
-              <path d="M400 445H1200" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - draw} />
-              <path d="M620 120V240H980V120" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - draw} />
-              <path d="M620 770V650H980V770" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - draw} />
-              <path d="M720 120V170H880V120" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - draw} />
-              <path d="M720 770V720H880V770" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - draw} />
-              <circle cx="800" cy="445" r="110" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - draw} />
-            </g>
-
-            {/* the figure stands in the centre circle */}
-            <circle cx="800" cy="445" r="110" fill="#0E2E2B" fillOpacity="0.85" stroke="#B7E85A" strokeWidth="3" />
-            <circle cx="800" cy="445" r="138" fill="none" stroke="#EFFAF6" strokeOpacity="0.25" strokeDasharray="4 10" />
+            {/* the figure stands in the centre */}
+            <circle cx="800" cy="445" r="128" fill="#0E2E2B" fillOpacity="0.9" stroke="#B7E85A" strokeWidth="3" />
+            <circle cx="800" cy="445" r="156" fill="none" stroke="#EFFAF6" strokeOpacity="0.22" strokeDasharray="4 10" />
           </svg>
         </div>
 
@@ -149,7 +139,7 @@ export default function ZoomScene() {
             style={{
               height: "min(70vh, 34rem)",
               aspectRatio: "584 / 661",
-              transform: `translateY(${(1 - e) * 0.2 * 100 + e * 6}%) scale(${avatarScale})`,
+              transform: `translateY(${(1 - e) * 0.2 * 100 + e * 24}%) scale(${avatarScale})`,
               transformOrigin: "52% 30%",
               filter: `drop-shadow(0 ${14 * e}px ${30 * e}px rgba(0,0,0,0.45))`,
             }}
@@ -158,7 +148,29 @@ export default function ZoomScene() {
           </div>
         </div>
 
-        {/* skills: left and right of the pitch (desktop) */}
+        {/* thin lines from every skill card to the figure */}
+        <svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 hidden h-full w-full md:block">
+          {[0, 1, 2, 3, 4, 5].map((k) => {
+            const left = k < 3;
+            const y = [33, 50, 67][k % 3];
+            const x1 = left ? 27 : 73, x2 = left ? 45.5 : 54.5, y2 = 52;
+            const vis = clamp((p - (0.8 + k * 0.025)) / 0.12);
+            return (
+              <path
+                key={k}
+                d={`M${x1} ${y} C${left ? 36 : 64} ${y} ${left ? 38 : 62} ${y2} ${x2} ${y2}`}
+                fill="none"
+                stroke="#B7E85A"
+                strokeOpacity={0.6 * vis}
+                strokeWidth="1.6"
+                strokeDasharray="6 7"
+                vectorEffect="non-scaling-stroke"
+              />
+            );
+          })}
+        </svg>
+
+        {/* skills: left and right of the stage (desktop) */}
         <div className="pointer-events-none absolute inset-0 hidden md:block">
           {[GROUPS.slice(0, 3), GROUPS.slice(3, 6)].map((col, ci) => (
             <div
