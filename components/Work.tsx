@@ -13,22 +13,22 @@ function Dot({ c = "bg-current" }: { c?: string }) {
 
 const CARDS = [
   {
-    span: "md:col-span-3",
+    span: "",
     look: "bg-gradient-to-br from-primary to-deep text-surface",
     panel: "bg-ink/35 ring-1 ring-surface/15",
     pill: "bg-surface/15 text-surface",
     visual: (
-      <div className="space-y-3 text-sm">
-        <div className="flex items-center gap-2 rounded-full bg-surface px-4 py-2.5 text-ink shadow">
+      <div className="w-full space-y-2 text-[0.72rem]">
+        <div className="flex items-center gap-2 rounded-full bg-surface px-3 py-1.5 text-ink shadow">
           <svg viewBox="0 0 24 24" className="h-4 w-4 text-primary" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden="true">
             <circle cx="11" cy="11" r="6.5" />
             <path d="m16 16 4 4" />
           </svg>
           <span className="font-medium">How do I return an order?</span>
         </div>
-        <div className="rounded-xl bg-surface/10 p-3 leading-snug">
-          <p>Returns are accepted within 14 days. Send the order number and a person confirms.</p>
-          <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-accent px-2.5 py-1 text-xs font-bold text-ink">
+        <div className="rounded-lg bg-surface/10 p-2 leading-snug">
+          <p>Returns are accepted within 14 days.</p>
+          <p className="mt-1.5 inline-flex items-center gap-1 rounded-full bg-accent px-2 py-0.5 text-[0.65rem] font-bold text-ink">
             returns-policy.pdf <span aria-hidden="true">↗</span>
           </p>
         </div>
@@ -36,16 +36,16 @@ const CARDS = [
     ),
   },
   {
-    span: "md:col-span-3",
+    span: "",
     look: "bg-accent text-ink",
     panel: "bg-ink/10 ring-1 ring-ink/10",
     pill: "bg-ink/10 text-ink",
     visual: (
-      <div className="flex h-full min-h-[7.5rem] items-center">
-        <ol className="flex w-full items-center justify-between gap-1 text-[11px] font-bold sm:text-xs">
+      <div className="flex w-full items-center">
+        <ol className="flex w-full flex-wrap items-center justify-center gap-1 text-[10px] font-bold">
           {["Web form", "n8n", "PostgreSQL", "Team"].map((t, k, arr) => (
             <li key={t} className="flex flex-1 items-center gap-1">
-              <span className={`flex-1 rounded-xl px-2 py-2.5 text-center ${k === 1 ? "bg-ink text-accent" : "bg-surface text-ink"}`}>{t}</span>
+              <span className={`flex-1 rounded-lg px-1.5 py-1.5 text-center ${k === 1 ? "bg-ink text-accent" : "bg-surface text-ink"}`}>{t}</span>
               {k < arr.length - 1 ? <span aria-hidden="true">→</span> : null}
             </li>
           ))}
@@ -54,37 +54,37 @@ const CARDS = [
     ),
   },
   {
-    span: "md:col-span-2",
+    span: "",
     look: "bg-surface text-ink",
     panel: "bg-deep",
     pill: "bg-deep/10 text-deep",
     visual: (
-      <div className="min-h-[7.5rem] overflow-hidden rounded-xl bg-surface/10 ring-1 ring-surface/20">
-        <div className="flex items-center gap-1.5 border-b border-surface/15 px-3 py-2">
+      <div className="w-full overflow-hidden rounded-lg bg-surface/10 ring-1 ring-surface/20">
+        <div className="flex items-center gap-1 border-b border-surface/15 px-2 py-1.5">
           <Dot c="bg-accent" />
           <Dot c="bg-surface/50" />
           <Dot c="bg-surface/50" />
         </div>
-        <div className="grid grid-cols-3 gap-2 p-3">
-          <span className="col-span-2 h-8 rounded-lg bg-primary" />
-          <span className="h-8 rounded-lg bg-accent" />
-          <span className="h-8 rounded-lg bg-surface/25" />
-          <span className="col-span-2 h-8 rounded-lg bg-surface/15" />
+        <div className="grid grid-cols-3 gap-1.5 p-2">
+          <span className="col-span-2 h-5 rounded-md bg-primary" />
+          <span className="h-5 rounded-md bg-accent" />
+          <span className="h-5 rounded-md bg-surface/25" />
+          <span className="col-span-2 h-5 rounded-md bg-surface/15" />
         </div>
       </div>
     ),
   },
   {
-    span: "md:col-span-4",
+    span: "",
     look: "bg-ink text-surface ring-1 ring-surface/15",
     panel: "bg-deep ring-1 ring-surface/10",
     pill: "bg-surface/10 text-surface",
     visual: (
-      <div className="space-y-2.5 text-sm">
-        <p className="ml-auto w-fit max-w-[80%] rounded-2xl rounded-br-sm bg-surface px-3.5 py-2 text-ink">Do you have a double room on Friday?</p>
+      <div className="w-full space-y-2 text-[0.72rem]">
+        <p className="ml-auto w-fit max-w-[85%] rounded-xl rounded-br-sm bg-surface px-2.5 py-1.5 text-ink">Double room on Friday?</p>
         <div className="flex items-end gap-2">
-          <Image src="/images/tuly/b-smile.webp" alt="" width={72} height={80} unoptimized className="h-9 w-9 rounded-full" />
-          <p className="max-w-[80%] rounded-2xl rounded-bl-sm bg-primary px-3.5 py-2">Yes, from $64 a night. Want me to hold it for you?</p>
+          <Image src="/images/tuly/b-smile.webp" alt="" width={72} height={80} unoptimized className="h-7 w-auto" />
+          <p className="max-w-[85%] rounded-xl rounded-bl-sm bg-primary px-2.5 py-1.5">Yes, from $64 a night. Hold it for you?</p>
         </div>
       </div>
     ),
@@ -171,37 +171,38 @@ export default function Work() {
           </div>
         </Reveal>
 
-        <div className="mt-10 grid gap-3 md:grid-cols-6">
+        <div className="mt-8 grid gap-3 md:grid-cols-2">
           {OTHER_WORK.map((w, i) => {
             const card = CARDS[i % CARDS.length];
             return (
               <Reveal
                 key={w.name}
                 delay={i * 80}
-                className={`group relative flex flex-col overflow-hidden rounded-[1.75rem] p-5 transition duration-500 hover:-translate-y-1 sm:p-6 ${card.span} ${card.look}`}
+                className={`group relative flex flex-col gap-3 overflow-hidden rounded-3xl p-4 transition duration-500 hover:-translate-y-1 sm:flex-row sm:items-stretch sm:gap-4 ${card.span} ${card.look}`}
               >
-                <div className="flex items-center justify-between text-sm font-semibold">
-                  <span className="inline-flex items-center gap-2">
-                    <span
-                      className={`h-2 w-2 rounded-full ${w.live ? "bg-accent ring-4 ring-accent/30" : "border border-current"}`}
-                      aria-hidden="true"
-                    />
-                    {w.status}
-                  </span>
-                  <span className="font-display text-sm font-bold opacity-50">{String(i + 1).padStart(2, "0")}</span>
+                <div className="flex min-w-0 flex-1 flex-col">
+                  <div className="flex items-center justify-between text-xs font-semibold">
+                    <span className="inline-flex items-center gap-2">
+                      <span
+                        className={`h-2 w-2 rounded-full ${w.live ? "bg-accent ring-4 ring-accent/30" : "border border-current"}`}
+                        aria-hidden="true"
+                      />
+                      {w.status}
+                    </span>
+                    <span className="font-display font-bold opacity-50">{String(i + 1).padStart(2, "0")}</span>
+                  </div>
+                  <h3 className="font-display mt-2 text-xl font-extrabold leading-tight tracking-[-0.02em]">{w.name}</h3>
+                  <p className="mt-1 text-[0.82rem] leading-snug opacity-85">{w.text}</p>
+                  <ul className="mt-auto flex flex-wrap gap-1 pt-3" aria-label="Built with">
+                    {w.stack.split(", ").map((t) => (
+                      <li key={t} className={`rounded-full px-2 py-0.5 text-[0.68rem] font-semibold ${card.pill}`}>
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <div className={`mt-4 flex-1 rounded-2xl p-4 ${card.panel}`}>{card.visual}</div>
-
-                <h3 className="font-display mt-5 text-3xl font-extrabold leading-tight tracking-[-0.02em]">{w.name}</h3>
-                <p className="mt-2 max-w-md leading-snug opacity-85">{w.text}</p>
-                <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Built with">
-                  {w.stack.split(", ").map((t) => (
-                    <li key={t} className={`rounded-full px-3 py-1 text-xs font-semibold ${card.pill}`}>
-                      {t}
-                    </li>
-                  ))}
-                </ul>
+                <div className={`flex shrink-0 items-center rounded-2xl p-3 sm:w-[46%] ${card.panel}`}>{card.visual}</div>
               </Reveal>
             );
           })}
