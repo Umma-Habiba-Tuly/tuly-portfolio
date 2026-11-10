@@ -74,12 +74,12 @@ function Face({ c }: { c: Card }) {
         <>
           <div className="absolute inset-x-0 bottom-0 top-28 overflow-hidden">
             <Image
-              src="/images/avatar-person10.webp"
+              src="/images/tuly/idea.webp"
               alt="Illustrated avatar of Umma Habiba Tuly"
               fill
               sizes="240px"
               className="object-cover"
-              style={{ objectPosition: "80% 100%", transform: "scale(1.3)", transformOrigin: "80% 100%" }}
+              style={{ objectPosition: "50% 0%", transform: "scale(1.15)", transformOrigin: "50% 0%" }}
             />
           </div>
           <a

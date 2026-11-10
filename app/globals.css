@@ -411,6 +411,18 @@ body {
   transform: translateY(0);
 }
 
+.mascot-pop {
+  opacity: 0;
+  transform: translateY(46px) scale(0.92);
+  transform-origin: 50% 100%;
+  transition: opacity 0.5s ease, transform 1s cubic-bezier(0.2, 0.9, 0.25, 1.15);
+}
+
+.mascot-on .mascot-pop {
+  opacity: 1;
+  transform: none;
+}
+
 .mascot-sway {
   transform-origin: 50% 100%;
   animation: mascot-sway 5.5s ease-in-out infinite alternate;
@@ -439,6 +451,11 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .mascot-rise {
+    transform: none;
+    transition: none;
+  }
+  .mascot-pop {
+    opacity: 1;
     transform: none;
     transition: none;
   }

@@ -2,20 +2,17 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { POSES } from "@/components/Mascot";
 import MouseParallax from "@/components/MouseParallax";
 import { SITE_CONFIG } from "@/constants/site";
 
-/** Hero avatar. Set HERO_VIDEO to a looping video to replace the still image. */
-const HERO_IMAGE = "/images/avatar-person10.webp";
-
-/** The jacket colour changes with the background so it always keeps its contrast. */
-const JACKET = ["/images/avatar-jprim3.webp", "/images/avatar-jdeep3.webp", "/images/avatar-jdeep3.webp"];
+/** Hero avatar. Set HERO_VIDEO to a looping video to replace the still poses. */
 const HERO_VIDEO = "";
 
 const SLIDES = [
-  { word: "AUTOMATE", bg: "#0E2E2B", wordColor: "#B7E85A", text: "#EFFAF6", dark: true },
-  { word: "BUILD IT", bg: "#B7E85A", wordColor: "#0E2E2B", text: "#10201D", dark: false },
-  { word: "SHIP IT", bg: "#EFFAF6", wordColor: "#10847E", text: "#10201D", dark: false },
+  { word: "AUTOMATE", bg: "#0E2E2B", wordColor: "#B7E85A", text: "#EFFAF6", dark: true, pose: POSES.idea },
+  { word: "BUILD IT", bg: "#EFFAF6", wordColor: "#10847E", text: "#10201D", dark: false, pose: POSES.laptop },
+  { word: "SHIP IT", bg: "#B7E85A", wordColor: "#0E2E2B", text: "#10201D", dark: false, pose: POSES.coffee },
 ];
 
 function Arrow({ dir }: { dir: "prev" | "next" }) {
@@ -73,26 +70,39 @@ export default function Hero() {
           </span>
         </div>
 
-        <div className="anim-rise absolute inset-x-0 bottom-0 mx-auto h-[88%] w-[min(30rem,92vw)] md:h-[84%] md:w-[min(34rem,40vw)]" style={{ animationDelay: "200ms" }}>
+        <div
+          className="anim-rise absolute inset-x-0 bottom-[2.5rem] z-[2] mx-auto h-[86%] w-[min(30rem,92vw)] md:bottom-[6.5rem] md:h-[80%] md:w-[min(34rem,40vw)]"
+          style={{ animationDelay: "200ms" }}
+        >
           <MouseParallax className="h-full w-full">
-            {HERO_VIDEO ? (
-              <video src={HERO_VIDEO} autoPlay muted loop playsInline className="h-full w-full object-contain object-bottom" />
-            ) : (
-              <div className="relative h-full w-full">
-                {JACKET.map((src, n) => (
+            <div className="relative h-full w-full">
+              <div
+                aria-hidden="true"
+                className="absolute -bottom-3 left-1/2 h-8 w-[60%] -translate-x-1/2 rounded-[50%]"
+                style={{ background: "radial-gradient(closest-side, rgba(0,0,0,0.38), rgba(0,0,0,0))" }}
+              />
+              {HERO_VIDEO ? (
+                <video src={HERO_VIDEO} autoPlay muted loop playsInline className="h-full w-full object-contain object-bottom" />
+              ) : (
+                SLIDES.map((sl, n) => (
                   <Image
-                    key={`${src}-${n}`}
-                    src={src}
+                    key={sl.pose.src}
+                    src={sl.pose.src}
                     alt=""
                     fill
                     priority={n === 0}
-                    sizes="(min-width: 768px) 34rem, 92vw"
+                    sizes="(min-width: 768px) 24rem, 70vw"
                     className="object-contain object-bottom"
-                    style={{ opacity: i === n ? 1 : 0, transition: "opacity 0.9s ease" }}
+                    style={{
+                      opacity: i === n ? 1 : 0,
+                      transform: i === n ? "translateY(0) scale(1)" : "translateY(18px) scale(0.97)",
+                      transition: "opacity 0.8s ease, transform 0.9s cubic-bezier(0.2,0.8,0.25,1)",
+                      filter: "drop-shadow(0 12px 22px rgba(0,0,0,0.25))",
+                    }}
                   />
-                ))}
-              </div>
-            )}
+                ))
+              )}
+            </div>
           </MouseParallax>
         </div>
       </div>

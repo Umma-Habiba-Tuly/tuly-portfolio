@@ -40,7 +40,7 @@ export default function ZoomScene() {
   }, []);
 
   const e = ease(p);
-  const avatarScale = 2.3 - 1.65 * e;
+  const avatarScale = 2.7 - 1.7 * e;
   const mapScale = 2.2 - 1.2 * e;
   const iris = 34 + 118 * ease(clamp((p - 0.1) / 0.78));
   const caption = clamp((p - 0.74) / 0.2);
@@ -115,16 +115,19 @@ export default function ZoomScene() {
           <div
             className="relative"
             style={{
-              height: "min(70vh, 34rem)",
-              aspectRatio: "584 / 661",
-              transform: `translateY(${(1 - e) * 0.2 * 100 + e * 9}%) scale(${avatarScale})`,
-              transformOrigin: "52% 30%",
-              filter: `drop-shadow(0 0 28px rgba(16,132,126,0.30)) drop-shadow(0 ${14 * e}px ${30 * e}px rgba(0,0,0,0.45))`,
-              maskImage: "linear-gradient(to bottom, #000 72%, transparent 100%)",
-              WebkitMaskImage: "linear-gradient(to bottom, #000 72%, transparent 100%)",
+              height: "min(60vh, 31rem)",
+              aspectRatio: "370 / 890",
+              transform: `translateY(${(1 - e) * 36 - e * 9}%) scale(${avatarScale})`,
+              transformOrigin: "50% 12%",
+              filter: `drop-shadow(0 ${12 * e}px ${24 * e}px rgba(0,0,0,0.4))`,
             }}
           >
-            <Image src="/images/avatar-jprim3.webp" alt="Illustrated avatar of Umma Habiba Tuly" fill sizes="34rem" className="object-contain object-bottom" />
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-2 left-1/2 h-7 w-[150%] -translate-x-1/2 rounded-[50%]"
+              style={{ background: "radial-gradient(closest-side, rgba(0,0,0,0.45), rgba(0,0,0,0))", opacity: e }}
+            />
+            <Image src="/images/tuly/backpack.webp" alt="Illustrated avatar of Umma Habiba Tuly" fill sizes="20rem" className="object-contain object-bottom" priority />
           </div>
         </div>
 

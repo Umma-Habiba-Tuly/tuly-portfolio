@@ -37,12 +37,11 @@ export default function About() {
           <div className="flex flex-col gap-4">
             <Reveal className="relative h-64 overflow-hidden rounded-3xl bg-gradient-to-b from-deep to-primary/70">
               <Image
-                src="/images/avatar-person10.webp"
+                src="/images/tuly/cheer.webp"
                 alt="Illustrated avatar of Umma Habiba Tuly"
                 fill
                 sizes="352px"
-                className="object-cover"
-                style={{ objectPosition: "70% 28%", transform: "scale(1.55)", transformOrigin: "70% 28%" }}
+                className="object-contain object-bottom px-10 pt-6"
               />
               <span className="float-y absolute left-6 top-6 text-2xl text-surface" aria-hidden="true">
                 ✦
