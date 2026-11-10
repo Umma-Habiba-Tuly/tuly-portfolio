@@ -119,7 +119,7 @@ export default function ZoomScene() {
               aspectRatio: "584 / 661",
               transform: `translateY(${(1 - e) * 0.2 * 100 + e * 9}%) scale(${avatarScale})`,
               transformOrigin: "52% 30%",
-              filter: `drop-shadow(0 ${14 * e}px ${30 * e}px rgba(0,0,0,0.45))`,
+              filter: `drop-shadow(0 0 28px rgba(16,132,126,0.30)) drop-shadow(0 ${14 * e}px ${30 * e}px rgba(0,0,0,0.45))`,
               maskImage: "linear-gradient(to bottom, #000 72%, transparent 100%)",
               WebkitMaskImage: "linear-gradient(to bottom, #000 72%, transparent 100%)",
             }}
