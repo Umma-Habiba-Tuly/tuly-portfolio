@@ -26,6 +26,7 @@ export const SITE_CONFIG = {
 };
 
 export const NAV_ITEMS = [
+  { label: "Skills", href: "#skills" },
   { label: "What I do", href: "#services" },
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },

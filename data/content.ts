@@ -127,6 +127,6 @@ export const ABOUT = {
     "I work mostly in n8n, Qdrant and LangChain, write the glue in Python and FastAPI, and build interfaces in Next.js.",
     "So far: customer support for a clothing brand, document search, lead handling and a handful of web projects. Now: an AI receptionist for hotels.",
   ],
-  tools: "OpenAI, Anthropic, Gemini, LangChain, Qdrant, n8n, Python, FastAPI, PostgreSQL, Docker, Next.js, TypeScript, Tailwind CSS",
+  tools: "Python, JavaScript, TypeScript, Next.js, React, Node.js, FastAPI, PostgreSQL, MySQL, Docker, n8n, Make, LangChain, LlamaIndex, Qdrant, Pinecone, OpenAI, Anthropic, Figma, Adobe XD",
   worksWith: "AI, SaaS, software and automation collaborations: e-commerce, hospitality, startups, agencies, education",
 };

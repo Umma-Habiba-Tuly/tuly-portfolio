@@ -6,9 +6,9 @@ import { SITE_CONFIG, WEAR_INSPIRED_POSTER, WEAR_INSPIRED_VIDEO } from "@/consta
 import { ABOUT, FEATURED_WORK } from "@/data/content";
 
 const SKILLS = [
-  { k: "AI and automation", v: "n8n, Qdrant, LangChain, OpenAI, Anthropic, Gemini" },
-  { k: "Software", v: "Python, FastAPI, Next.js, TypeScript, Tailwind CSS, PostgreSQL, Docker" },
-  { k: "Design", v: "UI/UX design, interfaces and dashboards" },
+  { k: "AI and automation", v: "n8n, Make, LangChain, LlamaIndex, Qdrant, Pinecone, OpenAI, Anthropic" },
+  { k: "Software", v: "Python, TypeScript, Next.js, React, Node.js, FastAPI, PostgreSQL, MySQL, Docker" },
+  { k: "Design", v: "UI/UX design, Figma, Adobe XD, Photoshop, Illustrator" },
 ];
 
 const FLOW = ["Webhook", "n8n", "Agent", "Reply"];
