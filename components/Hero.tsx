@@ -6,7 +6,7 @@ import { SITE_CONFIG } from "@/constants/site";
 /**
  * Hero avatar. Swap for a looping video (e.g. "/videos/avatar.webm") by setting HERO_VIDEO.
  */
-const HERO_IMAGE = "/images/avatar.webp";
+const HERO_IMAGE = "/images/avatar-cutout.webp";
 const HERO_VIDEO = "";
 
 const TOOLS = ["n8n", "Qdrant", "PostgreSQL", "LangChain", "FastAPI", "Docker"];
@@ -94,14 +94,28 @@ export default function Hero() {
           </div>
 
           <div className="anim-rise relative mx-auto w-full max-w-[30rem]" style={{ animationDelay: "250ms" }}>
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+              {[64, 92, 122].map((d, i) => (
+                <span
+                  key={d}
+                  className="absolute rounded-full border"
+                  style={{
+                    width: `${d}%`,
+                    aspectRatio: "1",
+                    left: "58%",
+                    top: "62%",
+                    transform: "translate(-50%, -50%)",
+                    borderColor: i === 0 ? "rgba(183,232,90,0.28)" : "rgba(239,250,246,0.14)",
+                  }}
+                />
+              ))}
+            </div>
             <MouseParallax>
               <div
                 className="relative aspect-[784/802]"
                 style={{
-                  maskImage: "linear-gradient(to right, transparent 0%, #000 22%, #000 82%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 24%, #000 92%, transparent 100%)",
-                  WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 22%, #000 82%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 24%, #000 92%, transparent 100%)",
-                  maskComposite: "intersect",
-                  WebkitMaskComposite: "source-in",
+                  maskImage: "linear-gradient(to bottom, #000 86%, transparent 100%)",
+                  WebkitMaskImage: "linear-gradient(to bottom, #000 86%, transparent 100%)",
                 }}
               >
                 {HERO_VIDEO ? (
