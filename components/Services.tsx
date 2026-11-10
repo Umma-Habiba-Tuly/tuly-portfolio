@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Mascot from "@/components/Mascot";
 import Reveal from "@/components/Reveal";
 import ServicesExplorer from "@/components/ServicesExplorer";
@@ -22,7 +23,15 @@ export default function Services() {
           <p className="text-lg font-semibold">How a project goes</p>
           <ol className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS.map((p, i) => (
-              <Reveal as="li" key={p.n} delay={i * 110} className="border-t-2 border-ink pt-5">
+              <Reveal as="li" key={p.n} delay={i * 110} className="relative border-t-2 border-ink pt-5">
+                <Image
+                  src={`/images/tuly/${["b-think", "b-wink", "b-laugh", "b-cool"][i % 4]}.webp`}
+                  alt=""
+                  width={96}
+                  height={108}
+                  unoptimized
+                  className="absolute right-1 top-4 h-14 w-auto drop-shadow-md"
+                />
                 <span className="font-display flex h-10 w-10 items-center justify-center rounded-full bg-deep text-lg font-bold text-accent">
                   {p.n}
                 </span>

@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { SERVICES } from "@/data/content";
+
+const BADGES = ["b-smile", "b-think", "b-wink", "b-cool", "b-laugh", "b-wow"];
 
 const ICONS = [
   <path key="chat" d="M4 5h16v11H10l-5 4v-4H4z" />,
@@ -100,6 +103,16 @@ export default function ServicesExplorer() {
         >
           {String(active + 1).padStart(2, "0")}
         </span>
+
+        <Image
+          key={`b-${active}`}
+          src={`/images/tuly/${BADGES[active % BADGES.length]}.webp`}
+          alt=""
+          width={120}
+          height={135}
+          unoptimized
+          className="anim-pop absolute right-5 top-5 h-20 w-auto drop-shadow-lg sm:right-8 sm:top-7 sm:h-24"
+        />
 
         <div key={active} className="anim-rise relative" style={{ animationDuration: "0.5s" }}>
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-accent/60 text-accent">

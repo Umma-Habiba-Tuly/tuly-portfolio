@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Mascot from "@/components/Mascot";
 import { ICONS } from "@/components/icons";
 import PhoneFrame from "@/components/PhoneFrame";
 import Reveal from "@/components/Reveal";
@@ -87,7 +88,8 @@ export default function About() {
 
           {/* right column */}
           <div className="flex flex-col gap-4">
-            <Reveal delay={100} className="flex flex-1 flex-col rounded-3xl bg-deep p-5 sm:p-7">
+            <Reveal delay={100} className="relative flex flex-1 flex-col rounded-3xl bg-deep p-5 sm:p-7">
+              <Mascot pose="notebook" mode="peek" className="bottom-full right-24 hidden w-40 sm:block" bubble="My work" />
               <div className="flex items-center justify-between gap-4">
                 <h3 className="font-display text-2xl font-bold">Featured Work</h3>
                 <a href="#work" className="text-sm font-semibold text-accent hover:underline">

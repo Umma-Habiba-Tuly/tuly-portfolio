@@ -7,6 +7,8 @@ import { GROUPS } from "@/data/skills";
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const ease = (t: number) => t * t * (3 - 2 * t);
 
+const BADGES = ["b-smile", "b-wink", "b-think", "b-wow", "b-laugh", "b-cool"];
+
 export default function ZoomScene() {
   const wrap = useRef<HTMLElement | null>(null);
   const [p, setP] = useState(0);
@@ -143,7 +145,7 @@ export default function ZoomScene() {
                 return (
                   <div
                     key={g.n}
-                    className={`pointer-events-auto rounded-2xl p-4 shadow-xl ${g.look}`}
+                    className={`pointer-events-auto relative rounded-2xl p-4 shadow-xl ${g.look}`}
                     style={{ opacity: vis, transform: `translateX(${(1 - vis) * (ci === 0 ? -40 : 40)}px)` }}
                   >
                     <p className="flex items-baseline gap-2">
@@ -151,6 +153,14 @@ export default function ZoomScene() {
                       <span className="font-display text-xl font-extrabold leading-tight tracking-[-0.01em]">{g.title}</span>
                     </p>
                     <p className="mt-2 text-[13px] font-medium leading-snug opacity-90">{g.skills.join(" · ")}</p>
+                    <Image
+                      src={`/images/tuly/${BADGES[ci * 3 + i]}.webp`}
+                      alt=""
+                      width={96}
+                      height={108}
+                      unoptimized
+                      className={`absolute -top-5 h-11 w-auto drop-shadow-md ${ci === 0 ? "-right-3" : "-left-3"}`}
+                    />
                   </div>
                 );
               })}
