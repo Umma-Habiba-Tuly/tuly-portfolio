@@ -1,3 +1,4 @@
+import NavLinks from "@/components/NavLinks";
 import { NAV_ITEMS, SITE_CONFIG } from "@/constants/site";
 
 function Mark() {
@@ -43,16 +44,7 @@ export default function Header() {
           aria-label="Main"
           className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 rounded-full border border-surface/25 bg-surface/5 p-1.5 md:flex"
         >
-          {NAV_ITEMS.map((item, i) => (
-            <a
-              key={item.href}
-              href={item.href}
-              style={{ animationDelay: `${150 + i * 90}ms` }}
-              className="anim-pop rounded-full px-5 py-2 text-sm font-medium transition hover:bg-surface/10 hover:text-accent"
-            >
-              {item.label}
-            </a>
-          ))}
+          <NavLinks items={NAV_ITEMS} />
         </nav>
 
         <a
