@@ -126,19 +126,28 @@ export default function Work() {
               <p className="mt-4 text-xl font-medium leading-snug sm:text-2xl">{F.title}</p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed">{F.summary}</p>
 
-              <dl className="mt-10 border-t border-surface/25">
-                {F.flow.map((row) => (
-                  <div key={row.k} className="grid gap-1 border-b border-surface/25 py-4 sm:grid-cols-[7.5rem_1fr] sm:gap-6">
-                    <dt className="label pt-0.5 text-accent">{row.k}</dt>
-                    <dd className="leading-relaxed">{row.v}</dd>
+              <dl className="mt-7 grid gap-2.5 sm:grid-cols-2">
+                {F.flow.map((row, n) => (
+                  <div key={row.k} className="rounded-2xl bg-surface/[0.07] p-3.5 ring-1 ring-surface/15">
+                    <dt className="flex items-center gap-2 text-sm font-bold text-accent">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[0.7rem] font-extrabold text-ink">
+                        {n + 1}
+                      </span>
+                      {row.k}
+                    </dt>
+                    <dd className="mt-1.5 text-[0.82rem] leading-snug text-surface/85">{row.v}</dd>
                   </div>
                 ))}
               </dl>
 
-              <p className="mt-6 text-sm leading-relaxed">
-                <span className="label mr-3 text-accent">Built with</span>
-                <span className="mono">{F.builtWith}</span>
-              </p>
+              <ul className="mt-4 flex flex-wrap items-center gap-1.5" aria-label="Built with">
+                <li className="label mr-1 text-accent">Built with</li>
+                {F.builtWith.split(", ").map((t) => (
+                  <li key={t} className="rounded-full bg-surface/12 px-2.5 py-0.5 text-xs font-semibold">
+                    {t}
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <div className="flex items-center justify-center lg:justify-end">
