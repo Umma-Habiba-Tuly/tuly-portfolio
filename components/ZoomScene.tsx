@@ -60,9 +60,10 @@ export default function ZoomScene() {
   }, []);
 
   const e = ease(p);
-  const avatarScale = 3.6 - 3.28 * e;            // face close-up -> small figure
-  const mapScale = 2.6 - 1.6 * e;                 // map starts huge, settles
-  const iris = 22 + 130 * ease(clamp((p - 0.08) / 0.8)); // circular opening, in vmin
+  const avatarScale = 2.3 - 1.98 * e;            // face close-up -> small figure
+  const mapScale = 2.2 - 1.2 * e;
+  const spin = -34 * (1 - e);                   // the planet turns as the camera pulls back                 // map starts huge, settles
+  const iris = 34 + 118 * ease(clamp((p - 0.1) / 0.78)); // circular opening, in vmin
   const caption = clamp((p - 0.72) / 0.2);
   const byId = Object.fromEntries(NODES.map((n) => [n.id, n]));
 
@@ -74,6 +75,12 @@ export default function ZoomScene() {
       className={`on-deep relative bg-deep text-surface ${still ? "" : "h-[270vh]"}`}
     >
       <div className={`${still ? "relative h-[34rem]" : "sticky top-16 h-[calc(100vh-4rem)]"} overflow-hidden`}>
+        {/* sky behind the planet + its glowing rim */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(circle at 50% 50%, #1b5e57 0%, #0E2E2B 55%, #08201e 100%)" }}
+        />
         {/* map, revealed through a growing circle */}
         <div
           className="absolute inset-0"
@@ -84,7 +91,7 @@ export default function ZoomScene() {
             viewBox="0 0 1600 900"
             preserveAspectRatio="xMidYMid slice"
             className="absolute inset-0 h-full w-full"
-            style={{ transform: `scale(${mapScale})`, transformOrigin: "50% 52%" }}
+            style={{ transform: `rotate(${spin}deg) scale(${mapScale})`, transformOrigin: "50% 52%" }}
             aria-hidden="true"
           >
             <defs>
@@ -133,15 +140,16 @@ export default function ZoomScene() {
           </svg>
         </div>
 
-        {/* rim of the "planet" at the start */}
+        
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 rounded-full border-2 border-accent/60"
+          className="pointer-events-none absolute left-1/2 top-1/2 rounded-full border-[3px] border-accent/70"
           style={{
             width: `${iris * 2}vmin`,
             height: `${iris * 2}vmin`,
             transform: "translate(-50%, -50%)",
-            opacity: clamp(1 - (p - 0.1) / 0.35),
+            opacity: clamp(1 - (p - 0.12) / 0.45),
+            boxShadow: "0 0 60px 6px rgba(183,232,90,0.35), inset 0 0 50px 4px rgba(183,232,90,0.18)",
           }}
         />
 
