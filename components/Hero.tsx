@@ -10,9 +10,9 @@ import { SITE_CONFIG } from "@/constants/site";
 const HERO_VIDEO = "";
 
 const SLIDES = [
-  { word: "AUTOMATE", bg: "#0E2E2B", wordColor: "#B7E85A", text: "#EFFAF6", dark: true, pose: POSES.idea },
-  { word: "BUILD IT", bg: "#EFFAF6", wordColor: "#10847E", text: "#10201D", dark: false, pose: POSES.laptop },
-  { word: "SHIP IT", bg: "#B7E85A", wordColor: "#0E2E2B", text: "#10201D", dark: false, pose: POSES.coffee },
+  { word: "AUTOMATE", bg: "#0E2E2B", wordColor: "#B7E85A", text: "#EFFAF6", dark: true, pose: POSES.idea, cx: 0.55 },
+  { word: "BUILD IT", bg: "#EFFAF6", wordColor: "#10847E", text: "#10201D", dark: false, pose: POSES.laptop, cx: 0.56 },
+  { word: "SHIP IT", bg: "#B7E85A", wordColor: "#0E2E2B", text: "#10201D", dark: false, pose: POSES.coffee, cx: 0.58 },
 ];
 
 function Arrow({ dir }: { dir: "prev" | "next" }) {
@@ -75,7 +75,7 @@ export default function Hero() {
           style={{ animationDelay: "200ms" }}
         >
           <MouseParallax className="h-full w-full">
-            <div className="relative h-full w-full">
+            <div className="relative h-full w-full" style={{ containerType: "size" }}>
               <div
                 aria-hidden="true"
                 className="absolute -bottom-2 left-1/2 h-6 w-[52%] -translate-x-1/2 rounded-[50%]"
@@ -96,7 +96,7 @@ export default function Hero() {
                     className="object-contain object-bottom"
                     style={{
                       opacity: i === n ? 1 : 0,
-                      transform: i === n ? "translateY(0) scale(1)" : "translateY(18px) scale(0.97)",
+                      transform: `translate(calc(${((0.5 - sl.cx) * sl.pose.w / sl.pose.h * 100).toFixed(2)}cqh), ${i === n ? "0px" : "18px"}) scale(${i === n ? 1 : 0.97})`,
                       transition: "opacity 0.8s ease, transform 0.9s cubic-bezier(0.2,0.8,0.25,1)",
                       filter: "drop-shadow(0 6px 9px rgba(0,0,0,0.16))",
                     }}
