@@ -9,7 +9,7 @@ import { SITE_CONFIG } from "@/constants/site";
 const HERO_IMAGE = "/images/avatar-person10.webp";
 
 /** The jacket colour changes with the background so it always keeps its contrast. */
-const JACKET = ["/images/avatar-jlime.webp", "/images/avatar-jdeep.webp", HERO_IMAGE];
+const JACKET = ["/images/avatar-jlime.webp", "/images/avatar-jdeep.webp", "/images/avatar-jprim.webp"];
 const HERO_VIDEO = "";
 
 const SLIDES = [
