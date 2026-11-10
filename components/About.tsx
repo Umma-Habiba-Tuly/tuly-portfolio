@@ -22,12 +22,12 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="on-deep bg-ink text-surface">
+    <section id="about" className="bg-surface text-ink">
       <div className="mx-auto max-w-[1200px] px-5 pb-9 pt-9 sm:px-8 md:pb-10 md:pt-16">
         <Reveal className="flex items-center gap-5">
-          <span className="h-px flex-1 bg-gradient-to-r from-transparent to-surface/40" />
+          <span className="h-px flex-1 bg-gradient-to-r from-transparent to-ink/35" />
           <h2 className="font-display text-center text-3xl font-bold tracking-tight sm:text-4xl">About me</h2>
-          <span className="h-px flex-1 bg-gradient-to-l from-transparent to-surface/40" />
+          <span className="h-px flex-1 bg-gradient-to-l from-transparent to-ink/35" />
         </Reveal>
 
         <div className="mt-6 grid gap-2.5 lg:grid-cols-[20rem_1fr]">
@@ -64,7 +64,7 @@ export default function About() {
 
           {/* right column */}
           <div className="flex flex-col gap-2.5">
-            <Reveal delay={100} className="relative flex flex-1 flex-col rounded-3xl bg-deep p-4 sm:p-5">
+            <Reveal delay={100} className="on-deep relative flex flex-1 flex-col rounded-3xl bg-deep p-4 text-surface sm:p-5">
               <Mascot pose="notebook" mode="peek" className="bottom-full right-24 hidden w-20 sm:block" bubble="A bit about me" bubbleAt="top-[52%]" />
               <dl className="grid gap-x-6 gap-y-4 text-sm sm:grid-cols-2">
                 <div>
@@ -85,7 +85,7 @@ export default function About() {
                 ))}
               </dl>
             </Reveal>
-            <Reveal delay={160} className="flex flex-col items-center justify-between gap-4 rounded-3xl border border-surface/20 p-2 sm:flex-row sm:rounded-full sm:pl-6">
+            <Reveal delay={160} className="flex flex-col items-center justify-between gap-4 rounded-3xl border border-ink/20 p-2 sm:flex-row sm:rounded-full sm:pl-6">
               <ul className="flex flex-wrap justify-center gap-2.5">
                 {links.map((l) => (
                   <li key={l.k}>
@@ -103,7 +103,7 @@ export default function About() {
               </ul>
               <a
                 href={SITE_CONFIG.whatsappUrl}
-                className="inline-flex items-center gap-2 rounded-full bg-surface px-5 py-2 text-sm font-semibold text-ink transition hover:bg-accent"
+                className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2 text-sm font-semibold text-surface transition hover:bg-primary"
               >
                 Message me <span aria-hidden="true">↗</span>
               </a>
