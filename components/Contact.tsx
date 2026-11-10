@@ -12,7 +12,7 @@ export default function Contact() {
   const facts = [
     { k: "Reply time", v: SITE_CONFIG.replyTime },
     { k: "Based in", v: SITE_CONFIG.location },
-    { k: "Open to", v: "AI, SaaS, software and automation projects" },
+    { k: "Open to", v: "AI, SaaS, software, automation and UI/UX projects" },
   ];
 
   return (
