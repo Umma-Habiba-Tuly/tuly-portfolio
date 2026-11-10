@@ -71,7 +71,6 @@ export default function About() {
                   <dt className="text-base font-bold">Education</dt>
                   <dd className="mt-1 leading-snug text-surface/75">
                     BSc in Computer Science and Engineering
-                    <span className="mt-1 block font-bold text-surface">CGPA 3.70</span>
                   </dd>
                 </div>
                 <div>
