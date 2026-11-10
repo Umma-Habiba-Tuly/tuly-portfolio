@@ -56,8 +56,8 @@ export default function Hero() {
         <div className="absolute inset-x-0 top-[8%] flex justify-center overflow-hidden md:top-[9%]">
           <span
             key={slide.word}
-            className="font-display anim-rise block whitespace-nowrap font-bold uppercase leading-[0.86] tracking-[-0.035em]"
-            style={{ fontSize: "clamp(4.2rem, 15.5vw, 14rem)", color: slide.wordColor, transition: "color 0.9s ease" }}
+            className="font-display condensed anim-rise block whitespace-nowrap font-extrabold uppercase leading-[0.82] tracking-[-0.02em]"
+            style={{ fontSize: "clamp(5rem, 19vw, 17.5rem)", color: slide.wordColor, transition: "color 0.9s ease" }}
           >
             {slide.word}
           </span>
