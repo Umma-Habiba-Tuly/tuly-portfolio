@@ -115,57 +115,58 @@ export default function Work() {
           }
         />
 
-        <Reveal as="article" className="mt-8">
-          <div className="grid gap-6 lg:grid-cols-[1.5fr_0.5fr] lg:gap-8">
-            <div>
-              <p className="label text-accent">
-                {F.label} · {F.sector}
-              </p>
-              <h3 className="mt-3 font-display text-3xl font-extrabold leading-[1] tracking-[-0.03em] sm:text-4xl">{F.name}</h3>
-              <p className="mt-2 text-lg font-medium leading-snug">{F.title}</p>
-              <p className="mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-surface/85">{F.summary}</p>
+        <Reveal
+          as="article"
+          className="mt-8 overflow-hidden rounded-[2rem] bg-gradient-to-br from-ink to-deep ring-1 ring-surface/15 lg:grid lg:grid-cols-[1.4fr_1fr]"
+        >
+          <div className="p-6 sm:p-8">
+            <p className="flex flex-wrap items-center gap-2 text-xs font-bold">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-ink">
+                <span className="h-1.5 w-1.5 rounded-full bg-ink" aria-hidden="true" />
+                {F.label}
+              </span>
+              <span className="rounded-full border border-surface/30 px-3 py-1 text-surface/85">{F.sector}</span>
+            </p>
+            <h3 className="font-display mt-4 text-4xl font-extrabold leading-none tracking-[-0.03em] sm:text-5xl">{F.name}</h3>
+            <p className="mt-2 text-lg font-semibold leading-snug text-accent">{F.title}</p>
+            <p className="mt-3 max-w-2xl text-[0.92rem] leading-relaxed text-surface/80">{F.summary}</p>
 
-              <dl className="mt-4 grid gap-2 sm:grid-cols-2">
-                {F.flow.map((row, n) => (
-                  <div key={row.k} className="rounded-xl bg-surface/[0.07] p-3 ring-1 ring-surface/15">
-                    <dt className="flex items-center gap-2 text-sm font-bold text-accent">
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[0.7rem] font-extrabold text-ink">
-                        {n + 1}
-                      </span>
-                      {row.k}
-                    </dt>
-                    <dd className="mt-1 text-[0.78rem] leading-snug text-surface/85">{row.v}</dd>
-                  </div>
-                ))}
-              </dl>
+            <ol className="mt-7 grid gap-x-4 gap-y-5 sm:grid-cols-2 xl:grid-cols-4">
+              {F.flow.map((row, n) => (
+                <li key={row.k} className="relative border-t border-surface/25 pt-4">
+                  <span className="absolute -top-3 left-0 flex h-6 w-6 items-center justify-center rounded-full bg-accent text-xs font-extrabold text-ink">
+                    {n + 1}
+                  </span>
+                  <p className="text-sm font-bold">{row.k}</p>
+                  <p className="mt-1 text-[0.76rem] leading-snug text-surface/70">{row.v}</p>
+                </li>
+              ))}
+            </ol>
 
-              <ul className="mt-3 flex flex-wrap items-center gap-1.5" aria-label="Built with">
-                <li className="label mr-1 text-accent">Built with</li>
-                {F.builtWith.split(", ").map((t) => (
-                  <li key={t} className="rounded-full bg-surface/12 px-2.5 py-0.5 text-xs font-semibold">
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="mt-6 flex flex-wrap items-center gap-1.5" aria-label="Built with">
+              {F.builtWith.split(", ").map((t) => (
+                <li key={t} className="rounded-full bg-surface/10 px-2.5 py-1 text-xs font-semibold ring-1 ring-surface/15">
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div className="flex items-center justify-center lg:justify-end">
-              <div className="relative flex w-full justify-center">
-                <div
-                  aria-hidden="true"
-                  className="fan fan-left hidden items-start justify-start rounded-[1.6rem] bg-gradient-to-br from-primary to-deep p-3.5 shadow-xl ring-1 ring-surface/15 md:flex"
-                >
-                  <span className="font-display text-sm font-bold leading-tight">Website chat</span>
-                </div>
-                <div
-                  aria-hidden="true"
-                  className="fan fan-right hidden items-start justify-end rounded-[1.6rem] bg-surface p-3.5 text-ink shadow-xl md:flex"
-                >
-                  <span className="font-display text-sm font-bold leading-tight">Instagram</span>
-                </div>
-                <div className="relative z-10">
-                  <PhoneFrame size="sm" videoSrc={WEAR_INSPIRED_VIDEO} poster={WEAR_INSPIRED_POSTER} />
-                </div>
+          <div className="relative min-h-[20rem] overflow-hidden bg-gradient-to-br from-primary to-deep">
+            <div aria-hidden="true" className="dot-grid absolute inset-0 opacity-60" />
+            <div
+              aria-hidden="true"
+              className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-accent/25 blur-3xl"
+            />
+            <div className="absolute inset-0 flex justify-center pt-8">
+              <div aria-hidden="true" className="fan fan-left hidden items-start justify-start rounded-[1.6rem] bg-gradient-to-br from-primary to-deep p-3.5 shadow-xl ring-1 ring-surface/20 md:flex">
+                <span className="font-display text-sm font-bold leading-tight">Website chat</span>
+              </div>
+              <div aria-hidden="true" className="fan fan-right hidden items-start justify-end rounded-[1.6rem] bg-surface p-3.5 text-ink shadow-xl md:flex">
+                <span className="font-display text-sm font-bold leading-tight">Instagram</span>
+              </div>
+              <div className="relative z-10">
+                <PhoneFrame size="sm" videoSrc={WEAR_INSPIRED_VIDEO} poster={WEAR_INSPIRED_POSTER} />
               </div>
             </div>
           </div>
