@@ -77,7 +77,8 @@ function Face({ c }: { c: Card }) {
               src="/images/tuly/idea.webp"
               alt="Illustrated avatar of Umma Habiba Tuly"
               fill
-              sizes="240px"
+              sizes="480px"
+              unoptimized
               className="object-cover"
               style={{ objectPosition: "50% 0%", transform: "scale(1.15)", transformOrigin: "50% 0%" }}
             />

@@ -40,7 +40,8 @@ export default function About() {
                 src="/images/tuly/cheer.webp"
                 alt="Illustrated avatar of Umma Habiba Tuly"
                 fill
-                sizes="352px"
+                sizes="704px"
+                unoptimized
                 className="object-contain object-bottom px-10 pt-6"
               />
               <span className="float-y absolute left-6 top-6 text-2xl text-surface" aria-hidden="true">

@@ -116,7 +116,7 @@ export default function ZoomScene() {
             className="relative"
             style={{
               height: "min(60vh, 31rem)",
-              aspectRatio: "370 / 890",
+              aspectRatio: "585 / 1365",
               transform: `translateY(${(1 - e) * 36 - e * 9}%) scale(${avatarScale})`,
               transformOrigin: "50% 12%",
               filter: `drop-shadow(0 ${12 * e}px ${24 * e}px rgba(0,0,0,0.4))`,
@@ -127,7 +127,7 @@ export default function ZoomScene() {
               className="absolute -bottom-2 left-1/2 h-7 w-[150%] -translate-x-1/2 rounded-[50%]"
               style={{ background: "radial-gradient(closest-side, rgba(0,0,0,0.45), rgba(0,0,0,0))", opacity: e }}
             />
-            <Image src="/images/tuly/backpack.webp" alt="Illustrated avatar of Umma Habiba Tuly" fill sizes="20rem" className="object-contain object-bottom" priority />
+            <Image src="/images/tuly/backpack.webp" alt="Illustrated avatar of Umma Habiba Tuly" fill sizes="20rem" unoptimized className="object-contain object-bottom" priority />
           </div>
         </div>
 

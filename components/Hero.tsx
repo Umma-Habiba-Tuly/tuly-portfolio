@@ -92,6 +92,7 @@ export default function Hero() {
                     fill
                     priority={n === 0}
                     sizes="(min-width: 768px) 24rem, 70vw"
+                    unoptimized
                     className="object-contain object-bottom"
                     style={{
                       opacity: i === n ? 1 : 0,

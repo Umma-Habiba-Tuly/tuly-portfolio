@@ -83,7 +83,7 @@ const CARDS = [
       <div className="space-y-2.5 text-sm">
         <p className="ml-auto w-fit max-w-[80%] rounded-2xl rounded-br-sm bg-surface px-3.5 py-2 text-ink">Do you have a double room on Friday?</p>
         <div className="flex items-end gap-2">
-          <Image src="/images/tuly/b-smile.webp" alt="" width={36} height={36} className="h-9 w-9 rounded-full" />
+          <Image src="/images/tuly/b-smile.webp" alt="" width={72} height={80} unoptimized className="h-9 w-9 rounded-full" />
           <p className="max-w-[80%] rounded-2xl rounded-bl-sm bg-primary px-3.5 py-2">Yes, from $64 a night. Want me to hold it for you?</p>
         </div>
       </div>

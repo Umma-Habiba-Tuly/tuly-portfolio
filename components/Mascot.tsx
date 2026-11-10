@@ -4,18 +4,18 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export const POSES = {
-  coffee: { src: "/images/tuly/coffee.webp", w: 392, h: 884 },
-  crossed: { src: "/images/tuly/crossed.webp", w: 248, h: 886 },
-  idea: { src: "/images/tuly/idea.webp", w: 326, h: 886 },
-  laptop: { src: "/images/tuly/laptop.webp", w: 376, h: 866 },
-  backpack: { src: "/images/tuly/backpack.webp", w: 370, h: 890 },
-  wave: { src: "/images/tuly/wave.webp", w: 428, h: 892 },
-  sitLaptop: { src: "/images/tuly/sit-laptop.webp", w: 424, h: 584 },
-  beanbag: { src: "/images/tuly/beanbag.webp", w: 544, h: 580 },
-  desk: { src: "/images/tuly/desk.webp", w: 610, h: 578 },
-  cheer: { src: "/images/tuly/cheer.webp", w: 400, h: 546 },
-  sip: { src: "/images/tuly/sip.webp", w: 362, h: 564 },
-  notebook: { src: "/images/tuly/notebook.webp", w: 392, h: 566 },
+  coffee: { src: "/images/tuly/coffee.webp", w: 618, h: 1356 },
+  crossed: { src: "/images/tuly/crossed.webp", w: 402, h: 1359 },
+  idea: { src: "/images/tuly/idea.webp", w: 519, h: 1359 },
+  laptop: { src: "/images/tuly/laptop.webp", w: 594, h: 1329 },
+  backpack: { src: "/images/tuly/backpack.webp", w: 585, h: 1365 },
+  wave: { src: "/images/tuly/wave.webp", w: 672, h: 1368 },
+  sitLaptop: { src: "/images/tuly/sit-laptop.webp", w: 666, h: 897 },
+  beanbag: { src: "/images/tuly/beanbag.webp", w: 831, h: 885 },
+  desk: { src: "/images/tuly/desk.webp", w: 936, h: 894 },
+  cheer: { src: "/images/tuly/cheer.webp", w: 624, h: 849 },
+  sip: { src: "/images/tuly/sip.webp", w: 573, h: 876 },
+  notebook: { src: "/images/tuly/notebook.webp", w: 618, h: 879 },
 } as const;
 
 export type PoseName = keyof typeof POSES;
@@ -75,7 +75,8 @@ export default function Mascot({ pose, className = "", bubble, mode = "sit", led
       alt=""
       width={p.w}
       height={p.h}
-      sizes="(min-width: 768px) 14rem, 9rem"
+      sizes="(min-width: 768px) 20rem, 12rem"
+      unoptimized
       className="h-auto w-full select-none"
       style={{ filter: "drop-shadow(0 10px 18px rgba(0,0,0,0.22))" }}
     />
