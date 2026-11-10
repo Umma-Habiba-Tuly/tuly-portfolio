@@ -122,7 +122,7 @@ export default function Work() {
               <p className="label text-accent">
                 {F.label} · {F.sector}
               </p>
-              <h3 className="mt-5 font-display text-6xl font-extrabold leading-[0.95] tracking-[-0.04em] sm:text-7xl">{F.name}</h3>
+              <h3 className="mt-5 font-display text-4xl font-extrabold leading-[1] tracking-[-0.03em] sm:text-5xl">{F.name}</h3>
               <p className="mt-4 text-xl font-medium leading-snug sm:text-2xl">{F.title}</p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed">{F.summary}</p>
 
