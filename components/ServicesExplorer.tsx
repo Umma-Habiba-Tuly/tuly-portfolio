@@ -137,7 +137,7 @@ export default function ServicesExplorer() {
             {s.stack}
           </p>
 
-          <div className="mt-7 flex items-center gap-4">
+          <div className="mt-7 flex items-end justify-between gap-4">
             <a href="#contact" className="btn btn-accent">
               Talk about this
             </a>
@@ -148,7 +148,7 @@ export default function ServicesExplorer() {
               width={120}
               height={135}
               unoptimized
-              className="anim-pop h-16 w-auto drop-shadow-lg"
+              className="anim-pop -mb-3 -mr-2 h-24 w-auto drop-shadow-lg sm:-mr-4"
             />
           </div>
         </div>
