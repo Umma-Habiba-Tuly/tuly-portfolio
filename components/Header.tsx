@@ -1,22 +1,18 @@
+import Image from "next/image";
 import NavLinks from "@/components/NavLinks";
 import { NAV_ITEMS, SITE_CONFIG } from "@/constants/site";
 
 function Mark() {
   return (
-    <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-ink">
-      <svg
-        viewBox="0 0 24 24"
-        className="h-5 w-5 text-accent"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M7 17 17 7M8 7h9v9" />
-      </svg>
-    </span>
+    <Image
+      src="/images/tuly/b-smile.webp"
+      alt=""
+      width={96}
+      height={108}
+      unoptimized
+      priority
+      className="h-11 w-auto drop-shadow-md"
+    />
   );
 }
 

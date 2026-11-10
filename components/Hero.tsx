@@ -110,20 +110,20 @@ export default function Hero() {
 
       {/* info columns */}
       <div className="relative z-10 mx-auto grid max-w-[1200px] gap-8 px-5 pb-20 pt-6 sm:px-8 md:min-h-[43rem] md:grid-cols-2 md:items-end md:pb-28 md:pt-0">
-        <div className="max-w-xs">
-          <p className="text-sm font-bold uppercase leading-snug tracking-[0.06em]">
+        <div className="max-w-[26rem]">
+          <p className="text-lg font-bold uppercase leading-snug tracking-[0.05em] md:text-xl">
             AI engineer &amp;
             <br />
             full-stack developer
           </p>
-          <p className="mt-4 text-xs font-semibold uppercase leading-relaxed tracking-[0.08em] opacity-80">
+          <p className="mt-5 text-sm font-semibold uppercase leading-relaxed tracking-[0.07em] opacity-85 md:text-[0.95rem]">
             Founder: {SITE_CONFIG.company}
             <br />
             Stack: n8n, Qdrant, Python, Next.js
             <br />
             Based in: {SITE_CONFIG.location}
           </p>
-          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.08em]">
+          <p className="mt-5 text-sm font-bold uppercase tracking-[0.07em] md:text-[0.95rem]">
             <a href={SITE_CONFIG.socials.find((s) => s.name === "GitHub")?.url} className="underline underline-offset-4">
               GitHub
             </a>
@@ -135,22 +135,22 @@ export default function Hero() {
         </div>
 
         <div className="md:justify-self-end md:text-left">
-          <div className="max-w-xs">
-            <p className="text-base font-medium leading-snug">
+          <div className="max-w-[26rem]">
+            <p className="text-lg font-medium leading-snug md:text-[1.35rem]">
               I build AI agents, automations and the web apps and interfaces around them, so people stop doing
               repetitive work by hand.
             </p>
-            <div className="mt-5 flex items-center gap-3">
-              <button type="button" onClick={() => go(-1)} aria-label="Previous" className={`flex h-10 w-10 items-center justify-center rounded-full border transition ${btn}`}>
+            <div className="mt-6 flex items-center gap-3">
+              <button type="button" onClick={() => go(-1)} aria-label="Previous" className={`flex h-12 w-12 items-center justify-center rounded-full border transition ${btn}`}>
                 <Arrow dir="prev" />
               </button>
-              <button type="button" onClick={() => go(1)} aria-label="Next" className={`flex h-10 w-10 items-center justify-center rounded-full border transition ${btn}`}>
+              <button type="button" onClick={() => go(1)} aria-label="Next" className={`flex h-12 w-12 items-center justify-center rounded-full border transition ${btn}`}>
                 <Arrow dir="next" />
               </button>
               <span className={`mx-1 h-px w-8 ${rule}`} aria-hidden="true" />
               <a
                 href={SITE_CONFIG.whatsappUrl}
-                className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${slide.dark ? "bg-accent text-ink hover:bg-surface" : "bg-ink text-surface hover:bg-primary"}`}
+                className={`rounded-full px-7 py-3.5 text-base font-semibold transition ${slide.dark ? "bg-accent text-ink hover:bg-surface" : "bg-ink text-surface hover:bg-primary"}`}
               >
                 Hire me
               </a>
