@@ -44,7 +44,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="hero-bg relative overflow-hidden"
+      className="hero-bg font-display relative overflow-hidden"
       style={{ backgroundColor: slide.bg, color: slide.text }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -56,8 +56,8 @@ export default function Hero() {
         <div className="absolute inset-x-0 top-[8%] flex justify-center overflow-hidden md:top-[9%]">
           <span
             key={slide.word}
-            className="font-display condensed anim-rise block whitespace-nowrap font-extrabold uppercase leading-[0.82] tracking-[-0.02em]"
-            style={{ fontSize: "clamp(5rem, 19vw, 17.5rem)", color: slide.wordColor, transition: "color 0.9s ease" }}
+            className="font-display anim-rise block whitespace-nowrap font-bold uppercase leading-[0.86] tracking-[-0.035em]"
+            style={{ fontSize: "clamp(4.2rem, 15.5vw, 14rem)", color: slide.wordColor, transition: "color 0.9s ease" }}
           >
             {slide.word}
           </span>
@@ -86,7 +86,7 @@ export default function Hero() {
       {/* info columns */}
       <div className="relative z-10 mx-auto grid max-w-[1200px] gap-8 px-5 pb-12 pt-6 sm:px-8 md:min-h-[41rem] md:grid-cols-2 md:items-end md:pb-14 md:pt-0">
         <div className="max-w-xs">
-          <p className="text-sm font-bold uppercase leading-snug tracking-[0.08em]">
+          <p className="text-sm font-bold uppercase leading-snug tracking-[0.06em]">
             AI engineer &amp;
             <br />
             full-stack developer
@@ -111,7 +111,7 @@ export default function Hero() {
 
         <div className="md:justify-self-end md:text-left">
           <div className="max-w-xs">
-            <p className="text-sm font-medium leading-relaxed">
+            <p className="text-base font-medium leading-snug">
               I build AI agents, automations and the web apps and interfaces around them, so people stop doing
               repetitive work by hand.
             </p>
