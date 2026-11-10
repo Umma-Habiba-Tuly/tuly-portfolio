@@ -12,7 +12,7 @@ const body = Hanken_Grotesk({
 const display = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  axes: ["wdth"],
 });
 
 export const viewport: Viewport = {

@@ -1,171 +1,136 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import MouseParallax from "@/components/MouseParallax";
-import Typewriter from "@/components/Typewriter";
 import { SITE_CONFIG } from "@/constants/site";
 
-/**
- * Hero avatar. Swap for a looping video (e.g. "/videos/avatar.webm") by setting HERO_VIDEO.
- */
-const HERO_IMAGE = "/images/avatar-person.webp";
+/** Hero avatar. Set HERO_VIDEO to a looping video to replace the still image. */
+const HERO_IMAGE = "/images/avatar-person2.webp";
 const HERO_VIDEO = "";
 
-const TOOLS = ["n8n", "Qdrant", "PostgreSQL", "LangChain", "FastAPI", "Docker"];
+const SLIDES = [
+  { word: "AUTOMATE", bg: "#0E2E2B", wordColor: "#B7E85A", text: "#EFFAF6", dark: true },
+  { word: "BUILD IT", bg: "#B7E85A", wordColor: "#0E2E2B", text: "#10201D", dark: false },
+  { word: "SHIP IT", bg: "#EFFAF6", wordColor: "#10847E", text: "#10201D", dark: false },
+];
 
-function MailIcon() {
+function Arrow({ dir }: { dir: "prev" | "next" }) {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="3" y="5" width="18" height="14" rx="2.5" />
-      <path d="m4 7 8 6 8-6" />
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d={dir === "next" ? "M5 12h14M13 6l6 6-6 6" : "M19 12H5M11 6l-6 6 6 6"} />
     </svg>
   );
 }
 
 export default function Hero() {
+  const [i, setI] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const slide = SLIDES[i];
+
+  useEffect(() => {
+    if (paused) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = setInterval(() => setI((n) => (n + 1) % SLIDES.length), 4800);
+    return () => clearInterval(t);
+  }, [paused]);
+
+  const go = (d: number) => setI((n) => (n + d + SLIDES.length) % SLIDES.length);
+  const rule = slide.dark ? "bg-surface/35" : "bg-ink/35";
+  const btn = slide.dark
+    ? "border-surface/40 hover:bg-surface hover:text-ink"
+    : "border-ink/40 hover:bg-ink hover:text-surface";
+
   return (
-    <section id="top" className="on-deep relative overflow-hidden bg-deep text-surface">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(55% 75% at 78% 62%, rgba(16,132,126,0.55), transparent 70%), linear-gradient(100deg, #0a1f1d 0%, #0e2e2b 55%, #0e2e2b 100%)",
-        }}
-      />
+    <section
+      id="top"
+      className="hero-bg relative overflow-hidden"
+      style={{ backgroundColor: slide.bg, color: slide.text }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <h1 className="sr-only">Umma Habiba Tuly: Automate the busywork. AI engineer and full-stack developer.</h1>
 
-      <div className="relative mx-auto max-w-[1200px] px-5 pt-8 sm:px-8 md:pt-8">
-        <div className="grid items-center gap-8 md:grid-cols-[1.05fr_0.95fr] md:gap-4">
-          <div className="pb-4 md:pb-10">
-            <p className="anim-rise text-xl text-surface/85 sm:text-2xl" style={{ animationDelay: "100ms" }}>
-              Hey, I&apos;m <span className="font-bold text-accent">Tuly</span>
-              <span className="sr-only"> (Umma Habiba Tuly)</span>
-            </p>
+      {/* stage: giant word behind, character in front */}
+      <div className="relative h-[27rem] md:absolute md:inset-0 md:h-auto" aria-hidden="true">
+        <div className="absolute inset-x-0 top-[8%] flex justify-center overflow-hidden md:top-[9%]">
+          <span
+            key={slide.word}
+            className="font-display condensed anim-rise block whitespace-nowrap font-extrabold uppercase leading-[0.82] tracking-[-0.02em]"
+            style={{ fontSize: "clamp(5rem, 19vw, 17.5rem)", color: slide.wordColor, transition: "color 0.9s ease" }}
+          >
+            {slide.word}
+          </span>
+        </div>
 
-            <Typewriter
-              as="h1"
-              parts={[{ text: "Automate the " }, { text: "busywork.", className: "text-accent" }]}
-              startDelay={450}
-              speed={55}
-              className="font-display mt-3 max-w-[11ch] font-bold leading-[1.02] tracking-[-0.035em]"
-              style={{ fontSize: "clamp(2.8rem, 6vw, 4.9rem)" }}
-            />
+        <div className="anim-rise absolute inset-x-0 bottom-0 mx-auto h-[88%] w-[min(30rem,92vw)] md:h-[84%] md:w-[min(34rem,40vw)]" style={{ animationDelay: "200ms" }}>
+          <MouseParallax className="h-full w-full">
+            {HERO_VIDEO ? (
+              <video src={HERO_VIDEO} autoPlay muted loop playsInline className="h-full w-full object-contain object-bottom" />
+            ) : (
+              <div className="relative h-full w-full">
+                <Image
+                  src={HERO_IMAGE}
+                  alt=""
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 34rem, 92vw"
+                  className="object-contain object-bottom"
+                />
+              </div>
+            )}
+          </MouseParallax>
+        </div>
+      </div>
 
-            <p className="anim-fade mt-5 text-base font-medium text-surface/70 sm:text-lg" style={{ animationDelay: "800ms" }}>
-              AI engineer &amp; full-stack developer · Founder, {SITE_CONFIG.company}
-            </p>
-            <p className="anim-fade mt-3 max-w-md text-base leading-relaxed text-surface/85 sm:text-lg" style={{ animationDelay: "900ms" }}>
+      {/* info columns */}
+      <div className="relative z-10 mx-auto grid max-w-[1200px] gap-8 px-5 pb-12 pt-6 sm:px-8 md:min-h-[41rem] md:grid-cols-2 md:items-end md:pb-14 md:pt-0">
+        <div className="max-w-xs">
+          <p className="text-sm font-bold uppercase leading-snug tracking-[0.08em]">
+            AI engineer &amp;
+            <br />
+            full-stack developer
+          </p>
+          <p className="mt-4 text-xs font-semibold uppercase leading-relaxed tracking-[0.08em] opacity-80">
+            Founder: {SITE_CONFIG.company}
+            <br />
+            Stack: n8n, Qdrant, Python, Next.js
+            <br />
+            Based in: {SITE_CONFIG.location}
+          </p>
+          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.08em]">
+            <a href={SITE_CONFIG.socials.find((s) => s.name === "GitHub")?.url} className="underline underline-offset-4">
+              GitHub
+            </a>
+            ,{" "}
+            <a href={SITE_CONFIG.socials.find((s) => s.name === "LinkedIn")?.url} className="underline underline-offset-4">
+              LinkedIn
+            </a>
+          </p>
+        </div>
+
+        <div className="md:justify-self-end md:text-left">
+          <div className="max-w-xs">
+            <p className="text-sm font-medium leading-relaxed">
               I build AI agents, automations and the web apps and interfaces around them, so people stop doing
               repetitive work by hand.
             </p>
-
-            <div className="anim-fade mt-8 flex items-center gap-3" style={{ animationDelay: "1000ms" }}>
-              <a href={SITE_CONFIG.whatsappUrl} className="btn btn-accent !rounded-full">
-                Message me on WhatsApp
-              </a>
+            <div className="mt-5 flex items-center gap-3">
+              <button type="button" onClick={() => go(-1)} aria-label="Previous" className={`flex h-10 w-10 items-center justify-center rounded-full border transition ${btn}`}>
+                <Arrow dir="prev" />
+              </button>
+              <button type="button" onClick={() => go(1)} aria-label="Next" className={`flex h-10 w-10 items-center justify-center rounded-full border transition ${btn}`}>
+                <Arrow dir="next" />
+              </button>
+              <span className={`mx-1 h-px w-8 ${rule}`} aria-hidden="true" />
               <a
-                href={`mailto:${SITE_CONFIG.email}`}
-                aria-label="Send an email"
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-surface/35 transition hover:border-accent hover:text-accent"
+                href={SITE_CONFIG.whatsappUrl}
+                className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${slide.dark ? "bg-accent text-ink hover:bg-surface" : "bg-ink text-surface hover:bg-primary"}`}
               >
-                <MailIcon />
+                Hire me
               </a>
             </div>
-
-            <div className="anim-fade mt-8 h-px max-w-md bg-surface/20" style={{ animationDelay: "1100ms" }} />
-
-            <a
-              href="#work"
-              className="anim-fade group mt-6 block max-w-sm rounded-3xl border border-surface/15 bg-surface/[0.07] p-5 backdrop-blur-md transition hover:border-accent/60"
-              style={{ animationDelay: "1200ms" }}
-            >
-              <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
-                <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
-                Live in production
-              </span>
-              <span className="mt-2 block leading-snug text-surface/90">
-                Wear Inspired: an AI assistant that answers customers on website chat, Messenger and Instagram.
-              </span>
-              <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold">
-                See the case
-                <span aria-hidden="true" className="transition group-hover:translate-x-0.5">
-                  →
-                </span>
-              </span>
-            </a>
           </div>
-
-          <div className="anim-rise relative mx-auto aspect-square w-full max-w-[32rem]" style={{ animationDelay: "250ms" }}>
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-              {[62, 86, 112].map((d, i) => (
-                <span
-                  key={d}
-                  className="absolute rounded-full border"
-                  style={{
-                    width: `${d}%`,
-                    aspectRatio: "1",
-                    left: "50%",
-                    top: "54%",
-                    transform: "translate(-50%, -50%)",
-                    borderColor: i === 0 ? "rgba(183,232,90,0.3)" : "rgba(239,250,246,0.12)",
-                  }}
-                />
-              ))}
-              {[
-                { t: "n8n", cls: "left-[2%] top-[22%]", d: "0s" },
-                { t: "Qdrant", cls: "right-[0%] top-[12%]", d: "-1.6s" },
-                { t: "Next.js", cls: "left-[-9%] top-[50%]", d: "-3s" },
-                { t: "Python", cls: "right-[2%] top-[56%]", d: "-4.4s" },
-              ].map((b) => (
-                <span
-                  key={b.t}
-                  className={`float-y absolute rounded-full border border-surface/25 bg-deep/80 px-4 py-1.5 text-sm font-semibold backdrop-blur ${b.cls}`}
-                  style={{ animationDelay: b.d }}
-                >
-                  <span className="mr-2 inline-block h-2 w-2 rounded-full bg-accent" />
-                  {b.t}
-                </span>
-              ))}
-            </div>
-            <MouseParallax className="absolute inset-x-[10%] bottom-0 top-[8%]">
-              <div
-                className="relative h-full w-full"
-                style={{
-                  maskImage: "linear-gradient(to bottom, #000 88%, transparent 100%)",
-                  WebkitMaskImage: "linear-gradient(to bottom, #000 88%, transparent 100%)",
-                }}
-              >
-                {HERO_VIDEO ? (
-                  <video src={HERO_VIDEO} autoPlay muted loop playsInline className="h-full w-full object-contain object-bottom" />
-                ) : (
-                  <Image
-                    src={HERO_IMAGE}
-                    alt={`Illustrated avatar of ${SITE_CONFIG.name}`}
-                    fill
-                    priority
-                    sizes="(min-width: 768px) 28rem, 90vw"
-                    className="object-contain object-bottom"
-                  />
-                )}
-              </div>
-            </MouseParallax>
-          </div>
-        </div>
-
-        <div
-          className="marquee anim-fade mt-6 overflow-hidden pb-10 md:mt-2 md:pb-14"
-          style={{
-            animationDelay: "1300ms",
-            maskImage: "linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)",
-            WebkitMaskImage: "linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)",
-          }}
-          aria-label="Tools I work with"
-        >
-          <ul className="marquee-track flex w-max gap-12 text-xl font-bold tracking-tight text-surface/25 sm:text-2xl">
-            {[...TOOLS, ...TOOLS].map((t, i) => (
-              <li key={`${t}-${i}`} aria-hidden={i >= TOOLS.length ? "true" : undefined}>
-                {t}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>

@@ -223,6 +223,15 @@ body {
   }
 }
 
+.condensed {
+  font-stretch: 75%;
+  font-variation-settings: "wdth" 75;
+}
+
+.hero-bg {
+  transition: background-color 0.9s ease, color 0.9s ease;
+}
+
 .float-y {
   animation: float-y 5.5s ease-in-out infinite alternate;
 }
