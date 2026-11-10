@@ -26,7 +26,7 @@ export default function About() {
 
   return (
     <section id="about" className="on-deep bg-ink text-surface">
-      <div className="mx-auto max-w-[1200px] px-5 py-9 sm:px-8 md:py-10">
+      <div className="mx-auto max-w-[1200px] px-5 pb-9 pt-9 sm:px-8 md:pb-10 md:pt-16">
         <Reveal className="flex items-center gap-5">
           <span className="h-px flex-1 bg-gradient-to-r from-transparent to-surface/40" />
           <h2 className="font-display text-center text-2xl font-bold tracking-tight sm:text-4xl">About me</h2>
@@ -68,7 +68,7 @@ export default function About() {
           {/* right column */}
           <div className="flex flex-col gap-2.5">
             <Reveal delay={100} className="relative flex flex-1 flex-col rounded-3xl bg-deep p-3.5 sm:p-4">
-              <Mascot pose="notebook" mode="peek" className="bottom-full right-24 hidden w-24 sm:block" bubble="My work" />
+              <Mascot pose="notebook" mode="peek" className="bottom-full right-24 hidden w-20 sm:block" bubble="My work" bubbleAt="top-[52%]" />
               <div className="flex items-center justify-between gap-4">
                 <h3 className="font-display text-xl font-bold">Featured Work</h3>
                 <a href="#work" className="text-sm font-semibold text-accent hover:underline">

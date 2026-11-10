@@ -34,6 +34,8 @@ type MascotProps = {
   /** Optional floor/ledge under her. */
   ledge?: "dark" | "light" | "teal" | "none";
   delay?: number;
+  /** Tailwind top-position class for the bubble (default near the head). */
+  bubbleAt?: string;
 };
 
 const LEDGES = {
@@ -44,7 +46,7 @@ const LEDGES = {
 } as const;
 
 /** One of the avatar's poses, rising into place the first time it scrolls into view and then swaying gently. */
-export default function Mascot({ pose, className = "", bubble, mode = "sit", ledge = "none", delay = 0 }: MascotProps) {
+export default function Mascot({ pose, className = "", bubble, mode = "sit", ledge = "none", delay = 0, bubbleAt = "top-[8%]" }: MascotProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [shown, setShown] = useState(false);
   const p = POSES[pose];
@@ -103,7 +105,7 @@ export default function Mascot({ pose, className = "", bubble, mode = "sit", led
 
         {bubble ? (
           <span
-            className="mascot-bubble absolute -left-2 top-[8%] hidden -translate-x-full whitespace-nowrap rounded-2xl bg-accent px-3.5 py-2 text-sm font-bold text-ink shadow-lg sm:block"
+            className={`mascot-bubble absolute -left-2 ${bubbleAt} hidden -translate-x-full whitespace-nowrap rounded-2xl bg-accent px-3.5 py-2 text-sm font-bold text-ink shadow-lg sm:block`}
             style={{ transitionDelay: `${delay + 900}ms` }}
           >
             {bubble}
