@@ -2,11 +2,11 @@ export const WORK_INTRO = "One system in production, two smaller ones finished, 
 
 export const FEATURED_WORK = {
   label: "In production",
-  sector: "Clothing brand",
+  sector: "Fragrance brand",
   name: "Wear Inspired",
   title: "Customer support on the website, Messenger and Instagram",
   summary:
-    "Customers write to the brand on its website, Messenger and Instagram. The assistant I built answers questions about sizing, orders and returns from the brand's own product and policy data. When it can't, a person takes over with the whole conversation in front of them.",
+    "Customers write to the brand on its website, Messenger and Instagram. The assistant I built answers questions about scents, bottle sizes, orders and returns from the brand's own product and policy data. When it can't, a person takes over with the whole conversation in front of them.",
   flow: [
     { k: "Arrives", v: "A message comes in from the website, Messenger or Instagram through a webhook." },
     { k: "Routed", v: "n8n works out who is writing, loads their history and checks whether it is text or an image." },
@@ -125,7 +125,7 @@ export const ABOUT = {
   bio: [
     "I'm Umma Habiba Tuly, founder of AT Sync, based in Khulna, Bangladesh. I have a BSc in CSE.",
     "I work mostly in n8n, Qdrant and LangChain, write the glue in Python and FastAPI, and build interfaces in Next.js.",
-    "So far: customer support for a clothing brand, document search, lead handling and a handful of web projects. Now: an AI receptionist for hotels.",
+    "So far: customer support for a fragrance brand, document search, lead handling and a handful of web projects. Now: an AI receptionist for hotels.",
   ],
   tools: "Python, JavaScript, TypeScript, Next.js, React, Node.js, FastAPI, PostgreSQL, MySQL, Docker, n8n, Make, LangChain, LlamaIndex, Qdrant, Pinecone, OpenAI, Anthropic, Figma, Adobe XD",
   worksWith: "AI, SaaS, software and automation collaborations: e-commerce, hospitality, startups, agencies, education",
