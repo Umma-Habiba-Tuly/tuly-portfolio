@@ -71,7 +71,7 @@ export default function Hero() {
         </div>
 
         <div
-          className="anim-rise absolute inset-x-0 bottom-[2.5rem] z-[2] mx-auto h-[68%] w-[min(30rem,92vw)] md:bottom-[6.5rem] md:h-[80%] md:w-[min(34rem,40vw)]"
+          className="anim-rise absolute inset-x-0 bottom-[2.5rem] z-[2] mx-auto h-[82%] w-[min(30rem,92vw)] md:bottom-[6.5rem] md:h-[80%] md:w-[min(34rem,40vw)]"
           style={{ animationDelay: "200ms" }}
         >
           <MouseParallax className="h-full w-full">
