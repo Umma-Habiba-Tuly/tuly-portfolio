@@ -9,7 +9,7 @@ import { SITE_CONFIG } from "@/constants/site";
 const HERO_IMAGE = "/images/avatar-person10.webp";
 
 /** The jacket colour changes with the background so it always keeps its contrast. */
-const JACKET = ["/images/avatar-jlime3.webp", "/images/avatar-jdeep3.webp", "/images/avatar-jprim3.webp"];
+const JACKET = ["/images/avatar-jprim3.webp", "/images/avatar-jdeep3.webp", "/images/avatar-jdeep3.webp"];
 const HERO_VIDEO = "";
 
 const SLIDES = [
@@ -74,7 +74,7 @@ export default function Hero() {
               <div className="relative h-full w-full">
                 {JACKET.map((src, n) => (
                   <Image
-                    key={src}
+                    key={`${src}-${n}`}
                     src={src}
                     alt=""
                     fill
