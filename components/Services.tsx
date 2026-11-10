@@ -23,18 +23,20 @@ export default function Services() {
           <p className="text-lg font-semibold">How a project goes</p>
           <ol className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS.map((p, i) => (
-              <Reveal as="li" key={p.n} delay={i * 110} className="relative border-t-2 border-ink pt-4">
-                <Image
-                  src={`/images/tuly/${["b-think", "b-wink", "b-laugh", "b-cool"][i % 4]}.webp`}
-                  alt=""
-                  width={96}
-                  height={108}
-                  unoptimized
-                  className="absolute right-1 top-4 h-14 w-auto drop-shadow-md"
-                />
-                <span className="font-display flex h-10 w-10 items-center justify-center rounded-full bg-deep text-lg font-bold text-accent">
-                  {p.n}
-                </span>
+              <Reveal as="li" key={p.n} delay={i * 110} className="border-t-2 border-ink pt-4">
+                <div className="flex items-center justify-between">
+                  <span className="font-display flex h-12 w-12 items-center justify-center rounded-full bg-deep text-lg font-bold text-accent">
+                    {p.n}
+                  </span>
+                  <Image
+                    src={`/images/tuly/${["b-think", "b-wink", "b-laugh", "b-cool"][i % 4]}.webp`}
+                    alt=""
+                    width={96}
+                    height={108}
+                    unoptimized
+                    className="h-14 w-14 object-contain object-right drop-shadow-md"
+                  />
+                </div>
                 <p className="mt-3 max-w-[16rem] text-sm leading-snug">{p.text}</p>
               </Reveal>
             ))}
