@@ -95,7 +95,7 @@ export default function Work() {
   return (
     <section id="work" className="on-deep bg-deep text-surface">
       <div className="relative mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
-        <Mascot pose="sitLaptop" className="right-8 top-20 hidden w-52 md:block" ledge="teal" bubble="Real builds" />
+        <Mascot pose="sitLaptop" className="right-12 top-11 hidden w-52 md:block" ledge="teal" bubble="Real builds" />
         <Reveal className="pb-12">
           <p
             aria-hidden="true"
@@ -106,12 +106,11 @@ export default function Work() {
           </p>
         </Reveal>
         <SectionHead
-          label="Work"
           tone="dark"
           title={
             <>
-              One system in <span className="text-accent">production</span>, a few smaller builds, and more on
-              GitHub.
+              One system in <span className="text-accent">production</span>,
+              <br className="hidden md:block" /> a few smaller builds, and more on GitHub.
             </>
           }
         />
