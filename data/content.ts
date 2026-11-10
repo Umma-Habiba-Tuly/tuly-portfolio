@@ -1,7 +1,7 @@
-export const WORK_INTRO = "One system in production, two smaller ones finished, one on the way.";
+export const WORK_INTRO = "Two systems in development, two smaller ones finished.";
 
 export const FEATURED_WORK = {
-  label: "In production",
+  label: "In development",
   sector: "Fragrance brand",
   name: "Wear Inspired",
   title: "Customer support on the website, Messenger and Instagram",

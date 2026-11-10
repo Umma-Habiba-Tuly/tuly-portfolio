@@ -109,7 +109,7 @@ export default function Work() {
           tone="dark"
           title={
             <>
-              One system in <span className="text-accent">production</span>,
+              Two systems in <span className="text-accent">development</span>,
               <br className="hidden md:block" /> a few smaller builds, and more on GitHub.
             </>
           }
