@@ -20,8 +20,8 @@ export default function SectionHead({ label, title, tone = "light" }: SectionHea
         </p>
       ) : null}
       <h2
-        className="font-display max-w-5xl text-balance font-bold leading-[1.06] tracking-[-0.03em]"
-        style={{ fontSize: "clamp(2rem, 4.1vw, 3.5rem)" }}
+        className="font-display max-w-6xl font-bold leading-[1.06] tracking-[-0.03em]"
+        style={{ fontSize: "clamp(1.9rem, 3.6vw, 3.1rem)" }}
       >
         {title}
       </h2>
