@@ -55,7 +55,7 @@ export default function Hero() {
       {/* soft hand-over to the next scene: fades whatever the hero colour is into the scene's deep teal */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-32 md:h-36"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-32 md:h-28"
         style={{ background: "linear-gradient(to bottom, rgba(10,36,33,0) 0%, rgba(10,36,33,0.55) 55%, #0a2421 100%)" }}
       />
 
@@ -110,56 +110,31 @@ export default function Hero() {
       </div>
 
       {/* info columns */}
-      <div className="relative z-10 mx-auto grid max-w-[1200px] gap-8 px-5 pb-20 pt-6 sm:px-8 md:min-h-[43rem] md:grid-cols-2 md:items-end md:pb-40 md:pt-0">
+      <div className="relative z-10 mx-auto grid max-w-[1200px] gap-8 px-5 pb-20 pt-6 sm:px-8 md:min-h-[43rem] md:grid-cols-2 md:items-end md:pb-28 md:pt-0">
         <div className="max-w-[27rem]">
-          <p
-            className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-bold ${slide.dark ? "bg-accent text-ink" : "bg-ink text-surface"}`}
-          >
-            <span aria-hidden="true">✦</span>
-            Founder of {SITE_CONFIG.company} · {SITE_CONFIG.location}
+          <p className="flex items-center gap-3 text-[0.78rem] font-semibold uppercase tracking-[0.14em] opacity-75">
+            <span className="h-px w-8 bg-current" aria-hidden="true" />
+            Founder, {SITE_CONFIG.company} · {SITE_CONFIG.location}
           </p>
-          <p className="font-display mt-3 text-xl font-extrabold leading-tight tracking-[-0.01em] md:text-[1.4rem]">
+          <p className="font-display mt-3 text-[1.35rem] font-extrabold leading-[1.15] tracking-[-0.015em] md:text-[1.6rem]">
             AI Engineer, Full-Stack Developer &amp; UI/UX Designer
           </p>
-
-          <ul className="mt-4 flex flex-wrap gap-2 text-[0.82rem] font-semibold" aria-label="What I work with">
-            {[
-              "AI agents",
-              "Automation",
-              "Full-stack",
-              "UI/UX",
-              "n8n",
-              "Qdrant",
-              "Python",
-              "Next.js",
-              "Figma",
-            ].map((t, n) => {
-              const tone = slide.dark
-                ? ["bg-surface/15 ring-1 ring-surface/25", "border border-surface/40", "bg-primary text-surface", "bg-accent/90 text-ink"][n % 4]
-                : ["bg-ink/10 ring-1 ring-ink/20", "border border-ink/40", "bg-ink text-surface", "bg-primary text-surface"][n % 4];
-              const tilt = ["-rotate-2", "rotate-1", "rotate-2", "-rotate-1", "rotate-0"][n % 5];
-              return (
-                <li key={t} className={`rounded-full px-3 py-1 transition-transform hover:rotate-0 ${tone} ${tilt}`}>
-                  {t}
-                </li>
-              );
-            })}
-          </ul>
-
-          <p className="mt-4 flex flex-wrap gap-2 text-sm font-bold">
+          <p className="mt-3 text-[0.95rem] font-medium leading-relaxed opacity-80">
+            n8n · Qdrant · Python · Next.js · Figma
+          </p>
+          <p className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold">
             {[
               ["GitHub", SITE_CONFIG.socials.find((s) => s.name === "GitHub")?.url],
               ["LinkedIn", SITE_CONFIG.socials.find((s) => s.name === "LinkedIn")?.url],
             ].map(([k, u]) => (
-              <a
-                key={k}
-                href={u}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 transition ${slide.dark ? "border-surface/40 hover:bg-surface hover:text-ink" : "border-ink/40 hover:bg-ink hover:text-surface"}`}
-              >
+              <a key={k} href={u} className="group inline-flex items-center gap-2 underline decoration-current/40 underline-offset-[6px] transition hover:decoration-current">
                 <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
                   {ICONS[k as string]}
                 </svg>
                 {k}
+                <span aria-hidden="true" className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  ↗
+                </span>
               </a>
             ))}
           </p>
