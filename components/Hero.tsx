@@ -60,10 +60,10 @@ export default function Hero() {
 
       {/* stage: giant word behind, character in front */}
       <div className="relative h-[27rem] md:absolute md:inset-0 md:h-auto" aria-hidden="true">
-        <div className="absolute inset-x-0 top-[8%] flex justify-center overflow-hidden md:top-[26%]">
+        <div className="absolute inset-x-0 top-[5%] flex justify-center overflow-hidden md:top-[26%]">
           <span
             key={slide.word}
-            className="font-display condensed anim-rise block whitespace-nowrap font-extrabold uppercase leading-[0.82] tracking-[-0.02em] [font-size:clamp(5rem,19vw,17.5rem)] md:[font-size:clamp(7rem,14vw,13rem)]"
+            className="font-display condensed anim-rise block whitespace-nowrap font-extrabold uppercase leading-[0.82] tracking-[-0.02em] [font-size:clamp(5rem,23vw,17.5rem)] md:[font-size:clamp(7rem,14vw,13rem)]"
             style={{ color: slide.wordColor, transition: "color 0.9s ease" }}
           >
             {slide.word}
@@ -71,7 +71,7 @@ export default function Hero() {
         </div>
 
         <div
-          className="anim-rise absolute inset-x-0 bottom-[2.5rem] z-[2] mx-auto h-[82%] w-[min(30rem,92vw)] md:bottom-[6.5rem] md:h-[80%] md:w-[min(34rem,40vw)]"
+          className="anim-rise absolute inset-x-0 bottom-[2.5rem] z-[2] mx-auto h-[74%] w-[min(30rem,92vw)] md:bottom-[6.5rem] md:h-[80%] md:w-[min(34rem,40vw)]"
           style={{ animationDelay: "200ms" }}
         >
           <MouseParallax className="h-full w-full">
