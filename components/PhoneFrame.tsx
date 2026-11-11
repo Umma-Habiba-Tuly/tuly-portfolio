@@ -11,7 +11,7 @@ type PhoneFrameProps = {
 export default function PhoneFrame({ videoSrc, poster, size = "md" }: PhoneFrameProps) {
   return (
     <div className={`mx-auto ${size === "sm" ? "w-[150px] sm:w-[165px] lg:w-[250px]" : "w-[240px] sm:w-[270px]"}`}>
-      <div className="relative rounded-[2rem] bg-ink p-2 ring-[3px] ring-accent shadow-[0_0_44px_rgba(183,232,90,0.28)]">
+      <div className="relative rounded-[2rem] bg-ink p-2 ring-[1.5px] ring-accent/55 shadow-[0_0_36px_rgba(183,232,90,0.16)]">
         {!videoSrc ? (
           <div className="absolute left-1/2 top-3 z-10 h-4 w-14 -translate-x-1/2 rounded-full bg-ink" aria-hidden="true" />
         ) : null}
