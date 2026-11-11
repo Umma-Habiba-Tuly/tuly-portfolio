@@ -12,7 +12,9 @@ export default function PhoneFrame({ videoSrc, poster, size = "md" }: PhoneFrame
   return (
     <div className={`mx-auto ${size === "sm" ? "w-[150px] sm:w-[165px]" : "w-[240px] sm:w-[270px]"}`}>
       <div className="relative rounded-[2rem] bg-ink p-2 ring-1 ring-surface/25">
-        <div className="absolute left-1/2 top-3 z-10 h-4 w-14 -translate-x-1/2 rounded-full bg-ink" aria-hidden="true" />
+        {!videoSrc ? (
+          <div className="absolute left-1/2 top-3 z-10 h-4 w-14 -translate-x-1/2 rounded-full bg-ink" aria-hidden="true" />
+        ) : null}
         <div className="relative aspect-[9/19] overflow-hidden rounded-[1.6rem] bg-primary">
           {videoSrc ? (
             <video
