@@ -112,23 +112,39 @@ export default function Hero() {
       {/* info columns */}
       <div className="relative z-10 mx-auto grid max-w-[1200px] gap-8 px-5 pb-20 pt-6 sm:px-8 md:min-h-[43rem] md:grid-cols-2 md:items-end md:pb-40 md:pt-0">
         <div className="max-w-[27rem]">
-          <p className="font-display text-xl font-extrabold leading-tight tracking-[-0.01em] md:text-[1.4rem]">
+          <p
+            className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-bold ${slide.dark ? "bg-accent text-ink" : "bg-ink text-surface"}`}
+          >
+            <span aria-hidden="true">✦</span>
+            Founder of {SITE_CONFIG.company} · {SITE_CONFIG.location}
+          </p>
+          <p className="font-display mt-3 text-xl font-extrabold leading-tight tracking-[-0.01em] md:text-[1.4rem]">
             AI Engineer, Full-Stack Developer &amp; UI/UX Designer
           </p>
 
-          <dl className="mt-4 grid grid-cols-[5.5rem_1fr] gap-x-4 gap-y-1.5 text-[0.92rem] leading-snug">
+          <ul className="mt-4 flex flex-wrap gap-2 text-[0.82rem] font-semibold" aria-label="What I work with">
             {[
-              ["Founder", SITE_CONFIG.company],
-              ["Focus", "AI agents, automation, web apps and UI/UX"],
-              ["Stack", "n8n, Qdrant, Python, Next.js, Figma"],
-              ["Based in", SITE_CONFIG.location],
-            ].map(([k, v]) => (
-              <div key={k} className="contents">
-                <dt className="pt-0.5 text-[0.7rem] font-bold uppercase tracking-[0.12em] opacity-60">{k}</dt>
-                <dd className="font-semibold">{v}</dd>
-              </div>
-            ))}
-          </dl>
+              "AI agents",
+              "Automation",
+              "Full-stack",
+              "UI/UX",
+              "n8n",
+              "Qdrant",
+              "Python",
+              "Next.js",
+              "Figma",
+            ].map((t, n) => {
+              const tone = slide.dark
+                ? ["bg-surface/15 ring-1 ring-surface/25", "border border-surface/40", "bg-primary text-surface", "bg-accent/90 text-ink"][n % 4]
+                : ["bg-ink/10 ring-1 ring-ink/20", "border border-ink/40", "bg-ink text-surface", "bg-primary text-surface"][n % 4];
+              const tilt = ["-rotate-2", "rotate-1", "rotate-2", "-rotate-1", "rotate-0"][n % 5];
+              return (
+                <li key={t} className={`rounded-full px-3 py-1 transition-transform hover:rotate-0 ${tone} ${tilt}`}>
+                  {t}
+                </li>
+              );
+            })}
+          </ul>
 
           <p className="mt-4 flex flex-wrap gap-2 text-sm font-bold">
             {[
