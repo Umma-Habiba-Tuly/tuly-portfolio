@@ -61,7 +61,7 @@ export default function ZoomScene() {
       ref={wrap}
       id="skills"
       aria-label="Zoom out from the avatar to the skills"
-      className={`on-deep relative bg-deep text-surface ${still ? "" : "h-[270vh]"}`}
+      className={`on-deep relative bg-deep text-surface ${still ? "" : "h-[200vh] md:h-[270vh]"}`}
     >
       <div className={`${still ? "relative h-[34rem]" : "sticky top-16 h-[calc(100vh-4rem)]"} overflow-hidden`}>
         <div

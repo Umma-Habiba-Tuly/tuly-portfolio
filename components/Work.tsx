@@ -143,13 +143,13 @@ export default function Work() {
             </ul>
           </div>
 
-          <div className="relative min-h-[20rem] overflow-hidden bg-gradient-to-br from-primary to-deep">
+          <div className="relative min-h-[15rem] overflow-hidden bg-gradient-to-br from-primary to-deep sm:min-h-[20rem]">
             <div aria-hidden="true" className="dot-grid absolute inset-0 opacity-60" />
             <div
               aria-hidden="true"
               className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-accent/25 blur-3xl"
             />
-            <div className="absolute inset-0 flex justify-center pt-8">
+            <div className="absolute inset-0 flex justify-center pt-6 sm:pt-8">
               <div aria-hidden="true" className="fan fan-left hidden items-start justify-start rounded-[1.6rem] bg-gradient-to-br from-primary to-deep p-3.5 shadow-xl ring-1 ring-surface/20 md:flex">
                 <span className="font-display text-sm font-bold leading-tight">Website chat</span>
               </div>
@@ -163,14 +163,14 @@ export default function Work() {
           </div>
         </Reveal>
 
-        <div className="mt-8 grid gap-3 md:grid-cols-2">
+        <div className="-mx-5 mt-8 flex snap-x gap-3 overflow-x-auto px-5 pb-3 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0">
           {OTHER_WORK.map((w, i) => {
             const card = CARDS[i % CARDS.length];
             return (
               <Reveal
                 key={w.name}
                 delay={i * 80}
-                className={`group relative flex flex-col gap-3 overflow-hidden rounded-3xl p-4 transition duration-500 hover:-translate-y-1 sm:flex-row sm:items-stretch sm:gap-4 ${card.span} ${card.look}`}
+                className={`group relative flex w-[86%] shrink-0 snap-center flex-col gap-3 overflow-hidden rounded-3xl p-4 md:w-auto md:shrink transition duration-500 hover:-translate-y-1 sm:flex-row sm:items-stretch sm:gap-4 ${card.span} ${card.look}`}
               >
                 <div className="flex min-w-0 flex-1 flex-col">
                   <div className="flex items-center justify-between text-xs font-semibold">

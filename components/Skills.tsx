@@ -21,12 +21,12 @@ export default function Skills() {
           </p>
         </Reveal>
 
-        <div className="mt-8 grid gap-3 md:grid-cols-6">
+        <div className="-mx-5 mt-8 flex snap-x gap-3 overflow-x-auto px-5 pb-4 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-6 md:overflow-visible md:px-0">
           {GROUPS.map((g, i) => (
             <Reveal
               key={g.n}
               delay={(i % 3) * 80}
-              className={`flex flex-col rounded-[1.5rem] p-5 sm:p-8 ${g.span} ${g.look}`}
+              className={`flex flex-col w-[84%] shrink-0 snap-center rounded-[1.5rem] p-5 sm:p-8 md:w-auto md:shrink ${g.span} ${g.look}`}
             >
               <div className="flex items-baseline justify-between gap-4">
                 <span className="font-display text-lg font-bold opacity-70">{g.n}</span>
@@ -47,7 +47,7 @@ export default function Skills() {
 
           <Reveal
             delay={160}
-            className="flex flex-col justify-between rounded-[1.75rem] border-2 border-dashed border-ink/30 p-7 sm:p-8 md:col-span-2"
+            className="flex w-[84%] shrink-0 snap-center flex-col justify-between rounded-[1.75rem] border-2 border-dashed border-ink/30 p-7 sm:p-8 md:col-span-2 md:w-auto md:shrink"
           >
             <span className="font-display text-lg font-bold opacity-70">07</span>
             <div className="mt-4">

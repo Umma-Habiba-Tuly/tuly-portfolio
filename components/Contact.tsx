@@ -60,12 +60,12 @@ export default function Contact() {
               </span>
             </div>
 
-            <ul className="mt-3 grid flex-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2">
+            <ul className="mt-3 grid flex-1 grid-cols-2 gap-2 lg:grid-cols-3 lg:grid-rows-2">
               {tiles.map((t) => (
                 <li key={t.k}>
                   <a
                     href={t.href}
-                    className="group flex h-full items-center gap-3 rounded-2xl bg-deep px-3.5 py-3 transition duration-300 hover:-translate-y-0.5 hover:bg-accent hover:text-ink"
+                    className="group flex h-full items-center gap-2.5 rounded-2xl bg-deep px-3 py-3 transition duration-300 hover:-translate-y-0.5 hover:bg-accent hover:text-ink sm:gap-3 sm:px-3.5"
                   >
                     <svg viewBox="0 0 24 24" className="h-7 w-7 shrink-0 text-accent group-hover:text-ink" aria-hidden="true">
                       {ICONS[t.k]}
@@ -74,7 +74,7 @@ export default function Contact() {
                       <span className="block font-bold leading-tight">{t.k}</span>
                       <span className="block truncate text-xs text-surface/65 group-hover:text-ink/75">{t.handle}</span>
                     </span>
-                    <span aria-hidden="true" className="text-base transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    <span aria-hidden="true" className="hidden text-base transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:inline">
                       ↗
                     </span>
                   </a>
@@ -91,7 +91,7 @@ export default function Contact() {
           </Reveal>
         </div>
 
-        <footer className="mt-8 flex flex-col items-center justify-between gap-2 border-t border-surface/15 pt-5 text-sm text-surface/60 sm:flex-row">
+        <footer className="mt-8 flex flex-col items-center justify-between gap-1 border-t border-surface/15 pb-16 pt-5 text-center text-sm text-surface/60 sm:flex-row sm:pb-0 sm:text-left">
           <p className="inline-flex items-center gap-2">
             <Image src="/images/tuly/b-cool.webp" alt="" width={72} height={80} unoptimized className="h-9 w-auto" />
             © {new Date().getFullYear()} {SITE_CONFIG.name} · {SITE_CONFIG.company}

@@ -41,7 +41,11 @@ export default function ServicesExplorer() {
 
   return (
     <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
-      <div role="tablist" aria-label="Services" className="border-t-2 border-ink">
+      <div
+        role="tablist"
+        aria-label="Services"
+        className="-mx-5 flex snap-x gap-2 overflow-x-auto px-5 pb-1 [scrollbar-width:none] lg:mx-0 lg:block lg:overflow-visible lg:border-t-2 lg:border-ink lg:px-0 lg:pb-0"
+      >
         {SERVICES.map((item, i) => {
           const on = i === active;
           return (
@@ -68,21 +72,21 @@ export default function ServicesExplorer() {
                   (document.getElementById(`svc-tab-${n}`) as HTMLElement | null)?.focus();
                 }
               }}
-              className="group flex w-full items-baseline gap-4 border-b border-ink/20 py-2.5 text-left transition-colors sm:gap-5 sm:py-3"
+              className={`group shrink-0 snap-start whitespace-nowrap rounded-full border px-4 py-2 text-left transition-colors lg:flex lg:w-full lg:items-baseline lg:gap-5 lg:rounded-none lg:border-0 lg:border-b lg:border-ink/20 lg:bg-transparent lg:px-0 lg:py-3 ${on ? "border-ink bg-ink text-surface lg:text-ink" : "border-ink/25 text-ink/75"}`}
             >
-              <span className={`font-display w-8 text-base font-bold transition-colors ${on ? "text-primary" : "text-ink/35"}`}>
+              <span className={`font-display hidden w-8 text-base font-bold transition-colors lg:block ${on ? "text-primary" : "text-ink/35"}`}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span
-                className={`font-display flex-1 text-2xl font-extrabold leading-tight tracking-[-0.02em] transition-all duration-300 sm:text-[1.9rem] ${
-                  on ? "translate-x-2 text-ink" : "text-ink/35 group-hover:text-ink/60"
+                className={`text-sm font-semibold transition-all duration-300 lg:font-display lg:flex-1 lg:text-[1.9rem] lg:font-extrabold lg:leading-tight lg:tracking-[-0.02em] ${
+                  on ? "lg:translate-x-2 lg:text-ink" : "lg:text-ink/35 lg:group-hover:text-ink/60"
                 }`}
               >
                 {item.name}
               </span>
               <span
                 aria-hidden="true"
-                className={`text-2xl transition-all duration-300 ${on ? "translate-x-0 text-primary opacity-100" : "-translate-x-2 opacity-0"}`}
+                className={`hidden text-2xl transition-all duration-300 lg:block ${on ? "translate-x-0 text-primary opacity-100" : "-translate-x-2 opacity-0"}`}
               >
                 →
               </span>
