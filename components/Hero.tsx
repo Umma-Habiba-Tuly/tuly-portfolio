@@ -54,13 +54,13 @@ export default function Hero() {
       {/* soft hand-over to the next scene: fades whatever the hero colour is into the scene's deep teal */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-40 md:h-56"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-32 md:h-36"
         style={{ background: "linear-gradient(to bottom, rgba(10,36,33,0) 0%, rgba(10,36,33,0.55) 55%, #0a2421 100%)" }}
       />
 
       {/* stage: giant word behind, character in front */}
       <div className="relative h-[27rem] md:absolute md:inset-0 md:h-auto" aria-hidden="true">
-        <div className="absolute inset-x-0 top-[5%] flex justify-center overflow-hidden md:top-[26%]">
+        <div className="absolute inset-x-0 top-[5%] flex justify-center overflow-hidden md:top-[21%]">
           <span
             key={slide.word}
             className="font-display condensed anim-rise block whitespace-nowrap font-extrabold uppercase leading-[0.82] tracking-[-0.02em] [font-size:clamp(5rem,23vw,17.5rem)] md:[font-size:clamp(7rem,14vw,13rem)]"
@@ -109,28 +109,39 @@ export default function Hero() {
       </div>
 
       {/* info columns */}
-      <div className="relative z-10 mx-auto grid max-w-[1200px] gap-8 px-5 pb-20 pt-6 sm:px-8 md:min-h-[43rem] md:grid-cols-2 md:items-end md:pb-28 md:pt-0">
-        <div className="max-w-[26rem]">
-          <p className="text-lg font-bold uppercase leading-snug tracking-[0.05em] md:text-xl">
-            AI engineer &amp;
-            <br />
-            full-stack developer
+      <div className="relative z-10 mx-auto grid max-w-[1200px] gap-8 px-5 pb-20 pt-6 sm:px-8 md:min-h-[43rem] md:grid-cols-2 md:items-end md:pb-40 md:pt-0">
+        <div className="max-w-[27rem]">
+          <p className="font-display text-xl font-extrabold leading-tight tracking-[-0.01em] md:text-[1.4rem]">
+            AI Engineer, Full-Stack Developer &amp; UI/UX Designer
           </p>
-          <p className="mt-5 text-sm font-semibold uppercase leading-relaxed tracking-[0.07em] opacity-85 md:text-[0.95rem]">
-            Founder: {SITE_CONFIG.company}
-            <br />
-            Stack: n8n, Qdrant, Python, Next.js
-            <br />
-            Based in: {SITE_CONFIG.location}
-          </p>
-          <p className="mt-5 text-sm font-bold uppercase tracking-[0.07em] md:text-[0.95rem]">
-            <a href={SITE_CONFIG.socials.find((s) => s.name === "GitHub")?.url} className="underline underline-offset-4">
-              GitHub
-            </a>
-            ,{" "}
-            <a href={SITE_CONFIG.socials.find((s) => s.name === "LinkedIn")?.url} className="underline underline-offset-4">
-              LinkedIn
-            </a>
+
+          <dl className="mt-4 grid grid-cols-[5.5rem_1fr] gap-x-4 gap-y-1.5 text-[0.92rem] leading-snug">
+            {[
+              ["Founder", SITE_CONFIG.company],
+              ["Focus", "AI agents, automation, web apps and UI/UX"],
+              ["Stack", "n8n, Qdrant, Python, Next.js, Figma"],
+              ["Based in", SITE_CONFIG.location],
+            ].map(([k, v]) => (
+              <div key={k} className="contents">
+                <dt className="pt-0.5 text-[0.7rem] font-bold uppercase tracking-[0.12em] opacity-60">{k}</dt>
+                <dd className="font-semibold">{v}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <p className="mt-4 flex flex-wrap gap-2 text-sm font-bold">
+            {[
+              ["GitHub", SITE_CONFIG.socials.find((s) => s.name === "GitHub")?.url],
+              ["LinkedIn", SITE_CONFIG.socials.find((s) => s.name === "LinkedIn")?.url],
+            ].map(([k, u]) => (
+              <a
+                key={k}
+                href={u}
+                className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 transition ${slide.dark ? "border-surface/40 hover:bg-surface hover:text-ink" : "border-ink/40 hover:bg-ink hover:text-surface"}`}
+              >
+                {k} <span aria-hidden="true">↗</span>
+              </a>
+            ))}
           </p>
         </div>
 
