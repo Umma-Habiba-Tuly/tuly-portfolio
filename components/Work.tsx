@@ -143,13 +143,13 @@ export default function Work() {
             </ul>
           </div>
 
-          <div className="relative min-h-[15rem] overflow-hidden bg-gradient-to-br from-primary to-deep sm:min-h-[20rem]">
+          <div className="relative min-h-[15rem] overflow-hidden bg-gradient-to-br from-primary to-deep sm:min-h-[20rem] lg:min-h-[34rem]">
             <div aria-hidden="true" className="dot-grid absolute inset-0 opacity-60" />
             <div
               aria-hidden="true"
               className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-accent/25 blur-3xl"
             />
-            <div className="absolute inset-0 flex justify-center pt-6 sm:pt-8">
+            <div className="absolute inset-0 flex justify-center pt-6 sm:pt-8 lg:items-center lg:pt-0">
               <div aria-hidden="true" className="fan fan-left hidden items-start justify-start rounded-[1.6rem] bg-gradient-to-br from-primary to-deep p-3.5 shadow-xl ring-1 ring-surface/20 md:flex">
                 <span className="font-display text-sm font-bold leading-tight">Website chat</span>
               </div>
