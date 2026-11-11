@@ -503,6 +503,6 @@ body {
     transform: translateX(-9.6rem) rotate(-12deg);
   }
   .reveal-in .fan-right {
-    transform: translateX(9.6rem) rotate(10deg) translateY(1rem);
+    transform: translateX(10.7rem) rotate(10deg) translateY(1rem);
   }
 }

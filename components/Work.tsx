@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ICONS } from "@/components/icons";
 import Mascot from "@/components/Mascot";
 import PhoneFrame from "@/components/PhoneFrame";
 import Reveal from "@/components/Reveal";
@@ -150,11 +151,47 @@ export default function Work() {
               className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-accent/25 blur-3xl"
             />
             <div className="absolute inset-0 flex justify-center pt-6 sm:pt-8 lg:items-center lg:pt-0">
-              <div aria-hidden="true" className="fan fan-left hidden items-start justify-start rounded-[1.6rem] bg-gradient-to-br from-primary to-deep p-3.5 shadow-xl ring-1 ring-surface/20 md:flex">
-                <span className="font-display text-sm font-bold leading-tight">Website chat</span>
+              <div
+                aria-hidden="true"
+                className="fan fan-left hidden flex-col items-start gap-2 rounded-[1.6rem] bg-gradient-to-br from-primary to-deep p-3.5 shadow-xl ring-1 ring-surface/20 md:flex"
+              >
+                <span className="flex items-center gap-1.5 font-display text-sm font-bold leading-tight">
+                  <span className="h-2 w-2 rounded-full bg-accent" />
+                  Website chat
+                </span>
+                <span className="w-[4.6rem] rounded-xl rounded-bl-sm bg-surface px-2 py-1.5 text-[0.6rem] font-medium leading-tight text-ink">
+                  Is this scent long lasting?
+                </span>
+                <span className="w-[4.9rem] self-start rounded-xl rounded-br-sm bg-accent px-2 py-1.5 text-[0.6rem] font-semibold leading-tight text-ink">
+                  Yes, 8 to 10 hours.
+                </span>
+                <span className="flex gap-1 rounded-full bg-surface/20 px-2.5 py-1.5">
+                  <i className="h-1 w-1 rounded-full bg-surface" />
+                  <i className="h-1 w-1 rounded-full bg-surface/70" />
+                  <i className="h-1 w-1 rounded-full bg-surface/40" />
+                </span>
               </div>
-              <div aria-hidden="true" className="fan fan-right hidden items-start justify-end rounded-[1.6rem] bg-surface p-3.5 text-ink shadow-xl md:flex">
-                <span className="font-display text-sm font-bold leading-tight">Instagram</span>
+              <div
+                aria-hidden="true"
+                className="fan fan-right hidden flex-col items-end gap-2 rounded-[1.6rem] bg-surface p-3.5 text-ink shadow-xl md:flex"
+              >
+                <span className="flex items-center gap-1.5 font-display text-sm font-bold leading-tight">
+                  Instagram
+                  <span className="flex h-4 w-4 items-center justify-center rounded-[0.35rem] bg-gradient-to-tr from-[#f9a03f] via-[#e1306c] to-[#7b3fe4] text-white">
+                    <svg viewBox="0 0 24 24" className="h-2.5 w-2.5">
+                      {ICONS.Instagram}
+                    </svg>
+                  </span>
+                </span>
+                <span className="w-[4.4rem] rounded-xl rounded-br-sm bg-ink px-2 py-1.5 text-right text-[0.6rem] font-medium leading-tight text-surface">
+                  Do you have Velvet in 12ml?
+                </span>
+                <span className="w-[4.4rem] rounded-xl rounded-bl-sm bg-deep/10 px-2 py-1.5 text-right text-[0.6rem] font-semibold leading-tight">
+                  Yes, ৳400. Want it?
+                </span>
+                <span className="mt-auto rounded-full bg-gradient-to-r from-[#e1306c] to-[#7b3fe4] px-2.5 py-1 text-[0.55rem] font-bold text-white">
+                  Replied ✓
+                </span>
               </div>
               <div className="relative z-10">
                 <PhoneFrame size="sm" videoSrc={WEAR_INSPIRED_VIDEO} poster={WEAR_INSPIRED_POSTER} />
