@@ -38,5 +38,5 @@ export const NAV_ITEMS = [
  * Leave empty to keep the phone screen blank. Set to a video URL
  * (e.g. "/videos/wear-inspired-demo.mp4" or a hosted .mp4) to play it.
  */
-export const WEAR_INSPIRED_VIDEO = "";
+export const WEAR_INSPIRED_VIDEO = "/videos/wear-inspired.mp4";
 export const WEAR_INSPIRED_POSTER = "";
