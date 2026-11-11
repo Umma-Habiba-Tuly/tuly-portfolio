@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { POSES } from "@/components/Mascot";
+import { ICONS } from "@/components/icons";
 import MouseParallax from "@/components/MouseParallax";
 import { SITE_CONFIG } from "@/constants/site";
 
@@ -139,7 +140,10 @@ export default function Hero() {
                 href={u}
                 className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 transition ${slide.dark ? "border-surface/40 hover:bg-surface hover:text-ink" : "border-ink/40 hover:bg-ink hover:text-surface"}`}
               >
-                {k} <span aria-hidden="true">↗</span>
+                <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+                  {ICONS[k as string]}
+                </svg>
+                {k}
               </a>
             ))}
           </p>
