@@ -109,9 +109,9 @@ export default function Work() {
 
         <Reveal
           as="article"
-          className="mt-6 overflow-hidden rounded-[2rem] bg-gradient-to-br from-ink to-deep ring-1 ring-surface/15 lg:grid lg:grid-cols-[1.4fr_1fr]"
+          className="mt-6 overflow-hidden rounded-[2rem] bg-gradient-to-br from-ink to-deep ring-1 ring-surface/15 lg:grid lg:grid-cols-[1.5fr_1fr]"
         >
-          <div className="p-6 sm:p-8">
+          <div className="p-5 sm:p-6">
             <p className="flex flex-wrap items-center gap-2 text-xs font-bold">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-ink">
                 <span className="h-1.5 w-1.5 rounded-full bg-ink" aria-hidden="true" />
@@ -119,32 +119,32 @@ export default function Work() {
               </span>
               <span className="rounded-full border border-surface/30 px-3 py-1 text-surface/85">{F.sector}</span>
             </p>
-            <h3 className="font-display mt-4 text-4xl font-extrabold leading-none tracking-[-0.03em] sm:text-5xl">{F.name}</h3>
-            <p className="mt-2 text-lg font-semibold leading-snug text-accent">{F.title}</p>
-            <p className="mt-3 max-w-2xl text-[0.92rem] leading-relaxed text-surface/80">{F.summary}</p>
+            <h3 className="font-display mt-3 text-3xl font-extrabold leading-none tracking-[-0.03em] sm:text-4xl">{F.name}</h3>
+            <p className="mt-1.5 text-base font-semibold leading-snug text-accent">{F.title}</p>
+            <p className="mt-2 max-w-2xl text-[0.82rem] leading-relaxed text-surface/75">{F.summary}</p>
 
-            <ol className="mt-7 grid gap-x-4 gap-y-5 sm:grid-cols-2 xl:grid-cols-4">
+            <ol className="mt-5 grid gap-x-3 gap-y-4 sm:grid-cols-2 xl:grid-cols-4">
               {F.flow.map((row, n) => (
-                <li key={row.k} className="relative border-t border-surface/25 pt-4">
-                  <span className="absolute -top-3 left-0 flex h-6 w-6 items-center justify-center rounded-full bg-accent text-xs font-extrabold text-ink">
+                <li key={row.k} className="relative border-t border-surface/25 pt-3">
+                  <span className="absolute -top-2.5 left-0 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[0.65rem] font-extrabold text-ink">
                     {n + 1}
                   </span>
-                  <p className="text-sm font-bold">{row.k}</p>
-                  <p className="mt-1 text-[0.76rem] leading-snug text-surface/70">{row.v}</p>
+                  <p className="text-[0.8rem] font-bold">{row.k}</p>
+                  <p className="mt-0.5 text-[0.68rem] leading-snug text-surface/65">{row.v}</p>
                 </li>
               ))}
             </ol>
 
-            <ul className="mt-6 flex flex-wrap items-center gap-1.5" aria-label="Built with">
+            <ul className="mt-4 flex flex-wrap items-center gap-1" aria-label="Built with">
               {F.builtWith.split(", ").map((t) => (
-                <li key={t} className="rounded-full bg-surface/10 px-2.5 py-1 text-xs font-semibold ring-1 ring-surface/15">
+                <li key={t} className="rounded-full bg-surface/10 px-2 py-0.5 text-[0.68rem] font-semibold ring-1 ring-surface/15">
                   {t}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="relative min-h-[15rem] overflow-hidden bg-gradient-to-br from-primary to-deep sm:min-h-[20rem] lg:min-h-[34rem]">
+          <div className="relative min-h-[15rem] overflow-hidden bg-gradient-to-br from-primary to-deep sm:min-h-[20rem] lg:min-h-[29rem]">
             <div aria-hidden="true" className="dot-grid absolute inset-0 opacity-60" />
             <div
               aria-hidden="true"

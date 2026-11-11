@@ -500,9 +500,9 @@ body {
 /* larger phone on desktop: push the side cards out so they still peek from behind it */
 @media (min-width: 1024px) {
   .reveal-in .fan-left {
-    transform: translateX(-9.6rem) rotate(-12deg);
+    transform: translateX(-8.7rem) rotate(-12deg);
   }
   .reveal-in .fan-right {
-    transform: translateX(10.7rem) rotate(10deg) translateY(1rem);
+    transform: translateX(9.3rem) rotate(10deg) translateY(1rem);
   }
 }
