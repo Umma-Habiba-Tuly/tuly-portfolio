@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
   email: "ummahabibatuly2001@gmail.com",
   whatsappNumber: "+8801954664733",
   whatsappUrl: "https://wa.me/8801954664733",
-  location: "Khulna, Bangladesh",
+  location: "Bangladesh",
   replyTime: "Within 24 hours",
   socials: [
     { name: "LinkedIn", url: "https://www.linkedin.com/in/umma-habiba-tuly-cse/", handle: "umma-habiba-tuly-cse" },

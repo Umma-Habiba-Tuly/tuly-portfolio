@@ -123,7 +123,7 @@ export const PROCESS = [
 export const ABOUT = {
   statement: "I'd rather build one thing that works every day than a demo that looks good once.",
   bio: [
-    "I'm Umma Habiba Tuly, founder of AT Sync, based in Khulna, Bangladesh. I have a BSc in CSE.",
+    "I'm Umma Habiba Tuly, founder of AT Sync, based in Bangladesh. I have a BSc in CSE.",
     "I work mostly in n8n, Qdrant and LangChain, write the glue in Python and FastAPI, and build interfaces in Next.js.",
     "So far: customer support for a fragrance brand, document search, lead handling and a handful of web projects. Now: an AI receptionist for hotels.",
   ],
